@@ -1,0 +1,589 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow-x:hidden;
+    color:#fff;
+
+    background:
+    radial-gradient(circle at top left,#2d7cff55,transparent 35%),
+    radial-gradient(circle at bottom right,#00d9ff44,transparent 35%),
+    linear-gradient(135deg,#08131f,#0f2238,#16365b);
+}
+
+/* =========================================
+   FONDO ANIMADO
+========================================= */
+
+.background{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(120px);
+    animation:flotar 12s ease-in-out infinite;
+}
+
+.blob1{
+    width:350px;
+    height:350px;
+    background:#2563eb;
+    top:-120px;
+    left:-120px;
+}
+
+.blob2{
+    width:400px;
+    height:400px;
+    background:#14b8a6;
+    right:-120px;
+    top:20%;
+    animation-delay:3s;
+}
+
+.blob3{
+    width:350px;
+    height:350px;
+    background:#7c3aed;
+    bottom:-120px;
+    left:35%;
+    animation-delay:6s;
+}
+
+@keyframes flotar{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-35px);
+    }
+
+}
+
+/* =========================================
+   CONTENEDOR
+========================================= */
+
+.contenedor{
+    width:95%;
+    max-width:900px;
+}
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.encabezado{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.badge{
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+
+    margin-bottom:20px;
+    color:#8cefff;
+}
+
+.encabezado h1{
+    font-size:55px;
+    margin-bottom:15px;
+
+    background:linear-gradient(90deg,#fff,#7cecff);
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.encabezado p{
+    color:#d7e7ff;
+    font-size:18px;
+}
+
+/* =========================================
+   TARJETA PRINCIPAL
+========================================= */
+
+.tarjeta{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+
+    border-radius:30px;
+    padding:35px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.35);
+}
+
+.numero-leccion{
+    text-align:right;
+    color:#8cefff;
+    margin-bottom:15px;
+}
+
+#titulo{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:25px;
+}
+
+
+
+/* ==========================================
+   VIDEO DE SALUDOS
+========================================== */
+
+.video-box{
+
+    width:100%;
+    max-width:600px;
+    height:420px;
+
+    margin:0 auto 25px auto;
+
+    border-radius:20px;
+    overflow:hidden;
+
+    background:#000;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.35);
+
+}
+
+video{
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    display:block;
+
+}
+
+/* =========================================
+   DESCRIPCIÓN
+========================================= */
+
+#descripcion{
+    text-align:center;
+    color:#d9e8ff;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+}
+
+/* =========================================
+   BARRA DE PROGRESO
+========================================= */
+
+.progreso{
+    width:100%;
+    height:14px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:20px;
+    overflow:hidden;
+}
+
+#barra{
+    width:0%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00d9ff,
+            #2563eb
+        );
+
+    transition:width .5s ease;
+}
+
+.porcentaje{
+    text-align:center;
+    margin-top:12px;
+    color:#8cefff;
+}
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.botones{
+    margin-top:30px;
+
+    display:flex;
+    justify-content:space-between;
+
+    gap:15px;
+}
+
+.botones button{
+    flex:1;
+
+    padding:16px;
+
+    border:none;
+    border-radius:15px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    font-size:17px;
+    font-weight:600;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #14b8a6
+        );
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        opacity .3s ease;
+}
+
+.botones button:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 15px 30px rgba(37,99,235,.35);
+}
+
+.botones button:disabled{
+    opacity:.4;
+    cursor:not-allowed;
+    transform:none;
+    box-shadow:none;
+}
+
+/* =========================================
+   BOTÓN VOLVER AL DASHBOARD
+========================================= */
+
+.btn-volver{
+    position:fixed;
+
+    top:25px;
+    left:25px;
+
+    background:rgba(255,255,255,.12);
+
+    color:#fff;
+
+    text-decoration:none;
+
+    padding:12px 20px;
+
+    border-radius:14px;
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    font-weight:600;
+
+    transition:
+        .3s;
+
+    z-index:999;
+}
+
+.btn-volver:hover{
+    background:#22d3ee;
+
+    transform:translateX(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(34,211,238,.4);
+}
+
+/* =========================================
+   PANTALLA FINAL
+========================================= */
+
+.final-screen{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:25px;
+
+    background:
+        rgba(3,12,25,.65);
+
+    backdrop-filter:blur(14px);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:
+        opacity .45s ease,
+        visibility .45s ease;
+
+    z-index:5000;
+}
+
+/* Cuando JS agrega .show */
+
+.final-screen.show{
+
+    opacity:1;
+    visibility:visible;
+}
+
+/* =========================================
+   TARJETA DE FELICIDADES
+========================================= */
+
+.final-card{
+
+    width:100%;
+    max-width:650px;
+
+    padding:50px 45px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.16),
+            rgba(255,255,255,.07)
+        );
+
+    border:1px solid rgba(255,255,255,.22);
+
+    backdrop-filter:blur(25px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.45),
+        0 0 50px rgba(34,211,238,.12);
+
+    transform:
+        translateY(30px)
+        scale(.95);
+
+    opacity:0;
+
+    transition:
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        opacity .5s ease;
+}
+
+/* Animación de entrada */
+
+.final-screen.show .final-card{
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    opacity:1;
+}
+
+/* =========================================
+   ICONOS
+========================================= */
+
+.final-icon{
+
+    font-size:65px;
+
+    margin-bottom:20px;
+
+    animation:
+        celebrar 1.5s ease-in-out infinite;
+}
+
+@keyframes celebrar{
+
+    0%,100%{
+        transform:translateY(0) rotate(0);
+    }
+
+    25%{
+        transform:translateY(-8px) rotate(-5deg);
+    }
+
+    50%{
+        transform:translateY(-12px) rotate(5deg);
+    }
+
+    75%{
+        transform:translateY(-8px) rotate(-3deg);
+    }
+
+}
+
+/* =========================================
+   TÍTULO FINAL
+========================================= */
+
+.final-card h2{
+
+    font-size:48px;
+
+    margin-bottom:15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #8cefff
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+/* =========================================
+   TEXTO FINAL
+========================================= */
+
+.final-card p{
+
+    color:#d9e8ff;
+
+    font-size:19px;
+
+    margin-bottom:30px;
+}
+
+/* =========================================
+   BOTÓN FINAL
+========================================= */
+
+#volverInicio{
+
+    width:100%;
+
+    padding:17px 25px;
+
+    border:none;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #14b8a6
+        );
+
+    box-shadow:
+        0 10px 30px rgba(37,99,235,.25);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+#volverInicio:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 18px 35px rgba(37,99,235,.4);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:700px){
+
+    .encabezado h1{
+        font-size:42px;
+    }
+
+    .encabezado p{
+        font-size:16px;
+    }
+
+    .tarjeta{
+        padding:25px;
+    }
+
+    #titulo{
+        font-size:32px;
+    }
+
+    .botones{
+        flex-direction:column;
+    }
+
+    .final-card{
+        padding:40px 25px;
+    }
+
+    .final-card h2{
+        font-size:38px;
+    }
+
+    .final-icon{
+        font-size:55px;
+    }
+
+    .btn-volver{
+        top:15px;
+        left:15px;
+        padding:10px 15px;
+        font-size:14px;
+    }
+
+}

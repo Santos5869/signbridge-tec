@@ -1,0 +1,993 @@
+/* ==========================================
+   SIGNBRIDGE - SUBCURSOS DE ABECEDARIO
+   DISEÑO FORMAL + TRANSICIONES SUAVES
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+
+    overflow-x: hidden;
+
+    opacity: 0;
+    transform: translateY(12px);
+
+    transition:
+        opacity 0.55s ease,
+        transform 0.55s ease;
+}
+
+body.page-ready {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.page-exiting {
+    opacity: 0;
+    transform: translateY(-12px);
+}
+
+
+/* ==========================================
+   FONDO
+========================================== */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+    z-index: -3;
+
+    background:
+        linear-gradient(
+            135deg,
+            #07152d 0%,
+            #102d55 52%,
+            #0a4c61 100%
+        );
+}
+
+.background::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.022) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.022) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    pointer-events: none;
+}
+
+.blob {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(95px);
+    opacity: 0.28;
+
+    animation:
+        floatingBlob 14s ease-in-out infinite alternate;
+}
+
+.blob1 {
+    width: 430px;
+    height: 430px;
+
+    top: -160px;
+    left: -120px;
+
+    background: #1264e8;
+}
+
+.blob2 {
+    width: 390px;
+    height: 390px;
+
+    top: 28%;
+    right: -140px;
+
+    background: #69d5ff;
+
+    animation-delay: -5s;
+}
+
+.blob3 {
+    width: 430px;
+    height: 430px;
+
+    bottom: -220px;
+    left: 30%;
+
+    background: #1264e8;
+
+    animation-delay: -9s;
+}
+
+@keyframes floatingBlob {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate3d(25px, -18px, 0)
+            scale(1.05);
+    }
+
+    100% {
+        transform:
+            translate3d(-18px, 22px, 0)
+            scale(0.98);
+    }
+}
+
+
+/* ==========================================
+   PÁGINA
+========================================== */
+
+.alphabet-page {
+    width: min(1180px, 92%);
+
+    margin: 0 auto;
+
+    padding:
+        38px 0 70px;
+}
+
+
+/* ==========================================
+   ENCABEZADO
+========================================== */
+
+.alphabet-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 28px;
+
+    margin-bottom: 42px;
+
+    padding: 22px;
+
+    border-radius: 26px;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.10);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.20);
+
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.7s ease 0.10s,
+        transform 0.7s ease 0.10s;
+}
+
+.page-ready .alphabet-header {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.alphabet-header > div {
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+
+/* ==========================================
+   BOTÓN VOLVER
+========================================== */
+
+.back-button {
+    width: 52px;
+    height: 52px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 16px;
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    color: #ffffff;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.back-button:hover {
+    transform:
+        translateX(-4px);
+
+    background:
+        rgba(105, 213, 255, 0.11);
+
+    border-color:
+        rgba(105, 213, 255, 0.30);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.back-button:active {
+    transform:
+        translateX(-2px)
+        scale(0.97);
+}
+
+
+/* ==========================================
+   INSIGNIA
+========================================== */
+
+.section-badge {
+    display: inline-flex;
+    align-items: center;
+
+    width: fit-content;
+
+    padding:
+        8px 14px;
+
+    margin-bottom: 12px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(105, 213, 255, 0.10);
+
+    border:
+        1px solid rgba(105, 213, 255, 0.16);
+
+    color:
+        #69d5ff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* ==========================================
+   TÍTULO
+========================================== */
+
+.alphabet-header h1 {
+    margin: 0;
+
+    font-size:
+        clamp(38px, 6vw, 56px);
+
+    line-height: 1;
+
+    font-weight: 850;
+
+    letter-spacing: -1.4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #ffffff 45%,
+            #69d5ff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.alphabet-header p {
+    max-width: 720px;
+
+    margin-top: 12px;
+
+    color:
+        rgba(255, 255, 255, 0.63);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   LOGO DE SIGNBRIDGE
+========================================== */
+
+.alphabet-header::after {
+    content: "";
+
+    width: 84px;
+    height: 84px;
+
+    flex-shrink: 0;
+
+    border-radius: 22px;
+
+    background:
+        #ffffff url("../images/logo.png")
+        center / 68px 68px
+        no-repeat;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.16);
+
+    box-shadow:
+        0 14px 35px rgba(0, 0, 0, 0.22),
+        0 0 30px rgba(105, 213, 255, 0.08);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.alphabet-header:hover::after {
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.25),
+        0 0 38px rgba(105, 213, 255, 0.13);
+}
+
+
+/* ==========================================
+   GRID
+========================================== */
+
+.alphabet-courses {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* ==========================================
+   TARJETAS
+========================================== */
+
+.alphabet-course-card {
+    position: relative;
+
+    display: flex;
+
+    min-height: 245px;
+
+    padding: 24px;
+
+    gap: 22px;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17, 48, 91, 0.62),
+            rgba(15, 35, 67, 0.55)
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 20px 48px rgba(0, 0, 0, 0.20),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+    opacity: 0;
+    transform:
+        translateY(24px)
+        scale(0.985);
+
+    transition:
+        opacity 0.65s ease,
+        transform 0.65s cubic-bezier(.22,1,.36,1),
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* ==========================================
+   APARICIÓN ESCALONADA
+========================================== */
+
+.page-ready .alphabet-course-card {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.page-ready .alphabet-course-card:nth-child(1) {
+    transition-delay: 0.10s;
+}
+
+.page-ready .alphabet-course-card:nth-child(2) {
+    transition-delay: 0.17s;
+}
+
+.page-ready .alphabet-course-card:nth-child(3) {
+    transition-delay: 0.24s;
+}
+
+.page-ready .alphabet-course-card:nth-child(4) {
+    transition-delay: 0.31s;
+}
+
+.page-ready .alphabet-course-card:nth-child(5) {
+    transition-delay: 0.38s;
+}
+
+
+/* ==========================================
+   BRILLO
+========================================== */
+
+.alphabet-course-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 200px;
+    height: 200px;
+
+    right: -95px;
+    top: -95px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(105, 213, 255, 0.08);
+
+    filter: blur(14px);
+
+    transition:
+        transform 0.5s ease,
+        background 0.5s ease;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   LÍNEA SUPERIOR
+========================================== */
+
+.alphabet-course-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(105, 213, 255, 0.42),
+            transparent
+        );
+
+    opacity: 0;
+
+    transition:
+        opacity 0.35s ease;
+}
+
+
+/* ==========================================
+   HOVER
+========================================== */
+
+.alphabet-course-card:not(.locked):hover {
+    transform:
+        translateY(-7px)
+        scale(1.008);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 61, 111, 0.73),
+            rgba(17, 43, 79, 0.64)
+        );
+
+    border-color:
+        rgba(105, 213, 255, 0.25);
+
+    box-shadow:
+        0 28px 65px rgba(0, 0, 0, 0.28),
+        0 0 30px rgba(105, 213, 255, 0.05);
+}
+
+.alphabet-course-card:not(.locked):hover::before {
+    transform:
+        scale(1.18);
+
+    background:
+        rgba(105, 213, 255, 0.13);
+}
+
+.alphabet-course-card:not(.locked):hover::after {
+    opacity: 1;
+}
+
+
+/* ==========================================
+   ICONO
+========================================== */
+
+.course-icon {
+    width: 128px;
+    height: 128px;
+
+    flex-shrink: 0;
+
+    align-self: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(105, 213, 255, 0.16),
+            rgba(18, 100, 232, 0.15)
+        );
+
+    border:
+        1px solid rgba(105, 213, 255, 0.14);
+
+    font-size: 39px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 12px 28px rgba(0, 0, 0, 0.19);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.alphabet-course-card:not(.locked):hover .course-icon {
+    transform:
+        scale(1.05)
+        translateY(-2px);
+
+    border-color:
+        rgba(105, 213, 255, 0.28);
+
+    box-shadow:
+        0 17px 34px rgba(0, 0, 0, 0.23);
+}
+
+
+/* ==========================================
+   INFORMACIÓN
+========================================== */
+
+.course-info {
+    position: relative;
+
+    z-index: 2;
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.course-level {
+    width: fit-content;
+
+    margin-bottom: 9px;
+
+    color:
+        #69d5ff;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+}
+
+.course-info h2 {
+    margin: 0 0 10px;
+
+    color: #ffffff;
+
+    font-size: 24px;
+    font-weight: 800;
+
+    line-height: 1.15;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.alphabet-course-card:not(.locked):hover .course-info h2 {
+    transform:
+        translateX(2px);
+}
+
+.course-info p {
+    margin: 0;
+
+    color:
+        rgba(255, 255, 255, 0.62);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   META
+========================================== */
+
+.course-meta {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 15px;
+}
+
+.course-meta span {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding:
+        7px 10px;
+
+    border-radius: 9px;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    color:
+        rgba(255, 255, 255, 0.57);
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   BOTÓN
+========================================== */
+
+.course-button {
+    width: fit-content;
+
+    margin-top: 16px;
+
+    padding:
+        11px 16px;
+
+    border:
+        1px solid rgba(105, 213, 255, 0.18);
+
+    border-radius: 12px;
+
+    background:
+        rgba(105, 213, 255, 0.09);
+
+    color:
+        #69d5ff;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.course-button:not(:disabled):hover {
+    transform:
+        translateX(4px);
+
+    background:
+        rgba(105, 213, 255, 0.16);
+
+    border-color:
+        rgba(105, 213, 255, 0.30);
+
+    box-shadow:
+        0 9px 22px rgba(0, 0, 0, 0.14);
+}
+
+.course-button:not(:disabled):active {
+    transform:
+        translateX(2px)
+        scale(0.98);
+}
+
+.course-button:disabled {
+    cursor: default;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    border-color:
+        rgba(255, 255, 255, 0.07);
+
+    color:
+        rgba(255, 255, 255, 0.42);
+}
+
+
+/* ==========================================
+   TARJETAS BLOQUEADAS
+========================================== */
+
+.alphabet-course-card.locked {
+    opacity: 0.46;
+
+    filter:
+        saturate(0.65);
+
+    cursor: default;
+}
+
+.alphabet-course-card.locked:hover {
+    transform:
+        translateY(0)
+        scale(1);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17, 48, 91, 0.62),
+            rgba(15, 35, 67, 0.55)
+        );
+
+    border-color:
+        rgba(255, 255, 255, 0.09);
+
+    box-shadow:
+        0 20px 48px rgba(0, 0, 0, 0.20),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.alphabet-course-card.locked::after {
+    display: none;
+}
+
+
+/* ==========================================
+   SALIDA
+========================================== */
+
+body.page-exiting .alphabet-course-card {
+    opacity: 0;
+
+    transform:
+        translateY(-10px)
+        scale(0.99);
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+
+    .alphabet-courses {
+        grid-template-columns: 1fr;
+    }
+
+    .alphabet-header::after {
+        width: 76px;
+        height: 76px;
+
+        background-size: 61px 61px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .alphabet-page {
+        width: 94%;
+
+        padding:
+            26px 0 50px;
+    }
+
+    .alphabet-header {
+        align-items: flex-start;
+
+        margin-bottom: 28px;
+
+        padding: 18px;
+
+        border-radius: 22px;
+    }
+
+    .alphabet-header::after {
+        width: 68px;
+        height: 68px;
+
+        border-radius: 18px;
+
+        background-size: 54px 54px;
+    }
+
+    .back-button {
+        width: 46px;
+        height: 46px;
+
+        font-size: 21px;
+    }
+
+    .alphabet-header h1 {
+        font-size: 36px;
+    }
+
+    .alphabet-header p {
+        font-size: 14px;
+    }
+
+    .alphabet-course-card {
+        min-height: 220px;
+
+        padding: 19px;
+
+        gap: 16px;
+    }
+
+    .course-icon {
+        width: 98px;
+        height: 98px;
+
+        border-radius: 23px;
+
+        font-size: 31px;
+    }
+
+    .course-info h2 {
+        font-size: 20px;
+    }
+
+    .course-info p {
+        font-size: 13px;
+    }
+}
+
+
+@media (max-width: 470px) {
+
+    .alphabet-header {
+        align-items: flex-start;
+    }
+
+    .alphabet-header::after {
+        display: none;
+    }
+
+    .alphabet-course-card {
+        flex-direction: column;
+
+        min-height: auto;
+    }
+
+    .course-icon {
+        width: 100%;
+        height: 110px;
+    }
+
+    .course-info {
+        width: 100%;
+    }
+}
+
+
+/* ==========================================
+   REDUCCIÓN DE MOVIMIENTO
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

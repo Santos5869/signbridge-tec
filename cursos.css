@@ -1,0 +1,1891 @@
+/* =========================================================
+   SIGNBRIDGE - CURSOS
+   INTERFAZ PROFESIONAL
+   ========================================================= */
+
+:root {
+
+    --bg-1: #061126;
+    --bg-2: #081a35;
+    --bg-3: #0b2d4d;
+
+    --blue: #1687ff;
+    --blue-light: #69d5ff;
+    --cyan: #00d9ff;
+
+    --text: #ffffff;
+    --text-soft: rgba(255, 255, 255, 0.68);
+    --text-muted: rgba(255, 255, 255, 0.43);
+
+    --glass:
+        rgba(255, 255, 255, 0.055);
+
+    --glass-hover:
+        rgba(255, 255, 255, 0.085);
+
+    --border:
+        rgba(255, 255, 255, 0.10);
+
+    --border-hover:
+        rgba(105, 213, 255, 0.30);
+
+    --shadow:
+        0 24px 65px rgba(0, 0, 0, 0.28);
+
+    --shadow-blue:
+        0 18px 50px rgba(0, 153, 255, 0.10);
+
+    --radius-xl: 28px;
+    --radius-lg: 22px;
+    --radius-md: 16px;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        "Poppins",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: var(--text);
+
+    overflow-x: hidden;
+
+    opacity: 0;
+
+    transform:
+        translateY(12px);
+
+    transition:
+        opacity 0.55s ease,
+        transform 0.55s ease;
+}
+
+
+body.page-ready {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+body.page-exiting {
+
+    opacity: 0;
+
+    transform:
+        translateY(-12px);
+}
+
+
+/* =========================================================
+   FONDO
+   ========================================================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -5;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(0, 217, 255, 0.10),
+            transparent 26%
+        ),
+        radial-gradient(
+            circle at 88% 20%,
+            rgba(22, 135, 255, 0.13),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            var(--bg-1) 0%,
+            var(--bg-2) 48%,
+            var(--bg-3) 100%
+        );
+
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
+.background-grid {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        55px 55px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 0, 0.10)
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   BLOBS
+   ========================================================= */
+
+.blob {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(95px);
+
+    opacity: 0.25;
+
+    animation:
+        coursesBlob 16s ease-in-out infinite;
+}
+
+
+.blob1 {
+
+    width: 470px;
+    height: 470px;
+
+    top: -190px;
+    left: -145px;
+
+    background:
+        #1264e8;
+}
+
+
+.blob2 {
+
+    width: 410px;
+    height: 410px;
+
+    top: 28%;
+    right: -160px;
+
+    background:
+        #7c3aed;
+
+    animation-delay:
+        -5s;
+}
+
+
+.blob3 {
+
+    width: 460px;
+    height: 460px;
+
+    bottom: -245px;
+    left: 34%;
+
+    background:
+        #0ea5a4;
+
+    animation-delay:
+        -10s;
+}
+
+
+@keyframes coursesBlob {
+
+    0%,
+    100% {
+
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translate3d(28px, -25px, 0)
+            scale(1.07);
+
+    }
+
+}
+
+
+/* =========================================================
+   CONTENEDOR
+   ========================================================= */
+
+.courses-page {
+
+    width:
+        min(1220px, 92%);
+
+    margin:
+        0 auto;
+
+    padding:
+        34px 0 80px;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+   ========================================================= */
+
+.courses-header {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        35px;
+
+    margin-bottom:
+        38px;
+
+    opacity:
+        0;
+
+    transform:
+        translateY(22px);
+
+    transition:
+        opacity 0.75s ease 0.10s,
+        transform 0.75s ease 0.10s;
+}
+
+
+.page-ready .courses-header {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   PARTE IZQUIERDA
+   ========================================================= */
+
+.header-main {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        18px;
+
+    min-width:
+        0;
+}
+
+
+/* =========================================================
+   BOTÓN VOLVER
+   ========================================================= */
+
+.back-button {
+
+    flex-shrink: 0;
+
+    width:
+        54px;
+
+    height:
+        54px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        17px;
+
+    color:
+        #ffffff;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    backdrop-filter:
+        blur(16px);
+
+    -webkit-backdrop-filter:
+        blur(16px);
+
+    font-size:
+        24px;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.28s ease,
+        background 0.28s ease,
+        border-color 0.28s ease,
+        box-shadow 0.28s ease;
+}
+
+
+.back-button:hover {
+
+    transform:
+        translateX(-5px);
+
+    background:
+        rgba(105, 213, 255, 0.10);
+
+    border-color:
+        var(--border-hover);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.20);
+}
+
+
+.back-button:active {
+
+    transform:
+        translateX(-2px)
+        scale(0.97);
+}
+
+
+/* =========================================================
+   INSIGNIA
+   ========================================================= */
+
+.section-badge {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    width:
+        fit-content;
+
+    padding:
+        8px 14px;
+
+    margin-bottom:
+        13px;
+
+    border:
+        1px solid
+        rgba(105, 213, 255, 0.18);
+
+    border-radius:
+        999px;
+
+    color:
+        var(--blue-light);
+
+    background:
+        rgba(105, 213, 255, 0.08);
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.7px;
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.courses-header h1 {
+
+    margin:
+        0;
+
+    font-size:
+        clamp(40px, 6vw, 58px);
+
+    line-height:
+        1;
+
+    font-weight:
+        850;
+
+    letter-spacing:
+        -1.8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff 0%,
+            #ffffff 33%,
+            #69d5ff 92%
+        );
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+    color:
+        transparent;
+}
+
+
+.courses-header p {
+
+    max-width:
+        700px;
+
+    margin-top:
+        14px;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        15px;
+
+    line-height:
+        1.75;
+}
+
+
+/* =========================================================
+   MARCA / LOGO
+   ========================================================= */
+
+.header-brand {
+
+    position:
+        relative;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    padding:
+        9px 14px 9px 9px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        20px;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.16);
+
+    overflow:
+        hidden;
+
+    transition:
+        transform 0.30s ease,
+        background 0.30s ease,
+        border-color 0.30s ease;
+}
+
+
+.header-brand:hover {
+
+    transform:
+        translateY(-4px);
+
+    background:
+        rgba(255, 255, 255, 0.075);
+
+    border-color:
+        rgba(105, 213, 255, 0.22);
+}
+
+
+.header-brand img {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    width:
+        64px;
+
+    height:
+        64px;
+
+    padding:
+        6px;
+
+    object-fit:
+        contain;
+
+    border-radius:
+        16px;
+
+    background:
+        rgba(255, 255, 255, 0.97);
+}
+
+
+.header-brand span {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    font-size:
+        16px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        -0.2px;
+}
+
+
+.brand-glow {
+
+    position:
+        absolute;
+
+    width:
+        110px;
+
+    height:
+        110px;
+
+    top:
+        -40px;
+
+    right:
+        -40px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(0, 217, 255, 0.15);
+
+    filter:
+        blur(18px);
+}
+
+
+/* =========================================================
+   SEPARADOR
+   ========================================================= */
+
+.section-divider {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        14px;
+
+    margin-bottom:
+        25px;
+
+    opacity:
+        0;
+
+    transform:
+        translateY(12px);
+
+    transition:
+        opacity 0.60s ease 0.24s,
+        transform 0.60s ease 0.24s;
+}
+
+
+.page-ready .section-divider {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+}
+
+
+.section-divider span {
+
+    flex:
+        1;
+
+    height:
+        1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(105, 213, 255, 0.21)
+        );
+}
+
+
+.section-divider span:last-child {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(105, 213, 255, 0.21),
+            transparent
+        );
+}
+
+
+.section-divider p {
+
+    white-space:
+        nowrap;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.8px;
+
+    text-transform:
+        uppercase;
+}
+
+
+/* =========================================================
+   GRID DE CURSOS
+   ========================================================= */
+
+.categories-container {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        22px;
+}
+
+
+/* =========================================================
+   TARJETA
+   ========================================================= */
+
+.category-card {
+
+    position:
+        relative;
+
+    display:
+        flex;
+
+    min-height:
+        228px;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+    border-radius:
+        var(--radius-xl);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 52, 96, 0.62),
+            rgba(10, 29, 56, 0.60)
+        );
+
+    backdrop-filter:
+        blur(22px);
+
+    -webkit-backdrop-filter:
+        blur(22px);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.20),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+    cursor:
+        pointer;
+
+    opacity:
+        0;
+
+    transform:
+        translateY(25px)
+        scale(0.985);
+
+    transition:
+        opacity 0.65s ease,
+        transform 0.65s cubic-bezier(.22,1,.36,1),
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.page-ready .category-card {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =========================================================
+   ENTRADA ESCALONADA
+   ========================================================= */
+
+.page-ready .category-card:nth-child(1) {
+    transition-delay:
+        0.08s;
+}
+
+.page-ready .category-card:nth-child(2) {
+    transition-delay:
+        0.14s;
+}
+
+.page-ready .category-card:nth-child(3) {
+    transition-delay:
+        0.20s;
+}
+
+.page-ready .category-card:nth-child(4) {
+    transition-delay:
+        0.26s;
+}
+
+.page-ready .category-card:nth-child(5) {
+    transition-delay:
+        0.32s;
+}
+
+.page-ready .category-card:nth-child(6) {
+    transition-delay:
+        0.38s;
+}
+
+.page-ready .category-card:nth-child(7) {
+    transition-delay:
+        0.44s;
+}
+
+.page-ready .category-card:nth-child(8) {
+    transition-delay:
+        0.50s;
+}
+
+.page-ready .category-card:nth-child(9) {
+    transition-delay:
+        0.56s;
+}
+
+.page-ready .category-card:nth-child(10) {
+    transition-delay:
+        0.62s;
+}
+
+
+/* =========================================================
+   BRILLO INTERNO
+   ========================================================= */
+
+.category-card::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        250px;
+
+    height:
+        250px;
+
+    right:
+        -140px;
+
+    top:
+        -145px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(0, 217, 255, 0.07);
+
+    filter:
+        blur(15px);
+
+    transition:
+        transform 0.5s ease,
+        background 0.5s ease;
+
+    pointer-events:
+        none;
+}
+
+
+/* =========================================================
+   LÍNEA SUPERIOR
+   ========================================================= */
+
+.category-card::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        8%;
+
+    width:
+        84%;
+
+    height:
+        2px;
+
+    border-radius:
+        0 0 10px 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(105, 213, 255, 0.55),
+            transparent
+        );
+
+    opacity:
+        0;
+
+    transition:
+        opacity 0.3s ease;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.category-card:hover {
+
+    transform:
+        translateY(-8px)
+        scale(1.008);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 69, 123, 0.74),
+            rgba(13, 38, 73, 0.68)
+        );
+
+    border-color:
+        rgba(105, 213, 255, 0.28);
+
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.30),
+        0 0 38px rgba(105, 213, 255, 0.05);
+}
+
+
+.category-card:hover::before {
+
+    transform:
+        scale(1.22);
+
+    background:
+        rgba(0, 217, 255, 0.12);
+}
+
+
+.category-card:hover::after {
+
+    opacity:
+        1;
+}
+
+
+/* =========================================================
+   IMAGEN
+   ========================================================= */
+
+.category-image {
+
+    position:
+        relative;
+
+    width:
+        40%;
+
+    min-width:
+        190px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        22px;
+
+    overflow:
+        hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.01)
+        );
+
+    border-right:
+        1px solid
+        rgba(255, 255, 255, 0.055);
+}
+
+
+.category-image img {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    width:
+        100%;
+
+    max-width:
+        178px;
+
+    max-height:
+        168px;
+
+    object-fit:
+        contain;
+
+    transition:
+        transform 0.5s cubic-bezier(.22,1,.36,1),
+        filter 0.5s ease;
+}
+
+
+.category-card:hover .category-image img {
+
+    transform:
+        scale(1.09)
+        translateY(-4px);
+
+    filter:
+        drop-shadow(
+            0 18px 25px rgba(0, 0, 0, 0.22)
+        );
+}
+
+
+/* =========================================================
+   RESPLANDOR DE IMAGEN
+   ========================================================= */
+
+.image-glow {
+
+    position:
+        absolute;
+
+    width:
+        160px;
+
+    height:
+        160px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(0, 217, 255, 0.08);
+
+    filter:
+        blur(30px);
+
+    transition:
+        transform 0.5s ease,
+        opacity 0.5s ease;
+}
+
+
+.category-card:hover .image-glow {
+
+    transform:
+        scale(1.35);
+
+    opacity:
+        0.95;
+}
+
+
+/* =========================================================
+   SÍMBOLO DESTACADO
+   ========================================================= */
+
+.featured-symbol {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    width:
+        125px;
+
+    height:
+        125px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        rgba(105, 213, 255, 0.16);
+
+    border-radius:
+        31px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 217, 255, 0.13),
+            rgba(22, 135, 255, 0.11)
+        );
+
+    font-size:
+        58px;
+
+    box-shadow:
+        0 20px 38px rgba(0, 0, 0, 0.20);
+
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+}
+
+
+.category-card:hover .featured-symbol {
+
+    transform:
+        scale(1.07)
+        rotate(-2deg);
+
+    box-shadow:
+        0 25px 48px rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================================
+   TARJETAS DESTACADAS
+   ========================================================= */
+
+.category-card-featured {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(26, 72, 128, 0.72),
+            rgba(10, 34, 65, 0.62)
+        );
+
+    border-color:
+        rgba(105, 213, 255, 0.15);
+}
+
+
+.category-card-featured::after {
+
+    opacity:
+        0.55;
+}
+
+
+/* =========================================================
+   CONTENIDO
+   ========================================================= */
+
+.category-content {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    flex:
+        1;
+
+    min-width:
+        0;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    padding:
+        27px 28px 27px 20px;
+}
+
+
+/* =========================================================
+   NIVEL
+   ========================================================= */
+
+.category-number {
+
+    width:
+        fit-content;
+
+    margin-bottom:
+        9px;
+
+    color:
+        var(--blue-light);
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1.35px;
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.category-content h2 {
+
+    margin:
+        0 0 10px;
+
+    color:
+        #ffffff;
+
+    font-size:
+        24px;
+
+    font-weight:
+        800;
+
+    line-height:
+        1.15;
+
+    letter-spacing:
+        -0.4px;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.category-card:hover .category-content h2 {
+
+    transform:
+        translateX(3px);
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+   ========================================================= */
+
+.category-content p {
+
+    max-width:
+        400px;
+
+    margin:
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        13.5px;
+
+    line-height:
+        1.62;
+}
+
+
+/* =========================================================
+   ACCIÓN
+   ========================================================= */
+
+.category-action {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    width:
+        fit-content;
+
+    margin-top:
+        18px;
+
+    color:
+        var(--blue-light);
+
+    font-size:
+        13px;
+
+    font-weight:
+        800;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.category-action span {
+
+    display:
+        inline-block;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.category-card:hover .category-action {
+
+    color:
+        #ffffff;
+
+    transform:
+        translateX(2px);
+}
+
+
+.category-card:hover .category-action span {
+
+    transform:
+        translateX(5px);
+}
+
+
+/* =========================================================
+   BLOQUEADOS
+   ========================================================= */
+
+.category-card.locked {
+
+    cursor:
+        default;
+
+    opacity:
+        0.42;
+
+    filter:
+        saturate(0.55);
+}
+
+
+.category-card.locked:hover {
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 52, 96, 0.62),
+            rgba(10, 29, 56, 0.60)
+        );
+
+    border-color:
+        rgba(255, 255, 255, 0.09);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.20),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+
+.category-card.locked::after {
+
+    opacity:
+        0;
+}
+
+
+.locked-content {
+
+    padding-left:
+        28px;
+}
+
+
+.locked-label {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    width:
+        fit-content;
+
+    margin-top:
+        17px;
+
+    padding:
+        8px 12px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius:
+        10px;
+
+    color:
+        rgba(255, 255, 255, 0.52);
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+}
+
+
+/* =========================================================
+   SALIDA
+   ========================================================= */
+
+body.page-exiting .category-card {
+
+    opacity:
+        0;
+
+    transform:
+        translateY(-10px)
+        scale(0.99);
+}
+
+
+body.page-exiting .courses-header {
+
+    opacity:
+        0;
+
+    transform:
+        translateY(-8px);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    .courses-header {
+
+        align-items:
+            flex-start;
+    }
+
+
+    .header-brand {
+
+        display:
+            none;
+    }
+
+
+    .categories-container {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .category-card {
+
+        min-height:
+            215px;
+    }
+
+}
+
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .courses-page {
+
+        width:
+            93%;
+
+        padding:
+            25px 0 55px;
+    }
+
+
+    .courses-header {
+
+        margin-bottom:
+            28px;
+    }
+
+
+    .header-main {
+
+        gap:
+            13px;
+    }
+
+
+    .back-button {
+
+        width:
+            46px;
+
+        height:
+            46px;
+
+        border-radius:
+            14px;
+
+        font-size:
+            21px;
+    }
+
+
+    .courses-header h1 {
+
+        font-size:
+            37px;
+
+        letter-spacing:
+            -1px;
+    }
+
+
+    .courses-header p {
+
+        margin-top:
+            11px;
+
+        font-size:
+            13.5px;
+
+        line-height:
+            1.58;
+    }
+
+
+    .section-badge {
+
+        padding:
+            7px 12px;
+
+        font-size:
+            10px;
+    }
+
+
+    .section-divider {
+
+        margin-bottom:
+            18px;
+    }
+
+
+    .section-divider p {
+
+        font-size:
+            9px;
+    }
+
+
+    .category-card {
+
+        min-height:
+            195px;
+
+        border-radius:
+            22px;
+    }
+
+
+    .category-image {
+
+        width:
+            35%;
+
+        min-width:
+            125px;
+
+        padding:
+            14px;
+    }
+
+
+    .category-image img {
+
+        max-width:
+            110px;
+
+        max-height:
+            105px;
+    }
+
+
+    .featured-symbol {
+
+        width:
+            90px;
+
+        height:
+            90px;
+
+        border-radius:
+            22px;
+
+        font-size:
+            42px;
+    }
+
+
+    .category-content {
+
+        padding:
+            19px 17px 19px 8px;
+    }
+
+
+    .locked-content {
+
+        padding-left:
+            21px;
+    }
+
+
+    .category-number {
+
+        font-size:
+            9px;
+
+        margin-bottom:
+            7px;
+    }
+
+
+    .category-content h2 {
+
+        font-size:
+            19px;
+    }
+
+
+    .category-content p {
+
+        font-size:
+            12px;
+
+        line-height:
+            1.5;
+    }
+
+
+    .category-action {
+
+        margin-top:
+            13px;
+
+        font-size:
+            12px;
+    }
+
+}
+
+
+/* =========================================================
+   MÓVIL PEQUEÑO
+   ========================================================= */
+
+@media (max-width: 460px) {
+
+    .courses-page {
+
+        width:
+            92%;
+    }
+
+
+    .courses-header {
+
+        margin-bottom:
+            24px;
+    }
+
+
+    .category-card {
+
+        flex-direction:
+            column;
+
+        min-height:
+            auto;
+    }
+
+
+    .category-image {
+
+        width:
+            100%;
+
+        height:
+            145px;
+
+        min-width:
+            0;
+
+        border-right:
+            none;
+
+        border-bottom:
+            1px solid
+            rgba(255, 255, 255, 0.055);
+    }
+
+
+    .category-image img {
+
+        height:
+            100px;
+    }
+
+
+    .featured-symbol {
+
+        width:
+            86px;
+
+        height:
+            86px;
+
+        font-size:
+            39px;
+    }
+
+
+    .category-content,
+    .locked-content {
+
+        padding:
+            20px;
+    }
+
+
+    .category-content h2 {
+
+        font-size:
+            20px;
+    }
+
+
+    .section-divider span {
+
+        display:
+            none;
+    }
+
+
+    .section-divider {
+
+        justify-content:
+            flex-start;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCIR ANIMACIONES
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+
+        scroll-behavior:
+            auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+
+}

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SignBridge | Curso de Saludos</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/saludos.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         BOTÓN VOLVER AL DASHBOARD
+    =========================================== -->
+
+    <a href="saludos-cursos.html" class="btn-volver">
+    ← Volver
+</a>
+
+
+
+    <!-- ==========================================
+         FONDO
+    =========================================== -->
+
+    <div class="background">
+
+        <div class="blob blob1"></div>
+
+        <div class="blob blob2"></div>
+
+        <div class="blob blob3"></div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         CONTENEDOR PRINCIPAL
+    =========================================== -->
+
+    <div class="contenedor">
+
+
+        <!-- ======================================
+             ENCABEZADO
+        ======================================= -->
+
+        <div class="encabezado">
+
+            <span class="badge">
+                👋 Curso Interactivo
+            </span>
+
+            <h1>
+                Saludos
+            </h1>
+
+            <p>
+                Aprende los saludos más utilizados en la
+                Lengua de Señas Nicaragüense mediante
+                videos prácticos.
+            </p>
+
+        </div>
+
+
+
+        <!-- ======================================
+             TARJETA DE LA LECCIÓN
+        ======================================= -->
+
+        <div class="tarjeta">
+
+
+            <!-- CONTADOR -->
+
+            <div class="numero-leccion">
+
+                Lección
+                <span id="contador">
+                    1
+                </span>
+
+            </div>
+
+
+            <!-- TÍTULO -->
+
+            <h2 id="titulo"></h2>
+
+
+            <!-- VIDEO -->
+
+            <div class="video-box">
+
+                <video
+                    id="video"
+                    autoplay
+                    muted
+                    controls
+                    controlsList="nodownload"
+                ></video>
+
+            </div>
+
+
+            <!-- DESCRIPCIÓN -->
+
+            <p id="descripcion"></p>
+
+
+            <!-- PROGRESO -->
+
+            <div class="progreso">
+
+                <div id="barra"></div>
+
+            </div>
+
+
+            <!-- TEXTO DEL PROGRESO -->
+
+            <div class="porcentaje">
+
+                <span id="textoProgreso">
+                    0% completado
+                </span>
+
+            </div>
+
+
+            <!-- BOTONES -->
+
+            <div class="botones">
+
+                <button
+                    id="anterior"
+                    type="button"
+                >
+                    ⬅ Anterior
+                </button>
+
+
+                <button
+                    id="siguiente"
+                    type="button"
+                >
+                    Siguiente ➜
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ==========================================
+         PANTALLA FINAL
+    =========================================== -->
+
+    <div
+        id="finalScreen"
+        class="final-screen"
+    >
+
+        <div class="final-card">
+
+
+            <!-- ICONOS -->
+
+            <div class="final-iconos">
+                🎉 😊
+            </div>
+
+
+            <!-- TÍTULO -->
+
+            <h2>
+                ¡Felicidades!
+            </h2>
+
+
+            <!-- MENSAJE -->
+
+            <p>
+                Terminaste esta lección.
+            </p>
+
+
+            <!-- BOTÓN -->
+
+            <button
+                id="volverInicio"
+                type="button"
+            >
+                Volver al inicio
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="../js/saludos.js"></script>
+
+    <script src="../js/transiciones.js"></script>
+
+    <link rel="stylesheet" href="/saludos.css">
+
+
+</body>
+
+</html>

@@ -1,0 +1,610 @@
+/* =========================================================
+   SIGNBRIDGE - CURSOS DE SALUDOS
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: #ffffff;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(38, 91, 220, 0.45),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 50%,
+            rgba(20, 180, 190, 0.35),
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(95, 50, 190, 0.30),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #071a36,
+            #0c2749,
+            #103b57
+        );
+
+    background-attachment: fixed;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   FONDO ANIMADO
+========================================================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+.blob {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: 0.25;
+
+    animation: flotar 12s ease-in-out infinite alternate;
+}
+
+.blob1 {
+    width: 430px;
+    height: 430px;
+
+    top: -180px;
+    left: -150px;
+
+    background: #2166e8;
+}
+
+.blob2 {
+    width: 400px;
+    height: 400px;
+
+    top: 35%;
+    right: -170px;
+
+    background: #16c6c4;
+
+    animation-delay: 2s;
+}
+
+.blob3 {
+    width: 420px;
+    height: 420px;
+
+    bottom: -230px;
+    left: 35%;
+
+    background: #693bd5;
+
+    animation-delay: 4s;
+}
+
+@keyframes flotar {
+
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(30px, -25px) scale(1.08);
+    }
+}
+
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.contenedor {
+    width: min(1100px, 92%);
+
+    margin: 0 auto;
+
+    padding: 35px 0 70px;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.encabezado {
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   BARRA SUPERIOR
+========================================================= */
+
+.top-bar {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   BOTÓN VOLVER
+========================================================= */
+
+.btn-volver {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 22px;
+
+    backdrop-filter: blur(12px);
+
+    transition: 0.25s ease;
+}
+
+.btn-volver:hover {
+    transform: translateX(-4px);
+
+    background: rgba(255, 255, 255, 0.15);
+}
+
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.badge {
+    padding: 10px 17px;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    color: rgba(255, 255, 255, 0.78);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.encabezado h1 {
+    margin: 0 0 10px;
+
+    font-size: clamp(42px, 6vw, 64px);
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+.encabezado > p {
+    max-width: 650px;
+
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   GRID DE CURSOS
+========================================================= */
+
+.cursos-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   TARJETA
+========================================================= */
+
+.curso-card {
+    position: relative;
+
+    display: flex;
+
+    gap: 22px;
+
+    min-height: 270px;
+
+    padding: 27px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(62, 91, 139, 0.48),
+            rgba(27, 68, 99, 0.42)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.20),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    backdrop-filter: blur(18px);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   CURSO DISPONIBLE
+========================================================= */
+
+.curso-card.disponible:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(105, 213, 255, 0.35);
+
+    box-shadow:
+        0 25px 55px rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================================
+   ICONO
+========================================================= */
+
+.curso-icon {
+    width: 65px;
+    height: 65px;
+
+    min-width: 65px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(39, 107, 233, 0.45),
+            rgba(24, 183, 170, 0.35)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    font-size: 30px;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.16);
+}
+
+
+/* =========================================================
+   INFORMACIÓN
+========================================================= */
+
+.curso-info {
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   NIVEL
+========================================================= */
+
+.nivel {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: #69d5ff;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   TÍTULO DEL CURSO
+========================================================= */
+
+.curso-info h2 {
+    margin: 0 0 10px;
+
+    color: #ffffff;
+
+    font-size: 24px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+========================================================= */
+
+.curso-info p {
+    margin: 0 0 18px;
+
+    color: rgba(255, 255, 255, 0.62);
+
+    font-size: 14px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   ETIQUETAS
+========================================================= */
+
+.etiquetas {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+.etiquetas span {
+    padding: 7px 10px;
+
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    color: rgba(255, 255, 255, 0.60);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   BOTÓN COMENZAR
+========================================================= */
+
+.btn-comenzar {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+
+    margin-top: auto;
+
+    padding: 12px 20px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #276be9,
+            #18b7aa
+        );
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 20px rgba(22, 137, 205, 0.18);
+
+    transition: 0.25s ease;
+}
+
+.btn-comenzar:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 12px 25px rgba(22, 137, 205, 0.28);
+}
+
+
+/* =========================================================
+   CURSOS BLOQUEADOS
+========================================================= */
+
+.curso-card.bloqueado {
+    opacity: 0.58;
+
+    filter: saturate(0.65);
+}
+
+.curso-card.bloqueado:hover {
+    transform: none;
+}
+
+
+/* =========================================================
+   BOTÓN BLOQUEADO
+========================================================= */
+
+.btn-bloqueado {
+    width: fit-content;
+
+    margin-top: auto;
+
+    padding: 12px 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    color: rgba(255, 255, 255, 0.42);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .cursos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .curso-card {
+        min-height: 240px;
+    }
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .contenedor {
+        width: 94%;
+
+        padding: 20px 0 45px;
+    }
+
+    .top-bar {
+        margin-bottom: 22px;
+    }
+
+    .btn-volver {
+        width: 44px;
+        height: 44px;
+
+        font-size: 19px;
+    }
+
+    .badge {
+        font-size: 12px;
+
+        padding: 9px 12px;
+    }
+
+    .encabezado h1 {
+        font-size: 40px;
+    }
+
+    .encabezado > p {
+        font-size: 14px;
+    }
+
+    .curso-card {
+        flex-direction: column;
+
+        gap: 16px;
+
+        padding: 22px;
+
+        min-height: auto;
+
+        border-radius: 21px;
+    }
+
+    .curso-icon {
+        width: 58px;
+        height: 58px;
+
+        min-width: 58px;
+
+        font-size: 27px;
+    }
+
+    .curso-info h2 {
+        font-size: 21px;
+    }
+
+    .curso-info p {
+        font-size: 13px;
+    }
+
+    .btn-comenzar,
+    .btn-bloqueado {
+        width: 100%;
+    }
+}

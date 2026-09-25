@@ -1,0 +1,1069 @@
+/* =========================================================
+   SIGNBRIDGE - NÚMEROS / CURSOS
+   ========================================================= */
+
+/* ---------- RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+    overflow-x: hidden;
+    background:
+        radial-gradient(circle at top left, rgba(0, 198, 255, 0.12), transparent 35%),
+        linear-gradient(135deg, #06152e, #0b2b50 50%, #073f58);
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+        opacity 0.45s ease,
+        transform 0.45s ease;
+}
+
+body.page-ready {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.page-exiting {
+    opacity: 0;
+    transform: translateY(-8px);
+}
+
+
+/* =========================================================
+   FONDO DECORATIVO
+   ========================================================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+    animation: floatingBlob 12s ease-in-out infinite alternate;
+}
+
+.blob1 {
+    width: 420px;
+    height: 420px;
+    top: -160px;
+    left: -120px;
+    background: rgba(0, 198, 255, 0.45);
+}
+
+.blob2 {
+    width: 380px;
+    height: 380px;
+    right: -140px;
+    top: 30%;
+    background: rgba(0, 114, 255, 0.35);
+    animation-delay: -4s;
+}
+
+.blob3 {
+    width: 340px;
+    height: 340px;
+    bottom: -150px;
+    left: 35%;
+    background: rgba(0, 220, 200, 0.28);
+    animation-delay: -7s;
+}
+
+@keyframes floatingBlob {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(35px, -25px) scale(1.08);
+    }
+
+    100% {
+        transform: translate(-20px, 30px) scale(0.95);
+    }
+}
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================= */
+
+.numbers-page {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    padding: 32px 0 70px;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.numbers-header {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 38px;
+}
+
+.back-button {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 16px;
+
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    font-size: 27px;
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.back-button:hover {
+    transform: translateX(-4px);
+    background: rgba(0, 198, 255, 0.16);
+    border-color: rgba(0, 198, 255, 0.35);
+}
+
+.back-button:active {
+    transform: translateX(-2px) scale(0.96);
+}
+
+.back-button span {
+    display: block;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MARCA / LOGO
+   ========================================================= */
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-container {
+    width: 78px;
+    height: 78px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.20),
+        0 0 30px rgba(0, 198, 255, 0.10);
+}
+
+.logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   TEXTO DEL HEADER
+   ========================================================= */
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.section-badge {
+    width: fit-content;
+
+    padding: 6px 12px;
+
+    border-radius: 999px;
+
+    color: #76ddff;
+    background: rgba(0, 198, 255, 0.10);
+    border: 1px solid rgba(0, 198, 255, 0.20);
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.header-text h1 {
+    font-size: clamp(34px, 4vw, 48px);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -1.2px;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #b9efff
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header-text p {
+    max-width: 670px;
+
+    color: rgba(255, 255, 255, 0.70);
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   INTRODUCCIÓN / PROGRESO
+   ========================================================= */
+
+.numbers-intro {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 24px 26px;
+    margin-bottom: 30px;
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 198, 255, 0.11),
+            rgba(255, 255, 255, 0.055)
+        );
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+    overflow: hidden;
+}
+
+.numbers-intro::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+
+    right: -80px;
+    top: -100px;
+
+    border-radius: 50%;
+
+    background: rgba(0, 198, 255, 0.12);
+    filter: blur(20px);
+}
+
+.intro-icon {
+    position: relative;
+    z-index: 1;
+
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 198, 255, 0.30),
+            rgba(0, 114, 255, 0.22)
+        );
+
+    border: 1px solid rgba(0, 198, 255, 0.25);
+
+    color: #a9ecff;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.intro-content {
+    position: relative;
+    z-index: 1;
+}
+
+.intro-label {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #67d9ff;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+}
+
+.intro-content h2 {
+    margin-bottom: 4px;
+
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.intro-content p {
+    color: rgba(255, 255, 255, 0.64);
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   GRID DE CURSOS
+   ========================================================= */
+
+.numbers-courses {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+
+/* =========================================================
+   TARJETAS
+   ========================================================= */
+
+.number-course-card {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 44px 105px minmax(0, 1fr);
+    align-items: center;
+    gap: 18px;
+
+    min-height: 245px;
+
+    padding: 23px;
+
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.095),
+            rgba(255, 255, 255, 0.045)
+        );
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.17),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+.number-course-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 210px;
+    height: 210px;
+
+    right: -125px;
+    bottom: -135px;
+
+    border-radius: 50%;
+
+    background: rgba(0, 198, 255, 0.09);
+
+    transition:
+        transform 0.45s ease,
+        background 0.45s ease;
+}
+
+.number-course-card.available {
+    cursor: pointer;
+}
+
+.number-course-card.available:hover {
+    transform: translateY(-7px);
+
+    border-color: rgba(0, 198, 255, 0.28);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 198, 255, 0.13),
+            rgba(255, 255, 255, 0.055)
+        );
+
+    box-shadow:
+        0 24px 55px rgba(0, 0, 0, 0.23),
+        0 0 35px rgba(0, 198, 255, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.number-course-card.available:hover::before {
+    transform: scale(1.35);
+    background: rgba(0, 198, 255, 0.13);
+}
+
+
+/* =========================================================
+   NÚMERO DE TARJETA
+   ========================================================= */
+
+.course-number {
+    align-self: start;
+
+    padding-top: 5px;
+}
+
+.course-number span {
+    color: rgba(255, 255, 255, 0.30);
+
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   ICONO DEL CURSO
+   ========================================================= */
+
+.course-icon {
+    position: relative;
+    z-index: 1;
+
+    width: 105px;
+    height: 105px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 198, 255, 0.20),
+            rgba(0, 114, 255, 0.20)
+        );
+
+    border: 1px solid rgba(0, 198, 255, 0.18);
+
+    box-shadow:
+        0 14px 28px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.available:hover .course-icon {
+    transform: scale(1.05) rotate(-2deg);
+
+    box-shadow:
+        0 18px 35px rgba(0, 0, 0, 0.20),
+        0 0 25px rgba(0, 198, 255, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+.course-icon span {
+    font-size: 42px;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.18));
+}
+
+
+/* =========================================================
+   INFORMACIÓN DEL CURSO
+   ========================================================= */
+
+.course-info {
+    position: relative;
+    z-index: 1;
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.course-top {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin-bottom: 8px;
+}
+
+.course-status,
+.course-level {
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 24px;
+    padding: 4px 9px;
+
+    border-radius: 999px;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+}
+
+.available-status {
+    color: #8de7ff;
+
+    background: rgba(0, 198, 255, 0.12);
+    border: 1px solid rgba(0, 198, 255, 0.20);
+}
+
+.upcoming-status {
+    color: rgba(255, 255, 255, 0.48);
+
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.course-level {
+    color: rgba(255, 255, 255, 0.50);
+
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.course-info h2 {
+    margin-bottom: 7px;
+
+    color: #ffffff;
+
+    font-size: 19px;
+    line-height: 1.25;
+    font-weight: 700;
+}
+
+.course-info p {
+    max-width: 390px;
+
+    margin-bottom: 12px;
+
+    color: rgba(255, 255, 255, 0.61);
+
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   METADATA
+   ========================================================= */
+
+.course-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-bottom: 15px;
+}
+
+.course-meta span {
+    color: rgba(255, 255, 255, 0.52);
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+.course-button {
+    min-height: 39px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 9px 15px;
+
+    border: 1px solid rgba(0, 198, 255, 0.28);
+    border-radius: 12px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 198, 255, 0.23),
+            rgba(0, 114, 255, 0.23)
+        );
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.14);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.course-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+
+    border-color: rgba(0, 198, 255, 0.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 198, 255, 0.34),
+            rgba(0, 114, 255, 0.30)
+        );
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.20),
+        0 0 20px rgba(0, 198, 255, 0.08);
+}
+
+.course-button:active:not(:disabled) {
+    transform: translateY(0) scale(0.97);
+}
+
+.course-button span {
+    font-size: 15px;
+    transition: transform 0.25s ease;
+}
+
+.course-button:hover:not(:disabled) span {
+    transform: translateX(3px);
+}
+
+.course-button.disabled,
+.course-button:disabled {
+    color: rgba(255, 255, 255, 0.38);
+
+    background: rgba(255, 255, 255, 0.055);
+
+    border-color: rgba(255, 255, 255, 0.08);
+
+    box-shadow: none;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   CURSOS PRÓXIMAMENTE
+   ========================================================= */
+
+.number-course-card.upcoming {
+    opacity: 0.68;
+}
+
+.number-course-card.upcoming .course-icon {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.035)
+        );
+
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.number-course-card.upcoming .course-icon span {
+    filter: grayscale(0.45);
+}
+
+.number-course-card.upcoming:hover {
+    transform: translateY(-3px);
+    opacity: 0.76;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.numbers-footer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    margin-top: 38px;
+}
+
+.footer-line {
+    width: 55px;
+    height: 1px;
+
+    flex-shrink: 0;
+
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.numbers-footer p {
+    color: rgba(255, 255, 255, 0.40);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   ANIMACIÓN DE ENTRADA DE TARJETAS
+   ========================================================= */
+
+.number-course-card {
+    animation: cardAppear 0.65s ease both;
+}
+
+.number-course-card:nth-child(1) {
+    animation-delay: 0.08s;
+}
+
+.number-course-card:nth-child(2) {
+    animation-delay: 0.14s;
+}
+
+.number-course-card:nth-child(3) {
+    animation-delay: 0.20s;
+}
+
+.number-course-card:nth-child(4) {
+    animation-delay: 0.26s;
+}
+
+.number-course-card:nth-child(5) {
+    animation-delay: 0.32s;
+}
+
+.number-course-card:nth-child(6) {
+    animation-delay: 0.38s;
+}
+
+.number-course-card:nth-child(7) {
+    animation-delay: 0.44s;
+}
+
+.number-course-card:nth-child(8) {
+    animation-delay: 0.50s;
+}
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   TABLETS
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .number-course-card {
+        grid-template-columns: 38px 92px minmax(0, 1fr);
+        gap: 14px;
+        padding: 20px;
+    }
+
+    .course-icon {
+        width: 92px;
+        height: 92px;
+    }
+
+    .course-icon span {
+        font-size: 37px;
+    }
+
+    .course-info h2 {
+        font-size: 17px;
+    }
+}
+
+
+/* =========================================================
+   TABLET PEQUEÑA
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .numbers-page {
+        width: min(700px, 92%);
+        padding-top: 25px;
+    }
+
+    .numbers-courses {
+        grid-template-columns: 1fr;
+    }
+
+    .number-course-card {
+        min-height: 220px;
+    }
+}
+
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .numbers-page {
+        width: 92%;
+        padding: 20px 0 50px;
+    }
+
+    .numbers-header {
+        align-items: flex-start;
+        gap: 14px;
+        margin-bottom: 28px;
+    }
+
+    .back-button {
+        width: 45px;
+        height: 45px;
+        border-radius: 14px;
+        font-size: 23px;
+    }
+
+    .header-brand {
+        align-items: flex-start;
+        gap: 13px;
+    }
+
+    .logo-container {
+        width: 60px;
+        height: 60px;
+        padding: 6px;
+        border-radius: 16px;
+    }
+
+    .section-badge {
+        font-size: 9px;
+        padding: 5px 9px;
+    }
+
+    .header-text h1 {
+        font-size: 31px;
+    }
+
+    .header-text p {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    .numbers-intro {
+        padding: 19px;
+        gap: 14px;
+        border-radius: 20px;
+    }
+
+    .intro-icon {
+        width: 55px;
+        height: 55px;
+        border-radius: 16px;
+        font-size: 16px;
+    }
+
+    .intro-content h2 {
+        font-size: 17px;
+    }
+
+    .intro-content p {
+        font-size: 11px;
+    }
+
+    .number-course-card {
+        grid-template-columns: 1fr;
+        gap: 14px;
+
+        min-height: auto;
+
+        padding: 20px;
+
+        border-radius: 22px;
+    }
+
+    .course-number {
+        position: absolute;
+        top: 18px;
+        right: 20px;
+    }
+
+    .course-icon {
+        width: 82px;
+        height: 82px;
+        border-radius: 22px;
+    }
+
+    .course-icon span {
+        font-size: 34px;
+    }
+
+    .course-info h2 {
+        font-size: 18px;
+    }
+
+    .course-info p {
+        font-size: 11px;
+    }
+
+    .course-meta {
+        gap: 9px;
+    }
+
+    .course-button {
+        width: 100%;
+    }
+
+    .numbers-footer {
+        margin-top: 28px;
+    }
+}
+
+
+/* =========================================================
+   MÓVIL PEQUEÑO
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .header-brand {
+        gap: 10px;
+    }
+
+    .logo-container {
+        width: 54px;
+        height: 54px;
+    }
+
+    .header-text h1 {
+        font-size: 27px;
+    }
+
+    .header-text p {
+        font-size: 10px;
+    }
+
+    .numbers-intro {
+        align-items: flex-start;
+    }
+
+    .number-course-card {
+        padding: 18px;
+    }
+}
+
+
+/* =========================================================
+   REDUCCIÓN DE MOVIMIENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    body,
+    .number-course-card,
+    .course-icon,
+    .back-button,
+    .course-button,
+    .blob {
+        animation: none !important;
+        transition: none !important;
+    }
+}

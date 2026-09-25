@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SignBridge | Números del 10 al 20</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/numeros-10-20.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         FONDO
+    =========================================== -->
+
+    <div class="background">
+
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         BOTÓN VOLVER
+    =========================================== -->
+
+    <a
+        href="numeros-cursos.html"
+        class="btn-volver"
+    >
+        ← Volver a Números
+    </a>
+
+
+
+    <!-- ==========================================
+         CONTENEDOR PRINCIPAL
+    =========================================== -->
+
+    <main class="contenedor">
+
+
+        <!-- ======================================
+             ENCABEZADO
+        ======================================= -->
+
+        <section class="encabezado">
+
+            <span class="badge">
+                🔢 Curso Interactivo
+            </span>
+
+
+            <h1>
+                Números del 10 al 20
+            </h1>
+
+
+            <p>
+                Aprende las señas de los números
+                del 10 al 20 en Lengua de Señas
+                Nicaragüense mediante imágenes y videos prácticos.
+            </p>
+
+        </section>
+
+
+
+        <!-- ======================================
+             TARJETA DE LA LECCIÓN
+        ======================================= -->
+
+        <section
+            class="tarjeta"
+            id="tarjetaLeccion"
+        >
+
+
+            <!-- CONTADOR -->
+
+            <div class="numero-leccion">
+
+                Lección
+
+                <span id="contador">
+                    1 / 11
+                </span>
+
+            </div>
+
+
+
+            <!-- NÚMERO -->
+
+            <h2 id="titulo">
+                10
+            </h2>
+
+
+
+            <!-- ==================================
+                 MATERIAL
+            =================================== -->
+
+            <div class="video-box">
+
+                <video
+                    id="video"
+                    controls
+                    autoplay
+                    muted
+                    playsinline
+                    controlsList="nodownload"
+                >
+                </video>
+
+
+                <img
+                    id="imagenNumero"
+                    src="../images/numeros/10.png"
+                    alt="Seña correspondiente al número 10"
+                >
+
+            </div>
+
+
+
+            <!-- ==================================
+                 DESCRIPCIÓN
+            =================================== -->
+
+            <p id="descripcion">
+
+                Observa la imagen para aprender
+                la seña correspondiente al número 10.
+
+            </p>
+
+
+
+            <!-- ==================================
+                 PROGRESO
+            =================================== -->
+
+            <div class="progreso">
+
+                <div id="barra"></div>
+
+            </div>
+
+
+            <div class="porcentaje">
+
+                <span id="textoProgreso">
+                    9% completado
+                </span>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 BOTONES
+            =================================== -->
+
+            <div class="botones">
+
+
+                <button
+                    id="anterior"
+                    type="button"
+                    disabled
+                >
+
+                    ⬅ Anterior
+
+                </button>
+
+
+
+                <button
+                    id="siguiente"
+                    type="button"
+                >
+
+                    Siguiente ➜
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==========================================
+         PANTALLA FINAL
+    =========================================== -->
+
+    <div
+        id="finalScreen"
+        class="final-screen"
+    >
+
+        <div class="final-card">
+
+
+            <div class="final-iconos">
+                🎉
+            </div>
+
+
+            <h2>
+                ¡Felicidades!
+            </h2>
+
+
+            <p>
+                Has completado el curso de
+                Números del 10 al 20.
+            </p>
+
+
+            <button
+                id="volverInicio"
+                type="button"
+            >
+
+                Volver a Números
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="../js/numeros-10-20.js"></script>
+
+    <link rel="stylesheet" href="/numeros-10-20.css">
+
+</body>
+
+</html>

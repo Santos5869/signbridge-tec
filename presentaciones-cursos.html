@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Presentaciones | SignBridge</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/presentaciones-cursos.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         FONDO
+    =========================================== -->
+
+    <div class="background-effects">
+
+        <span class="orb orb-1"></span>
+
+        <span class="orb orb-2"></span>
+
+        <span class="orb orb-3"></span>
+
+        <span class="grid-overlay"></span>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         PÁGINA
+    =========================================== -->
+
+    <main class="courses-page">
+
+
+        <!-- ======================================
+             HEADER
+        ======================================= -->
+
+        <header class="topbar">
+
+
+            <button
+                class="back-button"
+                onclick="volverCursos()"
+                type="button"
+            >
+
+                <span>←</span>
+
+                <span>Volver</span>
+
+            </button>
+
+
+
+            <div class="brand">
+
+                <img
+                    src="../images/logo.png"
+                    alt="Logo de SignBridge"
+                >
+
+                <span>
+                    SignBridge
+                </span>
+
+            </div>
+
+
+
+            <div class="section-badge">
+
+                <span>
+                    🎓
+                </span>
+
+                <span>
+                    Aprendizaje
+                </span>
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- ======================================
+             ENCABEZADO
+        ======================================= -->
+
+        <section class="page-header">
+
+            <span class="level-label">
+                NIVEL 2
+            </span>
+
+
+            <h1>
+                Presentaciones
+            </h1>
+
+
+            <p>
+                Aprende palabras y expresiones para presentarte,
+                compartir información personal y conocer a otras personas.
+            </p>
+
+        </section>
+
+
+
+        <!-- ======================================
+             CURSOS
+        ======================================= -->
+
+        <section class="courses-grid">
+
+
+            <!-- ==================================
+                 PRESENTACIÓN BÁSICA
+            =================================== -->
+
+            <article class="course-card available">
+
+
+                <div class="course-icon">
+                    🤝
+                </div>
+
+
+                <div class="course-content">
+
+                    <span class="course-level">
+                        NIVEL 2
+                    </span>
+
+
+                    <h2>
+                        Presentación básica
+                    </h2>
+
+
+                    <p>
+                        Aprende las expresiones esenciales
+                        para iniciar una presentación
+                        y conocer a otra persona.
+                    </p>
+
+
+                    <div class="course-tags">
+
+                        <span>
+                            👋 Básico
+                        </span>
+
+                        <span>
+                            📚 10 lecciones
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="course-button"
+                        onclick="abrirPresentacionBasica()"
+                        type="button"
+                    >
+                        Comenzar →
+                    </button>
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- ==================================
+                 DATOS PERSONALES
+            =================================== -->
+
+            <article class="course-card available">
+
+
+                <div class="course-icon">
+                    🪪
+                </div>
+
+
+                <div class="course-content">
+
+                    <span class="course-level">
+                        NIVEL 2
+                    </span>
+
+
+                    <h2>
+                        Datos personales
+                    </h2>
+
+
+                    <p>
+                        Aprende a expresar información
+                        personal como nombre, edad,
+                        país, ciudad, escuela y familia.
+                    </p>
+
+
+                    <div class="course-tags">
+
+                        <span>
+                            👤 Información personal
+                        </span>
+
+                        <span>
+                            📚 10 lecciones
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="course-button"
+                        onclick="abrirDatosPersonales()"
+                        type="button"
+                    >
+                        Comenzar →
+                    </button>
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- ==================================
+                 CONVERSACIÓN DE PRESENTACIÓN
+            =================================== -->
+
+            <article class="course-card available">
+
+
+                <div class="course-icon">
+                    💬
+                </div>
+
+
+                <div class="course-content">
+
+                    <span class="course-level">
+                        NIVEL 2
+                    </span>
+
+
+                    <h2>
+                        Conversación de presentación
+                    </h2>
+
+
+                    <p>
+                        Practica situaciones de conversación
+                        para presentarte, preguntar información
+                        y despedirte.
+                    </p>
+
+
+                    <div class="course-tags">
+
+                        <span>
+                            💬 Conversación
+                        </span>
+
+                        <span>
+                            📚 10 situaciones
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="course-button"
+                        onclick="abrirConversacionPresentacion()"
+                        type="button"
+                    >
+                        Comenzar →
+                    </button>
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- ==================================
+                 PRÁCTICA DE PRESENTACIONES
+            =================================== -->
+
+            <article class="course-card available">
+
+
+                <div class="course-icon">
+                    🎯
+                </div>
+
+
+                <div class="course-content">
+
+                    <span class="course-level">
+                        NIVEL 2
+                    </span>
+
+
+                    <h2>
+                        Práctica de presentaciones
+                    </h2>
+
+
+                    <p>
+                        Pon en práctica lo aprendido
+                        frente a la cámara y recibe
+                        retroalimentación visual.
+                    </p>
+
+
+                    <div class="course-tags">
+
+                        <span>
+                            📷 Cámara
+                        </span>
+
+                        <span>
+                            🎯 Práctica
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="course-button"
+                        onclick="abrirPracticaPresentaciones()"
+                        type="button"
+                    >
+                        Comenzar práctica →
+                    </button>
+
+                </div>
+
+
+            </article>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="../js/presentaciones-cursos.js"></script>
+    <link rel="stylesheet" href="/presentaciones-cursos.css">
+
+
+</body>
+
+</html>

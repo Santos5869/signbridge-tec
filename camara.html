@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cámara | SignBridge</title>
+
+    <link rel="stylesheet" href="../css/camara.css">
+
+    <!-- MediaPipe -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+</head>
+
+<body>
+
+    <!-- FONDO -->
+    <div class="background">
+        <span class="glow glow-1"></span>
+        <span class="glow glow-2"></span>
+        <span class="glow glow-3"></span>
+    </div>
+
+    <!-- CONTENIDO -->
+    <main class="camera-page">
+
+        <!-- ENCABEZADO -->
+        <header class="camera-header">
+
+            <a href="dashboard.html" class="back-button">
+                ←
+                <span>Volver al inicio</span>
+            </a>
+
+            <div class="brand">
+                <img src="../images/logo.png" alt="SignBridge">
+
+                <div>
+                    <h1>SignBridge</h1>
+                    <p>Práctica con cámara</p>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <section class="camera-content">
+
+            <div class="intro">
+
+                <span class="badge">
+                    RECONOCIMIENTO
+                </span>
+
+                <h2>
+                    Practica con tu cámara
+                </h2>
+
+                <p>
+                    Coloca tu mano frente a la cámara y practica
+                    las señas que estás aprendiendo.
+                </p>
+
+            </div>
+
+
+            <!-- TARJETA DE CÁMARA -->
+            <div class="camera-card">
+
+                <!-- PARTE SUPERIOR -->
+                <div class="camera-top">
+
+                    <div>
+                        <span class="status-dot"></span>
+
+                        <span id="cameraStatus" class="camera-status">
+                            Cámara desactivada
+                        </span>
+                    </div>
+
+                    <span class="camera-label">
+                        📷 Cámara
+                    </span>
+
+                </div>
+
+
+                <!-- ÁREA DE CÁMARA -->
+                <div class="camera-container">
+
+                    <video
+                        id="video"
+                        autoplay
+                        muted
+                        playsinline>
+                    </video>
+
+                    <canvas
+                        id="canvas">
+                    </canvas>
+
+
+                    <!-- GUÍA DE MANO -->
+                    <div
+                        id="handGuide"
+                        class="hand-guide">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+                    <!-- PLACEHOLDER -->
+                    <div
+                        id="cameraPlaceholder"
+                        class="camera-placeholder">
+
+                        <div class="camera-icon">
+                            📷
+                        </div>
+
+                        <h3>
+                            Cámara desactivada
+                        </h3>
+
+                        <p>
+                            Activa la cámara para comenzar.
+                        </p>
+
+                        <button
+                            id="startCamera"
+                            class="camera-button"
+                            type="button">
+
+                            Activar cámara
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RESULTADO -->
+                <div class="recognition">
+
+                    <div class="recognition-title">
+                        <span>
+                            Seña detectada
+                        </span>
+                    </div>
+
+
+                    <div
+                        id="gestureResult"
+                        class="gesture-result">
+
+                        <span class="result-icon">
+                            ✋
+                        </span>
+
+                        <div>
+
+                            <strong id="gestureText">
+                                Esperando una seña
+                            </strong>
+
+                            <p id="gestureDescription">
+                                Coloca tu mano frente a la cámara.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- OBJETIVO -->
+                <div class="practice-target">
+
+                    <div class="target-info">
+
+                        <span>
+                            PRACTICA ESTA SEÑA
+                        </span>
+
+                        <strong id="targetGesture">
+                            Próximamente
+                        </strong>
+
+                    </div>
+
+
+                    <div class="target-progress">
+
+                        <div class="progress-bar">
+                            <span id="progress"></span>
+                        </div>
+
+                        <small id="progressText">
+                            Preparando reconocimiento...
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTROLES -->
+                <div class="camera-controls">
+
+                    <button
+                        id="startCameraBottom"
+                        class="camera-button"
+                        type="button">
+
+                        📷 Activar cámara
+
+                    </button>
+
+                    <button
+                        id="stopCamera"
+                        class="camera-button stop-button"
+                        type="button">
+
+                        ⏹ Detener
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="../js/camara.js"></script>
+    <script src="../js/transiciones.js"></script>
+    <link rel="stylesheet" href="/camara.css">
+
+</body>
+
+</html>

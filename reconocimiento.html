@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Entrenamiento | SignBridge</title>
+
+    <link rel="stylesheet" href="../css/reconocimiento.css">
+
+    <!-- MediaPipe -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+</head>
+
+<body>
+
+    <!-- ==========================================
+         FONDO
+    =========================================== -->
+
+    <div class="background">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="glow glow-3"></div>
+    </div>
+
+
+    <!-- ==========================================
+         PÁGINA
+    =========================================== -->
+
+    <main class="recognition-page">
+
+
+        <!-- ======================================
+             HEADER
+        ======================================= -->
+
+        <header class="page-header">
+
+            <a
+                href="dashboard.html"
+                class="back-button"
+            >
+                ←
+                <span>Volver</span>
+            </a>
+
+
+            <div class="brand">
+
+                <div class="brand-logo">
+
+                    <img
+                        src="../images/logo.png"
+                        alt="SignBridge"
+                    >
+
+                </div>
+
+
+                <div class="brand-info">
+
+                    <h1>SignBridge</h1>
+
+                    <p>
+                        Entrenamiento de señas
+                    </p>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ======================================
+             INTRO
+        ======================================= -->
+
+        <section class="intro">
+
+            <span class="badge">
+                PRÁCTICA
+            </span>
+
+            <h2>
+                Aprende haciendo
+                <span>señas</span>
+            </h2>
+
+            <p>
+                Observa la seña, hazla frente a la cámara
+                y practica hasta realizarla correctamente.
+            </p>
+
+        </section>
+
+
+
+        <!-- ======================================
+             CONTENIDO PRINCIPAL
+        ======================================= -->
+
+        <section class="training-grid">
+
+
+            <!-- ==================================
+                 REFERENCIA
+            =================================== -->
+
+            <article class="reference-card">
+
+                <div class="card-label">
+                    SEÑA QUE ESTÁS APRENDIENDO
+                </div>
+
+
+                <div class="sign-letter">
+                    <span id="currentSign">
+                        A
+                    </span>
+                </div>
+
+
+                <div class="reference-title">
+
+                    <h3>
+                        Letra A
+                    </h3>
+
+                    <p>
+                        Observa la posición de la mano
+                        y trata de reproducirla.
+                    </p>
+
+                </div>
+
+
+                <!-- IMAGEN DE REFERENCIA -->
+
+                <div class="sign-reference">
+
+                    <img
+                        id="signReferenceImage"
+                        src="../images/abecedario/A.png"
+                        alt="Seña de la letra A"
+                    >
+
+                </div>
+
+
+                <div class="reference-tip">
+
+                    <span class="tip-icon">
+                        💡
+                    </span>
+
+                    <p>
+                        Mantén la mano dentro del área
+                        de la cámara para obtener una
+                        mejor detección.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 CÁMARA
+            =================================== -->
+
+            <article class="camera-card">
+
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>
+                            Practica con la cámara
+                        </h3>
+
+                        <p>
+                            Coloca tu mano frente a la cámara
+                        </p>
+
+                    </div>
+
+
+                    <span
+                        id="cameraStatus"
+                        class="status"
+                    >
+                        ● Esperando
+                    </span>
+
+                </div>
+
+
+                <!-- VISOR -->
+
+                <div class="camera-wrapper">
+
+                    <video
+                        id="video"
+                        autoplay
+                        playsinline
+                        muted
+                    ></video>
+
+
+                    <canvas id="canvas"></canvas>
+
+
+                    <!-- MENSAJE INICIAL -->
+
+                    <div
+                        id="cameraMessage"
+                        class="camera-message"
+                    >
+
+                        <div class="camera-icon">
+                            📷
+                        </div>
+
+                        <h4>
+                            Cámara desactivada
+                        </h4>
+
+                        <p>
+                            Activa la cámara para comenzar.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTROLES -->
+
+                <div class="camera-controls">
+
+                    <button
+                        id="startCamera"
+                        class="primary-button"
+                        type="button"
+                    >
+                        Activar cámara
+                    </button>
+
+
+                    <button
+                        id="stopCamera"
+                        class="secondary-button"
+                        type="button"
+                    >
+                        Detener
+                    </button>
+
+                </div>
+
+
+                <!-- ESTADO DE PRÁCTICA -->
+
+                <div
+                    id="practiceResult"
+                    class="practice-result"
+                >
+
+                    <span class="result-icon">
+                        ✋
+                    </span>
+
+
+                    <div>
+
+                        <strong id="resultTitle">
+                            Listo para practicar
+                        </strong>
+
+                        <p id="resultText">
+                            Activa la cámara y realiza la seña A.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 PROGRESO
+            =================================== -->
+
+            <article class="progress-card">
+
+
+                <div class="progress-header">
+
+                    <div>
+
+                        <span class="card-label">
+                            TU PROGRESO
+                        </span>
+
+                        <h3>
+                            Práctica de la seña
+                        </h3>
+
+                    </div>
+
+
+                    <strong id="progressPercent">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <span
+                        id="progress"
+                        style="width: 0%;"
+                    ></span>
+
+                </div>
+
+
+                <div class="progress-info">
+
+                    <span id="progressText">
+                        Comienza la práctica
+                    </span>
+
+                    <span>
+                        Muestras:
+                        <strong id="sampleCount">
+                            0
+                        </strong>
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 CAPTURA
+            =================================== -->
+
+            <article class="capture-card">
+
+                <div class="card-label">
+                    ENTRENAMIENTO
+                </div>
+
+
+                <h3>
+                    Registra tu seña
+                </h3>
+
+
+                <p>
+                    Cuando tu mano esté correctamente
+                    colocada frente a la cámara, captura
+                    una muestra.
+                </p>
+
+
+                <button
+                    id="captureButton"
+                    class="capture-button"
+                    type="button"
+                >
+                    Capturar muestra
+                </button>
+
+
+                <p
+                    id="captureMessage"
+                    class="capture-message"
+                ></p>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 INDICADORES
+            =================================== -->
+
+            <section class="training-steps">
+
+
+                <div class="step">
+
+                    <span>
+                        01
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            Observa
+                        </h4>
+
+                        <p>
+                            Mira la referencia de la seña.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="step">
+
+                    <span>
+                        02
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            Imita
+                        </h4>
+
+                        <p>
+                            Coloca tu mano como la referencia.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="step">
+
+                    <span>
+                        03
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            Practica
+                        </h4>
+
+                        <p>
+                            Repite hasta realizarla correctamente.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+<!-- JavaScript -->
+
+<!-- Sistema de posturas guardadas -->
+<script src="../js/posturas.js"></script>
+
+<!-- Reconocimiento -->
+<script src="../js/reconocimiento.js"></script>
+<script src="../js/transiciones.js"></script>
+<link rel="stylesheet" href="/reconocimiento.css">
+
+</body>
+
+</html>

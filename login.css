@@ -1,0 +1,1504 @@
+/* =========================================================
+   SIGNBRIDGE — LOGIN
+   Diseño moderno / premium / glassmorphism
+   ========================================================= */
+
+:root {
+    --bg-1: #030b18;
+    --bg-2: #06172d;
+    --bg-3: #092847;
+
+    --cyan: #21dce9;
+    --cyan-light: #9bf5fa;
+    --blue: #1685ff;
+    --blue-soft: #5bb0ff;
+    --purple: #7562ff;
+
+    --white: #ffffff;
+    --text: #f4f8ff;
+    --text-soft: #afc0d4;
+    --text-muted: #7d91a8;
+
+    --card-white: #fbfdff;
+    --dark-text: #102033;
+    --dark-muted: #6c7d90;
+
+    --border: rgba(255,255,255,.12);
+    --shadow: 0 35px 100px rgba(0,0,0,.38);
+
+    --transition:
+        .4s cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family: "Poppins", sans-serif;
+
+    background: #030b18;
+}
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================= */
+
+.login-page {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 28px;
+
+    overflow: hidden;
+
+    color: var(--white);
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(33,220,233,.11),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 92% 15%,
+            rgba(117,98,255,.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(22,133,255,.07),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            var(--bg-1),
+            var(--bg-2) 55%,
+            #061425
+        );
+}
+
+
+/* =========================================================
+   FONDO
+   ========================================================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    z-index: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.background-grid {
+    position: absolute;
+    inset: 0;
+
+    opacity: .09;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.05) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.05) 1px,
+            transparent 1px
+        );
+
+    background-size: 56px 56px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 92%
+        );
+}
+
+.blob {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    pointer-events: none;
+
+    opacity: .32;
+
+    animation:
+        blobMove
+        18s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+.blob1 {
+    width: 500px;
+    height: 500px;
+
+    left: -190px;
+    top: -170px;
+
+    background:
+        rgba(33,220,233,.18);
+}
+
+.blob2 {
+    width: 520px;
+    height: 520px;
+
+    right: -220px;
+    top: 8%;
+
+    background:
+        rgba(117,98,255,.16);
+
+    animation-delay: -5s;
+}
+
+.blob3 {
+    width: 470px;
+    height: 470px;
+
+    left: 40%;
+    bottom: -230px;
+
+    background:
+        rgba(22,133,255,.13);
+
+    animation-delay: -10s;
+}
+
+@keyframes blobMove {
+    0% {
+        transform:
+            translate3d(0,0,0)
+            scale(1);
+    }
+
+    100% {
+        transform:
+            translate3d(38px,-30px,0)
+            scale(1.08);
+    }
+}
+
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.login-layout {
+    width: min(1280px, 100%);
+
+    min-height: 720px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        470px;
+
+    position: relative;
+
+    z-index: 2;
+
+    overflow: hidden;
+
+    border-radius: 34px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+
+    box-shadow:
+        0 40px 110px rgba(0,0,0,.40);
+
+    animation:
+        layoutEnter
+        .9s
+        cubic-bezier(.2,.8,.2,1)
+        both;
+}
+
+@keyframes layoutEnter {
+    from {
+        opacity: 0;
+        transform:
+            translateY(24px)
+            scale(.975);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* línea luminosa superior */
+
+.login-layout::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 12%;
+
+    width: 76%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(33,220,233,.55),
+            rgba(117,98,255,.35),
+            transparent
+        );
+
+    opacity: .7;
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   PANEL IZQUIERDO
+   ========================================================= */
+
+.login-information {
+    position: relative;
+
+    min-width: 0;
+
+    padding: 55px 62px 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(33,220,233,.10),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 20% 85%,
+            rgba(117,98,255,.10),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(11,52,86,.72),
+            rgba(6,31,57,.64)
+        );
+
+    border-right:
+        1px solid
+        rgba(255,255,255,.10);
+}
+
+
+/* =========================================================
+   DECORACIÓN DEL PANEL
+   ========================================================= */
+
+.login-information::before {
+    content: "";
+
+    position: absolute;
+
+    width: 390px;
+    height: 390px;
+
+    right: -170px;
+    top: -170px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(33,220,233,.08);
+
+    box-shadow:
+        0 0 0 45px rgba(33,220,233,.015),
+        0 0 0 90px rgba(33,220,233,.01);
+
+    animation:
+        slowRotate
+        26s
+        linear
+        infinite;
+}
+
+.login-information::after {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    left: -140px;
+    bottom: -150px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(117,98,255,.08);
+
+    filter: blur(35px);
+}
+
+@keyframes slowRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.brand {
+    width: fit-content;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    position: relative;
+
+    z-index: 5;
+
+    color: white;
+
+    text-decoration: none;
+}
+
+.brand-logo-box {
+    width: 60px;
+    height: 60px;
+
+    padding: 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 17px;
+
+    background:
+        rgba(255,255,255,.98);
+
+    box-shadow:
+        0 0 35px rgba(33,220,233,.10),
+        0 12px 30px rgba(0,0,0,.20);
+
+    overflow: hidden;
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
+}
+
+.brand-logo {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+.brand:hover .brand-logo-box {
+    transform:
+        translateY(-2px)
+        scale(1.04)
+        rotate(-2deg);
+
+    box-shadow:
+        0 0 42px rgba(33,220,233,.20),
+        0 15px 35px rgba(0,0,0,.25);
+}
+
+.brand-name {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.brand-name strong {
+    font-size: 20px;
+
+    line-height: 1;
+
+    font-weight: 700;
+}
+
+.brand-name small {
+    margin-top: 6px;
+
+    color: #8097af;
+
+    font-size: 8px;
+
+    letter-spacing: 1.7px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   CONTENIDO
+   ========================================================= */
+
+.information-content {
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 600px;
+
+    margin-top: 20px;
+}
+
+
+/* etiqueta */
+
+.information-label {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 8px 13px;
+
+    margin-bottom: 22px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(33,220,233,.07);
+
+    border:
+        1px solid
+        rgba(33,220,233,.17);
+
+    color:
+        #a3f2f6;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* =========================================================
+   TITULO
+   ========================================================= */
+
+.information-content h1 {
+    max-width: 650px;
+
+    margin: 0;
+
+    font-size:
+        clamp(47px, 5vw, 70px);
+
+    line-height: .96;
+
+    letter-spacing: -3.5px;
+
+    font-weight: 800;
+}
+
+.information-content h1 span {
+    display: block;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            100deg,
+            #ffffff,
+            #c9f8ff 50%,
+            #21dce9 90%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    background-size: 200% auto;
+
+    animation:
+        titleShine
+        7s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+@keyframes titleShine {
+    from {
+        background-position: 0 center;
+    }
+
+    to {
+        background-position: 100% center;
+    }
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+   ========================================================= */
+
+.information-description {
+    max-width: 540px;
+
+    margin-top: 23px;
+
+    color:
+        var(--text-soft);
+
+    font-size: 13px;
+
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   BENEFICIOS
+   ========================================================= */
+
+.benefits {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 17px;
+
+    margin-top: 29px;
+}
+
+.benefit {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    opacity: 0;
+
+    transform: translateX(-14px);
+
+    animation:
+        benefitEnter
+        .7s
+        ease
+        forwards;
+}
+
+.benefit:nth-child(1) {
+    animation-delay: .35s;
+}
+
+.benefit:nth-child(2) {
+    animation-delay: .45s;
+}
+
+.benefit:nth-child(3) {
+    animation-delay: .55s;
+}
+
+@keyframes benefitEnter {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.benefit-icon {
+    width: 35px;
+    height: 35px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #20dce9,
+            #1685ff
+        );
+
+    box-shadow:
+        0 8px 22px rgba(22,133,255,.20);
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+.benefit h2 {
+    margin: 0 0 3px;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.benefit p {
+    color: #8fa7bd;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.information-footer {
+    position: relative;
+
+    z-index: 5;
+
+    margin: 0;
+
+    color:
+        rgba(255,255,255,.38);
+
+    font-size: 9px;
+
+    letter-spacing: .4px;
+}
+
+
+/* =========================================================
+   LOGIN CARD
+   ========================================================= */
+
+.login-card {
+    position: relative;
+
+    min-width: 0;
+
+    padding: 55px 47px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f7fbff
+        );
+
+    color:
+        var(--dark-text);
+}
+
+
+/* decoración */
+
+.login-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    right: -170px;
+    top: -160px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(33,220,233,.13),
+            transparent 68%
+        );
+}
+
+.login-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    left: -120px;
+    bottom: -110px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(117,98,255,.05);
+
+    filter: blur(25px);
+}
+
+
+/* =========================================================
+   MOBILE BRAND
+   ========================================================= */
+
+.mobile-brand {
+    display: none;
+
+    position: relative;
+
+    z-index: 4;
+
+    align-items: center;
+
+    gap: 11px;
+
+    margin-bottom: 26px;
+}
+
+.mobile-logo-box {
+    width: 50px;
+    height: 50px;
+
+    padding: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: white;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.08);
+}
+
+.mobile-logo-box img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.mobile-brand strong {
+    display: block;
+
+    font-size: 17px;
+}
+
+.mobile-brand small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #8493a4;
+
+    font-size: 8px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.2px;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.login-header {
+    position: relative;
+
+    z-index: 4;
+
+    margin-bottom: 28px;
+}
+
+.login-label {
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    color: #1681ee;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+}
+
+.login-header h2 {
+    margin: 0;
+
+    color: #102033;
+
+    font-size: 34px;
+
+    line-height: 1.05;
+
+    letter-spacing: -1.4px;
+}
+
+.login-header p {
+    margin: 10px 0 0;
+
+    color: #718094;
+
+    font-size: 11px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.login-form {
+    position: relative;
+
+    z-index: 4;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 17px;
+}
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.form-group label {
+    color: #344356;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   PASSWORD HEADER
+   ========================================================= */
+
+.password-label {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.forgot-password {
+    color: #1681ee;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    transition: .25s;
+}
+
+.forgot-password:hover {
+    color: #0c63c2;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.input-container {
+    min-height: 53px;
+
+    padding: 0 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    border:
+        1px solid
+        #dce4ed;
+
+    border-radius: 14px;
+
+    background:
+        #f7fafc;
+
+    transition:
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease,
+        transform .3s ease;
+}
+
+.input-container:hover {
+    border-color:
+        #c6d4e3;
+}
+
+.input-container:focus-within {
+    transform: translateY(-1px);
+
+    background: white;
+
+    border-color:
+        #1784ef;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(23,132,239,.09),
+
+        0 10px 25px
+        rgba(15,70,120,.06);
+}
+
+.input-icon {
+    width: 23px;
+
+    flex-shrink: 0;
+
+    text-align: center;
+
+    color:
+        #1681ee;
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+.input-container input {
+    min-width: 0;
+
+    width: 100%;
+    height: 49px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color:
+        #102033;
+
+    font-family: inherit;
+
+    font-size: 11px;
+}
+
+.input-container input::placeholder {
+    color:
+        #9aabba;
+}
+
+
+/* =========================================================
+   MOSTRAR CONTRASEÑA
+   ========================================================= */
+
+.toggle-password {
+    flex-shrink: 0;
+
+    padding: 4px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #1681ee;
+
+    font-family: inherit;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.toggle-password:hover {
+    color:
+        #00aa95;
+}
+
+
+/* =========================================================
+   RECORDAR
+   ========================================================= */
+
+.remember-option {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #69798b;
+
+    font-size: 9px;
+
+    cursor: pointer;
+
+    user-select: none;
+}
+
+.remember-option input {
+    width: 15px;
+    height: 15px;
+
+    margin: 0;
+
+    accent-color:
+        #1681ee;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   MENSAJES
+   ========================================================= */
+
+.error-message {
+    min-height: 13px;
+
+    color: #ef4444;
+
+    font-size: 8px;
+}
+
+.form-message {
+    min-height: 14px;
+
+    color: #ef4444;
+
+    font-size: 9px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   BOTÓN PRINCIPAL
+   ========================================================= */
+
+.primary-button {
+    width: 100%;
+    height: 53px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1cdbe7,
+            #1685ff
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 14px 32px
+        rgba(22,133,255,.23);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.primary-button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.18),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: left .7s ease;
+}
+
+.primary-button:hover::before {
+    left: 135%;
+}
+
+.primary-button:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 20px 40px
+        rgba(22,133,255,.30);
+}
+
+.primary-button:active {
+    transform:
+        translateY(-1px);
+}
+
+.button-arrow {
+    font-size: 17px;
+
+    transition:
+        transform .3s ease;
+}
+
+.primary-button:hover .button-arrow {
+    transform:
+        translateX(5px);
+}
+
+
+/* =========================================================
+   DIVISOR
+   ========================================================= */
+
+.divider {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 22px 0 16px;
+}
+
+.divider span {
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        #e4e9ef;
+}
+
+.divider p {
+    margin: 0;
+
+    color: #9aa7b5;
+
+    font-size: 8px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   REGISTRO
+   ========================================================= */
+
+.secondary-button {
+    width: 100%;
+    height: 49px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        #d4dee8;
+
+    border-radius: 14px;
+
+    background: white;
+
+    color: #1681ee;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+.secondary-button:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        #1681ee;
+
+    background:
+        #f4f9ff;
+
+    box-shadow:
+        0 10px 20px
+        rgba(18,132,255,.08);
+}
+
+
+/* =========================================================
+   VOLVER
+   ========================================================= */
+
+.back-home {
+    margin-top: 17px;
+
+    text-align: center;
+
+    color: #778699;
+
+    font-size: 9px;
+
+    transition:
+        color .25s ease,
+        transform .25s ease;
+}
+
+.back-home:hover {
+    color:
+        #1681ee;
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 980px) {
+
+    .login-layout {
+        width: min(560px, 100%);
+
+        min-height: 0;
+
+        display: block;
+    }
+
+    .login-information {
+        display: none;
+    }
+
+    .login-card {
+        padding:
+            48px 42px;
+    }
+
+    .mobile-brand {
+        display: flex;
+    }
+}
+
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .login-page {
+        padding: 14px;
+    }
+
+    .login-layout {
+        width: 100%;
+
+        border-radius: 25px;
+    }
+
+    .login-card {
+        padding:
+            32px 22px 29px;
+
+        border-radius: 25px;
+    }
+
+    .mobile-brand {
+        margin-bottom: 23px;
+    }
+
+    .login-header {
+        margin-bottom: 25px;
+    }
+
+    .login-header h2 {
+        font-size: 30px;
+    }
+
+    .login-header p {
+        font-size: 10px;
+    }
+
+    .input-container {
+        min-height: 51px;
+    }
+
+    .input-container input {
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   MÓVIL PEQUEÑO
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .login-card {
+        padding:
+            28px 18px 24px;
+    }
+
+    .login-header h2 {
+        font-size: 27px;
+    }
+
+    .primary-button,
+    .secondary-button {
+        height: 49px;
+    }
+}
+
+
+/* =========================================================
+   REDUCIR MOVIMIENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: .01ms !important;
+    }
+}

@@ -1,0 +1,1831 @@
+/* =========================================================
+   SIGNBRIDGE - CURSO DE FAMILIA
+   ========================================================= */
+
+:root {
+    --bg-primary: #07152d;
+    --bg-secondary: #0b2142;
+    --blue: #1687ff;
+    --cyan: #00d9ff;
+    --blue-light: #4db7ff;
+
+    --white: #ffffff;
+    --text-main: #f5f9ff;
+    --text-soft: #b9c9dd;
+    --text-muted: #8ea3be;
+
+    --glass: rgba(255, 255, 255, 0.075);
+    --glass-strong: rgba(255, 255, 255, 0.10);
+    --border: rgba(255, 255, 255, 0.13);
+
+    --success: #27e38a;
+    --danger: #ff6b81;
+
+    --shadow-lg:
+        0 25px 70px rgba(0, 0, 0, 0.36);
+
+    --shadow-blue:
+        0 20px 55px rgba(0, 140, 255, 0.20);
+
+    --radius-lg: 26px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        "Poppins",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: var(--text-main);
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(0, 217, 255, 0.10),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(22, 135, 255, 0.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #061126 0%,
+            #081b38 45%,
+            #07152d 100%
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   FONDO
+   ========================================================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    z-index: -10;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+.background-grid {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.17;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 85%
+        );
+}
+
+
+.blob {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(70px);
+
+    opacity: 0.30;
+
+    animation:
+        floatBlob 14s ease-in-out infinite;
+}
+
+
+.blob1 {
+    width: 420px;
+    height: 420px;
+
+    top: -170px;
+    left: -130px;
+
+    background: rgba(0, 217, 255, 0.30);
+}
+
+
+.blob2 {
+    width: 500px;
+    height: 500px;
+
+    top: 28%;
+    right: -230px;
+
+    background: rgba(22, 135, 255, 0.26);
+
+    animation-delay: -4s;
+}
+
+
+.blob3 {
+    width: 360px;
+    height: 360px;
+
+    bottom: -180px;
+    left: 35%;
+
+    background: rgba(77, 183, 255, 0.18);
+
+    animation-delay: -8s;
+}
+
+
+@keyframes floatBlob {
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate3d(0, -22px, 0) scale(1.06);
+    }
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.topbar {
+    width: min(1200px, calc(100% - 40px));
+
+    min-height: 84px;
+
+    margin: 22px auto 0;
+
+    padding: 13px 16px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        auto
+        1fr;
+
+    align-items: center;
+
+    gap: 18px;
+
+    background:
+        rgba(7, 21, 45, 0.72);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 22px;
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.20);
+
+    position: relative;
+    z-index: 10;
+}
+
+
+/* =========================================================
+   BOTÓN VOLVER
+   ========================================================= */
+
+.back-btn {
+    justify-self: start;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 46px;
+
+    padding: 0 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 13px;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    color: var(--text-main);
+
+    font-family: inherit;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.back-btn:hover {
+    transform: translateY(-2px);
+
+    background:
+        rgba(0, 217, 255, 0.10);
+
+    border-color:
+        rgba(0, 217, 255, 0.28);
+
+    box-shadow:
+        0 10px 25px rgba(0, 217, 255, 0.10);
+}
+
+
+.back-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.brand {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 11px;
+
+    text-decoration: none;
+
+    color: var(--white);
+
+    min-width: 190px;
+}
+
+
+.brand-logo-box {
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px;
+
+    background:
+        rgba(255, 255, 255, 0.98);
+
+    border-radius: 13px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+
+.brand-logo-box img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+.brand-text {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+
+.brand-text strong {
+    font-size: 18px;
+
+    line-height: 1.1;
+
+    letter-spacing: -0.3px;
+}
+
+
+.brand-text small {
+    margin-top: 3px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   CONTADOR
+   ========================================================= */
+
+.lesson-counter {
+    justify-self: end;
+
+    min-width: 86px;
+
+    min-height: 46px;
+
+    padding: 0 15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border-radius: 13px;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.10);
+
+    color: var(--text-soft);
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.lesson-counter #numeroLeccion {
+    color: var(--cyan);
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+
+.counter-separator {
+    color: var(--text-muted);
+}
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================= */
+
+.lesson-container {
+    width: min(980px, calc(100% - 40px));
+
+    margin: 54px auto 80px;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+   ========================================================= */
+
+.lesson-header {
+    text-align: center;
+
+    max-width: 760px;
+
+    margin: 0 auto 34px;
+}
+
+
+.course-label {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 8px 15px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(0, 217, 255, 0.085);
+
+    border:
+        1px solid rgba(0, 217, 255, 0.18);
+
+    color: #8eeeff;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+
+.lesson-header h1 {
+    margin-top: 15px;
+
+    font-size:
+        clamp(32px, 5vw, 52px);
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    letter-spacing: -1.5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #a9ecff,
+            #ffffff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.lesson-header p {
+    margin: 15px auto 0;
+
+    max-width: 650px;
+
+    color: var(--text-soft);
+
+    font-size: 15px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   SECCIÓN DEL VIDEO
+   ========================================================= */
+
+.video-section {
+    margin-top: 30px;
+}
+
+
+.video-container {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 530px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 18px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.09),
+            rgba(255, 255, 255, 0.045)
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.14);
+
+    border-radius: 30px;
+
+    box-shadow:
+        var(--shadow-lg),
+        var(--shadow-blue);
+
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+}
+
+
+.video-container::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    padding: 1px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 217, 255, 0.18),
+            transparent 45%,
+            rgba(22, 135, 255, 0.15)
+        );
+
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    mask-composite: exclude;
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+
+    pointer-events: none;
+}
+
+
+.lesson-video {
+    display: block;
+
+    width: 100%;
+
+    max-width: 760px;
+
+    max-height: 620px;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: contain;
+
+    background:
+        #020812;
+
+    border-radius: 20px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.34);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.lesson-video:focus {
+    outline: 2px solid var(--cyan);
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   CARGANDO VIDEO
+   ========================================================= */
+
+.video-loading {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 4;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    color: var(--text-soft);
+
+    background:
+        rgba(2, 8, 18, 0.84);
+
+    backdrop-filter: blur(8px);
+
+    border-radius: 30px;
+}
+
+
+.video-loading.active {
+    display: flex;
+}
+
+
+.loading-spinner {
+    width: 42px;
+    height: 42px;
+
+    border:
+        3px solid rgba(255, 255, 255, 0.12);
+
+    border-top-color:
+        var(--cyan);
+
+    border-right-color:
+        var(--blue);
+
+    border-radius: 50%;
+
+    animation:
+        spin 0.8s linear infinite;
+}
+
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   ERROR VIDEO
+   ========================================================= */
+
+.video-error {
+    position: absolute;
+
+    inset: 18px;
+
+    z-index: 5;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background:
+        rgba(9, 19, 39, 0.94);
+
+    border:
+        1px solid rgba(255, 107, 129, 0.18);
+
+    border-radius: 22px;
+}
+
+
+.video-error.hidden {
+    display: none;
+}
+
+
+.video-error-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 107, 129, 0.10);
+
+    color: #ff8ea0;
+
+    font-size: 24px;
+
+    font-weight: 800;
+}
+
+
+.video-error h2 {
+    font-size: 21px;
+
+    margin-bottom: 8px;
+}
+
+
+.video-error p {
+    max-width: 430px;
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   CAPTION DEL VIDEO
+   ========================================================= */
+
+.video-caption {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 14px;
+
+    padding: 0 5px;
+}
+
+
+.video-caption-dot {
+    width: 8px;
+    height: 8px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        var(--cyan);
+
+    box-shadow:
+        0 0 14px rgba(0, 217, 255, 0.65);
+
+    animation:
+        captionPulse 2s ease-in-out infinite;
+}
+
+
+@keyframes captionPulse {
+
+    0%,
+    100% {
+        opacity: 0.55;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.18);
+    }
+}
+
+
+.video-caption p {
+    color: var(--text-muted);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   INFORMACIÓN DE LA LECCIÓN
+   ========================================================= */
+
+.lesson-info {
+    margin-top: 26px;
+
+    display: grid;
+
+    grid-template-columns:
+        auto
+        1fr
+        auto;
+
+    align-items: center;
+
+    gap: 22px;
+
+    padding: 22px 24px;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: var(--radius-lg);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+.family-preview {
+    width: 74px;
+    height: 74px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 19px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 217, 255, 0.13),
+            rgba(22, 135, 255, 0.13)
+        );
+
+    border:
+        1px solid rgba(0, 217, 255, 0.16);
+
+    font-size: 34px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+
+.info-text {
+    min-width: 0;
+}
+
+
+.info-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--cyan);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+}
+
+
+.info-text h2 {
+    font-size: 22px;
+
+    line-height: 1.2;
+
+    margin-bottom: 5px;
+}
+
+
+.info-text p {
+    color: var(--text-muted);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+.practice-indicator {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px 13px;
+
+    border-radius: 999px;
+
+    border:
+        1px solid rgba(39, 227, 138, 0.15);
+
+    background:
+        rgba(39, 227, 138, 0.065);
+
+    color: #a7edc9;
+
+    white-space: nowrap;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.practice-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--success);
+
+    box-shadow:
+        0 0 12px rgba(39, 227, 138, 0.6);
+}
+
+
+/* =========================================================
+   PROGRESO
+   ========================================================= */
+
+.progress-section {
+    margin-top: 28px;
+
+    padding: 20px 22px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.085);
+
+    border-radius: 18px;
+}
+
+
+.progress-text {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    margin-bottom: 11px;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+
+    font-weight: 500;
+}
+
+
+#progresoTexto {
+    color: var(--cyan);
+
+    font-weight: 700;
+}
+
+
+.progress-bar {
+    width: 100%;
+
+    height: 9px;
+
+    overflow: hidden;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 999px;
+}
+
+
+.progress-fill {
+    width: 0;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #008fff,
+            #00d9ff
+        );
+
+    box-shadow:
+        0 0 16px rgba(0, 217, 255, 0.32);
+
+    transition:
+        width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   NAVEGACIÓN
+   ========================================================= */
+
+.navigation {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 16px;
+
+    margin-top: 28px;
+}
+
+
+.nav-btn {
+    min-height: 52px;
+
+    padding: 0 22px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    border-radius: 14px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        opacity 0.25s ease;
+}
+
+
+.nav-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+
+.nav-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+
+.nav-btn.secondary {
+    color: var(--text-main);
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.11);
+}
+
+
+.nav-btn.secondary:hover:not(:disabled) {
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border-color:
+        rgba(255, 255, 255, 0.18);
+}
+
+
+.nav-btn.primary {
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #078cff,
+            #00badb
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.11);
+
+    box-shadow:
+        0 12px 28px rgba(0, 161, 255, 0.24);
+}
+
+
+.nav-btn.primary:hover {
+    box-shadow:
+        0 16px 34px rgba(0, 161, 255, 0.34);
+}
+
+
+.nav-btn:disabled {
+    opacity: 0.34;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =========================================================
+   PANTALLA FINAL
+   ========================================================= */
+
+.final-screen {
+    position: relative;
+
+    margin-top: 34px;
+
+    padding: 48px 30px 42px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 217, 255, 0.075),
+            rgba(255, 255, 255, 0.055)
+        );
+
+    border:
+        1px solid rgba(0, 217, 255, 0.16);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.25),
+        0 20px 55px rgba(0, 170, 255, 0.12);
+
+    animation:
+        finalAppear 0.6s ease forwards;
+}
+
+
+.final-screen::before {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    top: -120px;
+    right: -100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 217, 255, 0.10);
+
+    filter: blur(30px);
+}
+
+
+.final-screen.hidden {
+    display: none;
+}
+
+
+@keyframes finalAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.final-logo {
+    width: 120px;
+    height: 120px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px;
+
+    margin-bottom: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.98);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.22);
+}
+
+
+.final-logo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+.final-icon {
+    font-size: 38px;
+
+    margin-bottom: 12px;
+
+    animation:
+        finalBounce 1.5s ease-in-out infinite;
+}
+
+
+@keyframes finalBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+.final-label {
+    color: var(--cyan);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.final-screen h2 {
+    margin-top: 10px;
+
+    font-size:
+        clamp(27px, 4vw, 38px);
+
+    letter-spacing: -0.8px;
+}
+
+
+.final-screen p {
+    margin-top: 9px;
+
+    color: var(--text-soft);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+.final-progress {
+    margin-top: 22px;
+
+    min-width: 180px;
+
+    padding: 13px 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+    background:
+        rgba(39, 227, 138, 0.065);
+
+    border:
+        1px solid rgba(39, 227, 138, 0.13);
+
+    border-radius: 15px;
+}
+
+
+.final-progress strong {
+    color: var(--success);
+
+    font-size: 22px;
+}
+
+
+.final-progress span {
+    color: var(--text-muted);
+
+    font-size: 11px;
+}
+
+
+.final-btn {
+    margin-top: 24px;
+
+    min-height: 50px;
+
+    padding: 0 23px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 14px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #078cff,
+            #00badb
+        );
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 28px rgba(0, 161, 255, 0.22);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.final-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 16px 34px rgba(0, 161, 255, 0.32);
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .topbar {
+        grid-template-columns:
+            auto
+            1fr
+            auto;
+    }
+
+
+    .brand {
+        justify-self: center;
+    }
+
+
+    .lesson-container {
+        width: min(100% - 28px, 760px);
+
+        margin-top: 38px;
+    }
+
+
+    .video-container {
+        min-height: 440px;
+    }
+
+
+    .lesson-info {
+        grid-template-columns:
+            auto
+            1fr;
+    }
+
+
+    .practice-indicator {
+        grid-column: 2;
+
+        justify-self: start;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MÓVIL
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .topbar {
+        width: calc(100% - 20px);
+
+        margin-top: 10px;
+
+        padding: 10px;
+
+        grid-template-columns:
+            auto
+            1fr
+            auto;
+
+        gap: 8px;
+
+        border-radius: 17px;
+    }
+
+
+    .back-btn {
+        min-height: 42px;
+
+        padding: 0 11px;
+
+        font-size: 11px;
+    }
+
+
+    .brand {
+        gap: 7px;
+
+        min-width: 0;
+    }
+
+
+    .brand-logo-box {
+        width: 42px;
+        height: 42px;
+
+        padding: 5px;
+
+        border-radius: 11px;
+    }
+
+
+    .brand-text strong {
+        font-size: 15px;
+    }
+
+
+    .brand-text small {
+        display: none;
+    }
+
+
+    .lesson-counter {
+        min-height: 42px;
+
+        min-width: 64px;
+
+        padding: 0 9px;
+
+        font-size: 11px;
+    }
+
+
+    .lesson-counter #numeroLeccion {
+        font-size: 15px;
+    }
+
+
+    .lesson-container {
+        width: calc(100% - 20px);
+
+        margin-top: 30px;
+
+        margin-bottom: 50px;
+    }
+
+
+    .lesson-header {
+        margin-bottom: 24px;
+    }
+
+
+    .course-label {
+        padding: 7px 12px;
+
+        font-size: 9px;
+
+        letter-spacing: 1.2px;
+    }
+
+
+    .lesson-header h1 {
+        margin-top: 12px;
+
+        font-size: 31px;
+
+        letter-spacing: -0.8px;
+    }
+
+
+    .lesson-header p {
+        margin-top: 11px;
+
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+
+    .video-section {
+        margin-top: 18px;
+    }
+
+
+    .video-container {
+        min-height: auto;
+
+        padding: 10px;
+
+        border-radius: 21px;
+    }
+
+
+    .lesson-video {
+        width: 100%;
+
+        border-radius: 14px;
+    }
+
+
+    .video-caption {
+        margin-top: 11px;
+    }
+
+
+    .video-caption p {
+        font-size: 11px;
+    }
+
+
+    .lesson-info {
+        margin-top: 19px;
+
+        padding: 17px;
+
+        gap: 14px;
+
+        border-radius: 20px;
+    }
+
+
+    .family-preview {
+        width: 58px;
+        height: 58px;
+
+        border-radius: 15px;
+
+        font-size: 27px;
+    }
+
+
+    .info-label {
+        font-size: 9px;
+    }
+
+
+    .info-text h2 {
+        font-size: 18px;
+    }
+
+
+    .info-text p {
+        font-size: 11px;
+
+        line-height: 1.5;
+    }
+
+
+    .practice-indicator {
+        grid-column: 1 / -1;
+
+        justify-self: stretch;
+
+        justify-content: center;
+
+        padding: 9px;
+
+        font-size: 10px;
+    }
+
+
+    .progress-section {
+        margin-top: 18px;
+
+        padding: 16px;
+
+        border-radius: 16px;
+    }
+
+
+    .progress-text {
+        font-size: 11px;
+    }
+
+
+    .progress-bar {
+        height: 8px;
+    }
+
+
+    .navigation {
+        margin-top: 20px;
+
+        gap: 10px;
+    }
+
+
+    .nav-btn {
+        flex: 1;
+
+        min-height: 48px;
+
+        padding: 0 13px;
+
+        font-size: 12px;
+    }
+
+
+    .final-screen {
+        margin-top: 22px;
+
+        padding:
+            34px
+            18px
+            30px;
+
+        border-radius: 24px;
+    }
+
+
+    .final-logo {
+        width: 95px;
+        height: 95px;
+
+        padding: 10px;
+
+        border-radius: 22px;
+    }
+
+
+    .final-icon {
+        font-size: 31px;
+    }
+
+
+    .final-screen h2 {
+        font-size: 27px;
+    }
+
+
+    .final-screen p {
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MÓVIL PEQUEÑO
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+    .topbar {
+        grid-template-columns:
+            auto
+            1fr;
+
+        grid-template-areas:
+            "back counter"
+            "brand brand";
+
+        row-gap: 9px;
+    }
+
+
+    .back-btn {
+        grid-area: back;
+
+        justify-self: start;
+    }
+
+
+    .lesson-counter {
+        grid-area: counter;
+
+        justify-self: end;
+    }
+
+
+    .brand {
+        grid-area: brand;
+
+        justify-self: center;
+    }
+
+
+    .lesson-header h1 {
+        font-size: 28px;
+    }
+
+
+    .video-container {
+        padding: 7px;
+    }
+
+
+    .lesson-video {
+        border-radius: 11px;
+    }
+
+
+    .navigation {
+        flex-direction: column;
+    }
+
+
+    .nav-btn {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCIR ANIMACIONES SI EL USUARIO LO PREFIERE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+
+}

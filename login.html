@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Inicia sesión en SignBridge y continúa aprendiendo Lengua de Señas Nicaragüense."
+    >
+
+    <title>Iniciar sesión | SignBridge</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+
+    <main class="login-page">
+
+        <!-- =====================================================
+             FONDO
+        ====================================================== -->
+
+        <div class="background">
+
+            <div class="blob blob1"></div>
+            <div class="blob blob2"></div>
+            <div class="blob blob3"></div>
+
+            <div class="background-grid"></div>
+
+        </div>
+
+
+        <!-- =====================================================
+             CONTENEDOR
+        ====================================================== -->
+
+        <section class="login-layout">
+
+
+            <!-- =================================================
+                 PANEL IZQUIERDO
+            ================================================== -->
+
+            <article class="login-information">
+
+
+                <!-- MARCA -->
+
+                <a href="index.html" class="brand">
+
+                    <div class="brand-logo-box">
+
+                        <img
+                            src="../images/logo.png"
+                            alt="Logo de SignBridge"
+                            class="brand-logo"
+                        >
+
+                    </div>
+
+                    <div class="brand-name">
+
+                        <strong>SignBridge</strong>
+
+                        <small>
+                            Lengua de Señas
+                        </small>
+
+                    </div>
+
+                </a>
+
+
+                <!-- CONTENIDO -->
+
+                <div class="information-content">
+
+
+                    <span class="information-label">
+                        🇳🇮 Lengua de Señas Nicaragüense
+                    </span>
+
+
+                    <h1>
+                        Aprende.
+
+                        <span>
+                            Comunica.
+                        </span>
+
+                        Conecta.
+                    </h1>
+
+
+                    <p class="information-description">
+                        Continúa tu aprendizaje mediante una
+                        experiencia visual, clara y progresiva.
+                        Observa, practica y avanza a tu propio ritmo.
+                    </p>
+
+
+                    <!-- BENEFICIOS -->
+
+                    <div class="benefits">
+
+                        <div class="benefit">
+
+                            <div class="benefit-icon">
+                                ✓
+                            </div>
+
+                            <div>
+
+                                <h2>
+                                    Aprendizaje progresivo
+                                </h2>
+
+                                <p>
+                                    Avanza desde lo básico
+                                    hasta nuevos contenidos.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="benefit">
+
+                            <div class="benefit-icon">
+                                ✓
+                            </div>
+
+                            <div>
+
+                                <h2>
+                                    Aprende a tu ritmo
+                                </h2>
+
+                                <p>
+                                    Practica cuando quieras
+                                    y desde cualquier dispositivo.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="benefit">
+
+                            <div class="benefit-icon">
+                                ✓
+                            </div>
+
+                            <div>
+
+                                <h2>
+                                    Contenido visual
+                                </h2>
+
+                                <p>
+                                    Aprende mediante imágenes,
+                                    videos y actividades.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <p class="information-footer">
+                    Educación · Tecnología · Inclusión
+                </p>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 LOGIN
+            ================================================== -->
+
+            <article class="login-card">
+
+
+                <!-- LOGO MÓVIL -->
+
+                <div class="mobile-brand">
+
+                    <div class="mobile-logo-box">
+
+                        <img
+                            src="../images/logo.png"
+                            alt="Logo de SignBridge"
+                        >
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            SignBridge
+                        </strong>
+
+                        <small>
+                            Lengua de Señas
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ENCABEZADO -->
+
+                <header class="login-header">
+
+                    <span class="login-label">
+                        ACCESO DE ESTUDIANTES
+                    </span>
+
+                    <h2>
+                        Bienvenido 👋
+                    </h2>
+
+                    <p>
+                        Ingresa tus datos para continuar
+                        aprendiendo.
+                    </p>
+
+                </header>
+
+
+
+                <!-- FORMULARIO -->
+
+                <form
+                    id="loginForm"
+                    class="login-form"
+                    novalidate
+                >
+
+
+                    <!-- CORREO -->
+
+                    <div class="form-group">
+
+                        <label for="correo">
+                            Correo electrónico
+                        </label>
+
+                        <div class="input-container">
+
+                            <span
+                                class="input-icon"
+                                aria-hidden="true"
+                            >
+                                @
+                            </span>
+
+                            <input
+                                type="email"
+                                id="correo"
+                                name="correo"
+                                placeholder="ejemplo@correo.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                        <small
+                            id="correoError"
+                            class="error-message"
+                        ></small>
+
+                    </div>
+
+
+
+                    <!-- CONTRASEÑA -->
+
+                    <div class="form-group">
+
+                        <div class="password-label">
+
+                            <label for="contrasena">
+                                Contraseña
+                            </label>
+
+                            <a
+                                href="#"
+                                class="forgot-password"
+                            >
+                                ¿La olvidaste?
+                            </a>
+
+                        </div>
+
+
+                        <div class="input-container">
+
+                            <span
+                                class="input-icon"
+                                aria-hidden="true"
+                            >
+                                ●
+                            </span>
+
+                            <input
+                                type="password"
+                                id="contrasena"
+                                name="contrasena"
+                                placeholder="Ingresa tu contraseña"
+                                autocomplete="current-password"
+                                minlength="6"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="togglePassword"
+                                class="toggle-password"
+                                aria-label="Mostrar contraseña"
+                            >
+                                Mostrar
+                            </button>
+
+                        </div>
+
+                        <small
+                            id="contrasenaError"
+                            class="error-message"
+                        ></small>
+
+                    </div>
+
+
+
+                    <!-- RECORDAR -->
+
+                    <label class="remember-option">
+
+                        <input
+                            type="checkbox"
+                            id="recordarme"
+                            name="recordarme"
+                        >
+
+                        <span>
+                            Recordar mi sesión
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- MENSAJE -->
+
+                    <div
+                        id="formMessage"
+                        class="form-message"
+                        role="alert"
+                        aria-live="polite"
+                    ></div>
+
+
+
+                    <!-- BOTÓN -->
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+
+                        <span>
+                            Iniciar sesión
+                        </span>
+
+                        <span
+                            class="button-arrow"
+                            aria-hidden="true"
+                        >
+                            →
+                        </span>
+
+                    </button>
+
+                </form>
+
+
+
+                <!-- REGISTRO -->
+
+                <div class="divider">
+
+                    <span></span>
+
+                    <p>
+                        ¿Aún no tienes una cuenta?
+                    </p>
+
+                    <span></span>
+
+                </div>
+
+
+                <a
+                    href="registro.html"
+                    class="secondary-button"
+                >
+                    Crear una cuenta
+                </a>
+
+
+                <a
+                    href="index.html"
+                    class="back-home"
+                >
+                    ← Volver a la página principal
+                </a>
+
+
+            </article>
+
+        </section>
+
+    </main>
+
+
+    <script src="../js/login.js"></script>
+
+    <link rel ="stylesheet" href="/login.css">
+</body>
+
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SignBridge | Colores</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/colores-cursos.css"
+    >
+</head>
+
+<body>
+
+    <!-- ==========================================
+         FONDO
+    =========================================== -->
+
+    <div class="background">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+
+
+    <!-- ==========================================
+         CONTENIDO
+    =========================================== -->
+
+    <main class="courses-page">
+
+        <a
+            href="cursos.html"
+            class="back-btn"
+        >
+            ← Volver a cursos
+        </a>
+
+
+        <!-- ======================================
+             ENCABEZADO
+        ======================================= -->
+
+        <header class="courses-header">
+
+            <div class="course-icon">
+                🎨
+            </div>
+
+            <div>
+
+                <span class="course-tag">
+                    CURSO
+                </span>
+
+                <h1>
+                    Colores
+                </h1>
+
+                <p>
+                    Aprende nuevos colores en Lengua de
+                    Señas Nicaragüense de forma visual
+                    y progresiva.
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <!-- ======================================
+             SUBCURSOS
+        ======================================= -->
+
+        <section class="categories-container">
+
+
+            <!-- ==================================
+                 COLORES BÁSICOS
+            =================================== -->
+
+            <article class="category-card">
+
+                <div class="category-image color-preview">
+
+                    <span>🔴</span>
+                    <span>🔵</span>
+                    <span>🟡</span>
+                    <span>🟢</span>
+
+                </div>
+
+
+                <div class="category-content">
+
+                    <div class="category-header">
+
+                        <h2>
+                            Colores básicos
+                        </h2>
+
+                        <span class="status available">
+                            Disponible
+                        </span>
+
+                    </div>
+
+
+                    <p>
+                        Aprende a identificar y expresar
+                        los colores más utilizados.
+                    </p>
+
+
+                    <div class="course-info">
+
+                        <span>
+                            📘 10 lecciones
+                        </span>
+
+                        <span>
+                            🟢 Nivel básico
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="start-btn"
+                        onclick="abrirCurso('basicos')"
+                    >
+                        Comenzar
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 MÁS COLORES
+            =================================== -->
+
+            <article class="category-card">
+
+                <div class="category-image">
+
+                    🌈
+
+                </div>
+
+
+                <div class="category-content">
+
+                    <div class="category-header">
+
+                        <h2>
+                            Más colores
+                        </h2>
+
+                        <span class="status available">
+                            Disponible
+                        </span>
+
+                    </div>
+
+
+                    <p>
+                        Amplía tu vocabulario aprendiendo
+                        nuevos colores y tonalidades.
+                    </p>
+
+
+                    <div class="course-info">
+
+                        <span>
+                            📘 10 lecciones
+                        </span>
+
+                        <span>
+                            🔵 Nivel básico
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="start-btn"
+                        onclick="abrirCurso('mas-colores')"
+                    >
+                        Comenzar
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 PRÁCTICA DE COLORES
+            =================================== -->
+
+            <article class="category-card locked">
+
+                <div class="category-image">
+
+                    🧠
+
+                </div>
+
+
+                <div class="category-content">
+
+                    <div class="category-header">
+
+                        <h2>
+                            Práctica de colores
+                        </h2>
+
+                        <span class="status locked-status">
+                            🔒 Bloqueado
+                        </span>
+
+                    </div>
+
+
+                    <p>
+                        Pon a prueba lo aprendido mediante
+                        ejercicios interactivos.
+                    </p>
+
+
+                    <div class="course-info">
+
+                        <span>
+                            🎯 Próximamente
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="start-btn disabled"
+                        disabled
+                    >
+                        Próximamente
+                    </button>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="../js/colores-cursos.js"></script>
+
+    <link rel="stylesheet" href="/colores-cursos.css">
+
+</body>
+</html>

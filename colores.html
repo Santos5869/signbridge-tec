@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SignBridge | Colores básicos</title>
+
+    <link rel="stylesheet" href="../css/colores.css">
+</head>
+
+<body>
+
+    <!-- Fondo -->
+    <div class="background">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+
+    <!-- Barra superior -->
+    <header class="topbar">
+
+        <button id="volver" class="back-btn">
+            ← Volver
+        </button>
+
+        <div class="brand">
+            <img src="../images/logo.png" alt="SignBridge">
+            <span>SignBridge</span>
+        </div>
+
+    </header>
+
+
+    <!-- Contenido principal -->
+    <main class="lesson-container">
+
+        <!-- Contador -->
+        <div class="lesson-counter">
+            Lección <span id="numeroLeccion">1</span> de 10
+        </div>
+
+
+        <!-- Título -->
+        <section class="lesson-header">
+
+            <span class="course-label">
+                🎨 COLORES BÁSICOS
+            </span>
+
+            <h1 id="tituloColor">
+                ROJO
+            </h1>
+
+            <p id="descripcion">
+                Aprende el nombre del color y observa posteriormente
+                la seña correspondiente.
+            </p>
+
+        </section>
+
+
+        <!-- Video -->
+        <section class="video-section">
+
+            <div class="video-container">
+
+                <div class="video-placeholder">
+
+                    <div class="video-icon">
+                        ▶
+                    </div>
+
+                    <h2>Video de la seña</h2>
+
+                    <p>
+                        El video de esta lección estará disponible próximamente.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Información -->
+        <section class="lesson-info">
+
+            <div class="color-preview" id="colorPreview">
+                🔴
+            </div>
+
+            <div class="info-text">
+
+                <h2 id="nombreColor">
+                    ROJO
+                </h2>
+
+                <p>
+                    Observa atentamente el video cuando esté disponible
+                    y practica la seña.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Progreso -->
+        <section class="progress-section">
+
+            <div class="progress-text">
+                <span>Progreso</span>
+                <span id="progresoTexto">0%</span>
+            </div>
+
+            <div class="progress-bar">
+                <div id="barra" class="progress-fill"></div>
+            </div>
+
+        </section>
+
+
+        <!-- Navegación -->
+        <div class="navigation">
+
+            <button id="anterior" class="nav-btn secondary">
+                ← Anterior
+            </button>
+
+            <button id="siguiente" class="nav-btn primary">
+                Siguiente →
+            </button>
+
+        </div>
+
+
+        <!-- Pantalla final -->
+        <section id="finalScreen" class="final-screen hidden">
+
+            <div class="final-icon">
+                🎉
+            </div>
+
+            <h2>
+                ¡Curso completado!
+            </h2>
+
+            <p>
+                Has terminado las lecciones de colores básicos.
+            </p>
+
+            <button id="volverCursos" class="final-btn">
+    Volver a Mis cursos
+</button>
+
+        </section>
+
+    </main>
+
+
+    <script src="../js/colores.js"></script>
+
+    <link rel="stylesheet" href="/colores.css">
+
+</body>
+
+</html>

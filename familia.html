@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Aprende las señas relacionadas con la familia en SignBridge."
+    >
+
+    <title>SignBridge | Familia</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/familia.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         FONDO
+    ====================================================== -->
+
+    <div
+        class="background"
+        aria-hidden="true"
+    >
+
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+
+        <div class="background-grid"></div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BARRA SUPERIOR
+    ====================================================== -->
+
+    <header class="topbar">
+
+
+        <button
+            id="volver"
+            class="back-btn"
+            type="button"
+        >
+            ← Volver a cursos
+        </button>
+
+
+        <a
+            href="dashboard.html"
+            class="brand"
+            aria-label="Volver al dashboard de SignBridge"
+        >
+
+            <div class="brand-logo-box">
+
+                <img
+                    src="../images/logo.png"
+                    alt="SignBridge"
+                >
+
+            </div>
+
+            <div class="brand-text">
+
+                <strong>
+                    SignBridge
+                </strong>
+
+                <small>
+                    Lengua de Señas
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <div class="lesson-counter">
+
+            <span id="numeroLeccion">
+                1
+            </span>
+
+            <span class="counter-separator">
+                /
+            </span>
+
+            <span>
+                10
+            </span>
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENIDO
+    ====================================================== -->
+
+    <main class="lesson-container">
+
+
+        <!-- =================================================
+             ENCABEZADO
+        ================================================== -->
+
+        <section class="lesson-header">
+
+            <span class="course-label">
+                👨‍👩‍👧‍👦 FAMILIA
+            </span>
+
+
+            <h1 id="tituloFamilia">
+                PADRE
+            </h1>
+
+
+            <p id="descripcion">
+                Aprende la seña correspondiente a padre.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             VIDEO
+        ================================================== -->
+
+        <section class="video-section">
+
+
+            <div
+                class="video-container"
+                id="videoContainer"
+            >
+
+                <video
+                    id="videoLeccion"
+                    class="lesson-video"
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+                    Tu navegador no puede reproducir este video.
+                </video>
+
+            </div>
+
+
+            <div class="video-caption">
+
+                <span class="video-caption-dot"></span>
+
+                <p id="videoStatus">
+                    Observa atentamente la seña y repítela antes
+                    de continuar.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             INFORMACIÓN
+        ================================================== -->
+
+        <section class="lesson-info">
+
+
+            <div
+                class="family-preview"
+                id="familyPreview"
+                aria-hidden="true"
+            >
+                👨
+            </div>
+
+
+            <div class="info-text">
+
+                <span class="info-label">
+                    SEÑA
+                </span>
+
+
+                <h2 id="nombreFamilia">
+                    PADRE
+                </h2>
+
+
+                <p id="instruccion">
+                    Observa atentamente el video y practica
+                    la seña mostrada.
+                </p>
+
+            </div>
+
+
+            <div class="practice-indicator">
+
+                <span class="practice-dot"></span>
+
+                <span>
+                    Observa y practica
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROGRESO
+        ================================================== -->
+
+        <section class="progress-section">
+
+
+            <div class="progress-text">
+
+                <span>
+                    Progreso del curso
+                </span>
+
+
+                <span id="progresoTexto">
+                    0%
+                </span>
+
+            </div>
+
+
+            <div
+                class="progress-bar"
+                role="progressbar"
+                aria-label="Progreso del curso"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+            >
+
+                <div
+                    id="barra"
+                    class="progress-fill"
+                ></div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             NAVEGACIÓN
+        ================================================== -->
+
+        <div class="navigation">
+
+
+            <button
+                id="anterior"
+                class="nav-btn secondary"
+                type="button"
+            >
+
+                <span>
+                    ←
+                </span>
+
+                <span>
+                    Anterior
+                </span>
+
+            </button>
+
+
+            <button
+                id="siguiente"
+                class="nav-btn primary"
+                type="button"
+            >
+
+                <span>
+                    Siguiente
+                </span>
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             PANTALLA FINAL
+        ================================================== -->
+
+        <section
+            id="finalScreen"
+            class="final-screen hidden"
+        >
+
+
+            <div class="final-logo">
+
+                <img
+                    src="../images/logo.png"
+                    alt="SignBridge"
+                >
+
+            </div>
+
+
+            <div class="final-icon">
+                🎉
+            </div>
+
+
+            <span class="final-label">
+                FAMILIA COMPLETADO
+            </span>
+
+
+            <h2>
+                ¡Excelente trabajo!
+            </h2>
+
+
+            <p>
+                Has terminado todas las lecciones
+                de Familia.
+            </p>
+
+
+            <div class="final-progress">
+
+                <strong>
+                    100%
+                </strong>
+
+                <span>
+                    curso completado
+                </span>
+
+            </div>
+
+
+            <button
+                id="volverCursos"
+                class="final-btn"
+                type="button"
+            >
+                ← Volver a Familia
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <script src="../js/familia.js"></script>
+
+    <link rel="stylesheet" href="/familia.css">
+
+
+</body>
+
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SignBridge | Aprende los Números</title>
+
+
+    <!-- ==========================================
+         CSS
+    =========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/numeros.css"
+    >
+
+
+    <!-- ==========================================
+         FUENTE
+    =========================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body>
+
+    <a href="numeros-cursos.html" class="back-button">
+    ←
+</a>
+
+
+    <!-- ==========================================
+         FONDO
+    =========================================== -->
+
+    <div class="background">
+
+        <div class="blob blob1"></div>
+
+        <div class="blob blob2"></div>
+
+        <div class="blob blob3"></div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         CONTENEDOR PRINCIPAL
+    =========================================== -->
+
+    <main class="container">
+
+
+        <!-- ======================================
+             ENCABEZADO
+        ======================================= -->
+
+        <header class="header">
+
+
+            <!-- VOLVER -->
+
+            <button class="back-button" onclick="window.location.href='numeros-cursos.html'"></button>
+
+
+            <!-- LOGO -->
+
+            <img
+                src="../images/logo.png"
+                alt="SignBridge"
+                class="logo"
+            >
+
+
+        </header>
+
+
+
+        <!-- ==========================================
+             TARJETA PRINCIPAL
+        =========================================== -->
+
+        <section class="card">
+
+
+            <!-- TÍTULO -->
+
+            <h1>
+                Aprende los Números
+            </h1>
+
+
+            <p class="subtitle">
+                Lengua de Señas Nicaragüense
+            </p>
+
+
+
+            <!-- ======================================
+                 PROGRESO
+            ======================================= -->
+
+            <div class="progress-container">
+
+
+                <div class="progress-bar">
+
+                    <div
+                        id="progress"
+                        style="width: 10%;"
+                    ></div>
+
+                </div>
+
+
+                <span id="progressText">
+                    1 de 10
+                </span>
+
+
+            </div>
+
+
+
+            <!-- ======================================
+                 IMAGEN DE LA SEÑA
+            ======================================= -->
+
+            <div class="image-box">
+
+                <img
+                    id="numeroImagen"
+                    src="../images/numeros/1.png"
+                    alt="Número 1"
+                >
+
+            </div>
+
+
+
+            <!-- ======================================
+                 TÍTULO DEL NÚMERO
+            ======================================= -->
+
+            <h2 id="numeroTitulo">
+                Número 1
+            </h2>
+
+
+
+            <!-- ======================================
+                 DESCRIPCIÓN
+            ======================================= -->
+
+            <p id="descripcion">
+                Seña correspondiente al número 1 de la
+                Lengua de Señas Nicaragüense.
+            </p>
+
+
+
+            <!-- ======================================
+                 CONTROLES
+            ======================================= -->
+
+            <div class="buttons">
+
+
+                <button
+                    id="anterior"
+                    type="button"
+                >
+                    ← Anterior
+                </button>
+
+
+                <button
+                    id="siguiente"
+                    type="button"
+                >
+                    Siguiente →
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==========================================
+         PANTALLA FINAL
+    =========================================== -->
+
+    <div
+        id="finalScreen"
+        class="final-screen"
+    >
+
+
+        <div class="final-card">
+
+
+            <div class="emoji">
+                🎉😊
+            </div>
+
+
+            <h2>
+                ¡Felicidades!
+            </h2>
+
+
+            <p>
+                Terminaste esta lección.
+            </p>
+
+
+            <button
+                id="volverInicio"
+                type="button"
+            >
+                Volver al Inicio
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="../js/numeros.js"></script>
+
+    <script src="../js/transiciones.js"></script>
+
+    <link rel="stylesheet" href="/numeros.css">
+
+
+</body>
+
+</html>

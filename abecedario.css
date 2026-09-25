@@ -1,0 +1,1230 @@
+/* =========================================================
+   SIGNBRIDGE - ABECEDARIO
+   DISEÑO PROFESIONAL + TRANSICIONES SUAVES
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+
+    overflow-x: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #07152d 0%,
+            #102f59 50%,
+            #0a5063 100%
+        );
+
+    opacity: 0;
+    transform: translateY(12px);
+
+    transition:
+        opacity 0.55s ease,
+        transform 0.55s ease;
+}
+
+
+/* ==========================================
+   TRANSICIONES DE PÁGINA
+========================================== */
+
+body.page-ready {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.page-exiting {
+    opacity: 0;
+    transform: translateY(-12px);
+}
+
+
+/* ==========================================
+   FONDO
+========================================== */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+    pointer-events: none;
+
+    z-index: -2;
+
+    background:
+        radial-gradient(
+            circle at 12% 12%,
+            rgba(37, 99, 235, 0.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 88% 28%,
+            rgba(14, 165, 164, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 88%,
+            rgba(124, 58, 237, 0.10),
+            transparent 32%
+        );
+}
+
+
+/* Cuadrícula decorativa */
+
+.background::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.022) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.022) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.15)
+        );
+}
+
+.blob {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(95px);
+    opacity: 0.28;
+
+    animation:
+        floatingBlob 14s ease-in-out infinite alternate;
+}
+
+.blob1 {
+    width: 430px;
+    height: 430px;
+
+    top: -170px;
+    left: -120px;
+
+    background: #1264e8;
+}
+
+.blob2 {
+    width: 390px;
+    height: 390px;
+
+    top: 28%;
+    right: -130px;
+
+    background: #14b8a6;
+
+    animation-delay: -4s;
+}
+
+.blob3 {
+    width: 430px;
+    height: 430px;
+
+    bottom: -230px;
+    left: 32%;
+
+    background: #7c3aed;
+
+    animation-delay: -8s;
+}
+
+@keyframes floatingBlob {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate3d(25px, -18px, 0)
+            scale(1.05);
+    }
+
+    100% {
+        transform:
+            translate3d(-18px, 22px, 0)
+            scale(0.98);
+    }
+}
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+========================================================= */
+
+.course-container {
+    width: min(1120px, 92%);
+
+    margin: 0 auto;
+
+    padding:
+        34px 0 70px;
+}
+
+
+/* =========================================================
+   BARRA SUPERIOR
+========================================================= */
+
+.topbar {
+    width: 100%;
+    min-height: 74px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 28px;
+
+    opacity: 0;
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.65s ease 0.05s,
+        transform 0.65s ease 0.05s;
+}
+
+body.page-ready .topbar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   BOTÓN VOLVER
+========================================================= */
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-width: 128px;
+
+    padding: 12px 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.back-btn:hover {
+    transform:
+        translateX(-4px);
+
+    background:
+        rgba(105, 213, 255, 0.11);
+
+    border-color:
+        rgba(105, 213, 255, 0.30);
+
+    box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.back-btn:active {
+    transform:
+        translateX(-2px)
+        scale(0.98);
+}
+
+
+/* =========================================================
+   MARCA
+========================================================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-left: 2px;
+}
+
+.logo-wrapper {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.16);
+
+    box-shadow:
+        0 14px 35px rgba(0, 0, 0, 0.22),
+        0 0 30px rgba(105, 213, 255, 0.08);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.brand:hover .logo-wrapper {
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.25),
+        0 0 38px rgba(105, 213, 255, 0.12);
+}
+
+.logo {
+    width: 58px;
+    height: 58px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.brand-text strong {
+    color: #ffffff;
+
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.brand-text span {
+    color:
+        rgba(255, 255, 255, 0.47);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   CONTADOR
+========================================================= */
+
+.lesson-counter {
+    margin-left: auto;
+
+    min-width: 92px;
+
+    padding: 10px 15px;
+
+    border-radius: 13px;
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    color:
+        rgba(255, 255, 255, 0.78);
+
+    font-size: 14px;
+    font-weight: 800;
+
+    text-align: center;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.lesson-counter:hover {
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    border-color:
+        rgba(105, 213, 255, 0.20);
+}
+
+
+/* =========================================================
+   TARJETA PRINCIPAL
+========================================================= */
+
+.lesson-card {
+    position: relative;
+
+    width: 100%;
+
+    padding:
+        38px 42px 40px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30, 67, 111, 0.68),
+            rgba(13, 40, 72, 0.58)
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.11);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.26),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    text-align: center;
+
+    opacity: 0;
+    transform:
+        translateY(24px)
+        scale(0.985);
+
+    transition:
+        opacity 0.75s ease 0.18s,
+        transform 0.75s cubic-bezier(.22,1,.36,1),
+        box-shadow 0.35s ease;
+}
+
+body.page-ready .lesson-card {
+    opacity: 1;
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.lesson-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    top: -120px;
+    right: -100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(105, 213, 255, 0.08);
+
+    filter: blur(18px);
+
+    pointer-events: none;
+}
+
+.lesson-card:hover {
+    box-shadow:
+        0 30px 78px rgba(0, 0, 0, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+
+/* =========================================================
+   LETRA
+========================================================= */
+
+.lesson-card h1 {
+    margin: 0 0 26px;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(64px, 8vw, 88px);
+
+    line-height: 1;
+
+    font-weight: 850;
+
+    text-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.20);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.4s cubic-bezier(.22,1,.36,1);
+}
+
+
+/* =========================================================
+   CONTENEDOR DE IMAGEN
+========================================================= */
+
+.image-container {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 390px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 28px;
+
+    margin-bottom: 24px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(57, 84, 126, 0.46),
+            rgba(20, 54, 82, 0.36)
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.10);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+    overflow: hidden;
+}
+
+.visual-glow {
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(105, 213, 255, 0.07);
+
+    filter: blur(30px);
+
+    animation:
+        visualGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes visualGlow {
+
+    from {
+        transform: scale(0.95);
+        opacity: 0.65;
+    }
+
+    to {
+        transform: scale(1.08);
+        opacity: 0.95;
+    }
+}
+
+
+/* =========================================================
+   IMAGEN
+========================================================= */
+
+.image-container img {
+    position: relative;
+    z-index: 2;
+
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    max-width: 100%;
+    max-height: 350px;
+
+    object-fit: contain;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.23);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.42s cubic-bezier(.22,1,.36,1),
+        filter 0.42s ease;
+}
+
+
+/* =========================================================
+   TRANSICIONES DE LETRAS
+========================================================= */
+
+.fade-out {
+    opacity: 0 !important;
+
+    transform:
+        translateY(10px)
+        scale(0.97) !important;
+
+    filter:
+        blur(4px);
+}
+
+.fade-in {
+    opacity: 1 !important;
+
+    transform:
+        translateY(0)
+        scale(1) !important;
+
+    filter:
+        blur(0);
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+========================================================= */
+
+.description {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 28px;
+
+    padding:
+        18px 22px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+    text-align: left;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.4s ease,
+        background 0.3s ease;
+}
+
+.description:hover {
+    background:
+        rgba(255, 255, 255, 0.07);
+}
+
+.description-icon {
+    flex-shrink: 0;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    color: #69d5ff;
+
+    background:
+        rgba(105, 213, 255, 0.09);
+
+    border:
+        1px solid rgba(105, 213, 255, 0.13);
+
+    font-size: 16px;
+}
+
+.description p {
+    margin: 0;
+
+    color:
+        rgba(255, 255, 255, 0.76);
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   PROGRESO
+========================================================= */
+
+.progress {
+    width: 100%;
+
+    height: 12px;
+
+    margin-bottom: 24px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        inset 0 1px 3px rgba(0, 0, 0, 0.16);
+}
+
+.progress-fill {
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1264e8 0%,
+            #1e9cce 48%,
+            #16c4ca 100%
+        );
+
+    box-shadow:
+        0 0 16px rgba(105, 213, 255, 0.22);
+
+    transition:
+        width 0.8s cubic-bezier(.22,1,.36,1);
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.buttons {
+    width: 100%;
+
+    display: flex;
+
+    gap: 15px;
+}
+
+.btn {
+    flex: 1;
+
+    min-height: 60px;
+
+    padding:
+        14px 22px;
+
+    border-radius: 17px;
+
+    font-family: inherit;
+
+    font-size: 16px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        opacity 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* Botón anterior */
+
+.btn-secondary {
+    border:
+        1px solid rgba(255, 255, 255, 0.11);
+
+    color: #ffffff;
+
+    background:
+        rgba(255, 255, 255, 0.065);
+
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    border-color:
+        rgba(105, 213, 255, 0.20);
+}
+
+
+/* Botón siguiente */
+
+.btn-primary {
+    border: none;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1264e8,
+            #1e9cce 50%,
+            #16b7aa
+        );
+
+    box-shadow:
+        0 10px 25px rgba(18, 100, 232, 0.18);
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 16px 32px rgba(18, 100, 232, 0.28);
+
+    filter:
+        brightness(1.05);
+}
+
+.btn:active:not(:disabled) {
+    transform:
+        translateY(0)
+        scale(0.985);
+}
+
+.btn:disabled {
+    opacity: 0.32;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   PANTALLA FINAL
+========================================================= */
+
+.final-screen {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(4, 14, 32, 0.78);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.final-screen.show {
+    display: flex;
+
+    animation:
+        finalOverlayIn 0.45s ease both;
+}
+
+@keyframes finalOverlayIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   TARJETA FINAL
+========================================================= */
+
+.final-card {
+    width: min(520px, 92%);
+
+    padding:
+        42px 35px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(34, 69, 113, 0.94),
+            rgba(18, 52, 80, 0.94)
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.40);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    animation:
+        finalCardIn 0.55s cubic-bezier(.22,1,.36,1) both;
+}
+
+@keyframes finalCardIn {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(25px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.emoji {
+    margin-bottom: 14px;
+
+    font-size: 58px;
+}
+
+.final-card h2 {
+    margin-bottom: 10px;
+
+    color: #ffffff;
+
+    font-size: 31px;
+}
+
+.final-card p {
+    margin-bottom: 24px;
+
+    color:
+        rgba(255, 255, 255, 0.68);
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+.final-card button {
+    padding:
+        13px 24px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1264e8,
+            #16b7aa
+        );
+
+    font-family: inherit;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.final-card button:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 14px 28px rgba(18, 100, 232, 0.25);
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .course-container {
+        width: 94%;
+        padding-top: 25px;
+    }
+
+    .lesson-card {
+        padding:
+            34px 25px 36px;
+    }
+
+    .image-container {
+        min-height: 330px;
+    }
+
+    .image-container img {
+        max-height: 300px;
+    }
+
+    .buttons {
+        gap: 12px;
+    }
+
+    .btn {
+        min-height: 58px;
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .course-container {
+        width: 94%;
+        padding: 18px 0 40px;
+    }
+
+    .topbar {
+        flex-wrap: wrap;
+        gap: 10px;
+
+        margin-bottom: 20px;
+    }
+
+    .back-btn {
+        min-width: auto;
+
+        padding:
+            10px 14px;
+
+        font-size: 13px;
+    }
+
+    .brand {
+        gap: 9px;
+    }
+
+    .logo-wrapper {
+        width: 54px;
+        height: 54px;
+
+        border-radius: 15px;
+    }
+
+    .logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    .brand-text strong {
+        font-size: 16px;
+    }
+
+    .brand-text span {
+        font-size: 11px;
+    }
+
+    .lesson-counter {
+        width: 100%;
+
+        margin-left: 0;
+
+        text-align: center;
+    }
+
+    .lesson-card {
+        padding:
+            28px 16px 30px;
+
+        border-radius: 23px;
+    }
+
+    .lesson-card h1 {
+        font-size: 62px;
+
+        margin-bottom: 20px;
+    }
+
+    .image-container {
+        min-height: 270px;
+
+        padding: 16px;
+
+        border-radius: 20px;
+    }
+
+    .image-container img {
+        max-height: 245px;
+
+        border-radius: 17px;
+    }
+
+    .description {
+        padding:
+            15px 16px;
+
+        border-radius: 15px;
+    }
+
+    .description p {
+        font-size: 13px;
+    }
+
+    .progress {
+        height: 10px;
+    }
+
+    .buttons {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .btn {
+        width: 100%;
+
+        min-height: 54px;
+
+        border-radius: 15px;
+
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================================
+   CELULARES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .lesson-card h1 {
+        font-size: 54px;
+    }
+
+    .image-container {
+        min-height: 235px;
+    }
+
+    .image-container img {
+        max-height: 215px;
+    }
+
+    .description p {
+        font-size: 12.5px;
+    }
+}
+
+
+/* =========================================================
+   REDUCCIÓN DE MOVIMIENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

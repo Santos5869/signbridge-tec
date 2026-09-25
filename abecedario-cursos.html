@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SignBridge | Abecedario</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/abecedario-cursos.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- ==========================================
+         FONDO
+    =========================================== -->
+
+    <div class="background">
+
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+
+    </div>
+
+
+    <!-- ==========================================
+         CONTENIDO PRINCIPAL
+    =========================================== -->
+
+    <main class="alphabet-page">
+
+
+        <!-- ======================================
+             ENCABEZADO
+        ======================================= -->
+
+        <header class="alphabet-header">
+
+
+            <!-- BOTÓN VOLVER -->
+
+            <button
+                class="back-button"
+                type="button"
+                onclick="volverCursos()"
+                aria-label="Volver a cursos"
+            >
+                ←
+            </button>
+
+
+            <!-- INFORMACIÓN -->
+
+            <div>
+
+                <span class="section-badge">
+                    🔤 Aprendizaje
+                </span>
+
+                <h1>
+                    Abecedario
+                </h1>
+
+                <p>
+                    Aprende las letras de la Lengua de Señas
+                    Nicaragüense y desarrolla tus habilidades
+                    de comunicación.
+                </p>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ======================================
+             SUBCURSOS
+        ======================================= -->
+
+        <section
+            class="alphabet-courses"
+            aria-label="Subcursos de abecedario"
+        >
+
+
+            <!-- ==================================
+                 ABECEDARIO COMPLETO
+            =================================== -->
+
+            <article
+                class="alphabet-course-card"
+                tabindex="0"
+                role="button"
+                onclick="abrirAbecedario()"
+            >
+
+                <div class="course-icon">
+                    🔤
+                </div>
+
+
+                <div class="course-info">
+
+                    <span class="course-level">
+                        NIVEL BÁSICO
+                    </span>
+
+                    <h2>
+                        Aprende el abecedario
+                    </h2>
+
+                    <p>
+                        Aprende las 26 letras del abecedario
+                        de forma progresiva.
+                    </p>
+
+
+                    <div class="course-meta">
+
+                        <span>
+                            📚 26 letras
+                        </span>
+
+                        <span>
+                            🎓 Básico
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="course-button"
+                        type="button"
+                        onclick="event.stopPropagation(); abrirAbecedario()"
+                    >
+                        Comenzar →
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 REPASO
+            =================================== -->
+
+           <article
+    class="alphabet-course-card"
+    tabindex="0"
+    role="button"
+    onclick="abrirRepaso()"
+>
+
+    <div class="course-icon">
+        🧠
+    </div>
+
+    <div class="course-info">
+
+        <span class="course-level">
+            PRÁCTICA
+        </span>
+
+        <h2>
+            Repaso de letras
+        </h2>
+
+        <p>
+            Pon a prueba tu memoria identificando
+            diferentes letras.
+        </p>
+
+        <div class="course-meta">
+
+            <span>
+                🧠 Repaso
+            </span>
+
+            <span>
+                🔤 26 letras
+            </span>
+
+        </div>
+
+        <button
+            class="course-button"
+            type="button"
+            onclick="event.stopPropagation(); abrirRepaso()"
+        >
+            Comenzar →
+        </button>
+
+    </div>
+
+</article>
+
+
+            <!-- ==================================
+                 DELETREO
+            =================================== -->
+
+            <article
+                class="alphabet-course-card locked"
+            >
+
+                <div class="course-icon">
+                    ✏️
+                </div>
+
+
+                <div class="course-info">
+
+                    <span class="course-level">
+                        NIVEL INTERMEDIO
+                    </span>
+
+                    <h2>
+                        Deletreo básico
+                    </h2>
+
+                    <p>
+                        Aprende a formar palabras utilizando
+                        letra por letra.
+                    </p>
+
+
+                    <div class="course-meta">
+
+                        <span>
+                            ✏️ Palabras
+                        </span>
+
+                        <span>
+                            🔒 Próximamente
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="course-button"
+                        type="button"
+                        disabled
+                    >
+                        Próximamente
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 DELETREA TU NOMBRE
+            =================================== -->
+
+            <article
+                class="alphabet-course-card locked"
+            >
+
+                <div class="course-icon">
+                    🪪
+                </div>
+
+
+                <div class="course-info">
+
+                    <span class="course-level">
+                        APLICACIÓN
+                    </span>
+
+                    <h2>
+                        Deletrea tu nombre
+                    </h2>
+
+                    <p>
+                        Practica cómo deletrear tu nombre
+                        mediante la Lengua de Señas.
+                    </p>
+
+
+                    <div class="course-meta">
+
+                        <span>
+                            🪪 Aplicación
+                        </span>
+
+                        <span>
+                            🔒 Próximamente
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="course-button"
+                        type="button"
+                        disabled
+                    >
+                        Próximamente
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 RETO
+            =================================== -->
+
+            <article
+                class="alphabet-course-card locked"
+            >
+
+                <div class="course-icon">
+                    🎯
+                </div>
+
+
+                <div class="course-info">
+
+                    <span class="course-level">
+                        RETO
+                    </span>
+
+                    <h2>
+                        Reto de abecedario
+                    </h2>
+
+                    <p>
+                        Demuestra lo que sabes mediante
+                        diferentes ejercicios de reconocimiento.
+                    </p>
+
+
+                    <div class="course-meta">
+
+                        <span>
+                            🎯 Desafío
+                        </span>
+
+                        <span>
+                            🔒 Próximamente
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="course-button"
+                        type="button"
+                        disabled
+                    >
+                        Próximamente
+                    </button>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="../js/abecedario-cursos.js"></script>
+    
+    <link rel="stylesheet" href="/abecedario-cursos.css">
+
+</body>
+
+</html>

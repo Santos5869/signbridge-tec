@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SignBridge | Más colores</title>
+
+    <link rel="stylesheet" href="../css/mas-colores.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         FONDO
+    =========================================== -->
+
+    <div class="background">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+
+
+    <!-- ==========================================
+         CONTENIDO PRINCIPAL
+    =========================================== -->
+
+    <main class="lesson-page">
+
+
+        <!-- ======================================
+             ENCABEZADO
+        ======================================= -->
+
+        <header class="lesson-header">
+
+            <div class="header-left">
+
+                <button
+                    class="back-btn"
+                    id="volverCursos"
+                    type="button"
+                >
+                    ← Volver
+                </button>
+
+                <div class="lesson-title">
+
+                    <span class="lesson-tag">
+                        NIVEL BÁSICO
+                    </span>
+
+                    <h1>
+                        Más colores
+                    </h1>
+
+                    <p>
+                        Amplía tu vocabulario aprendiendo nuevos colores.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOGO -->
+
+            <img
+                src="../images/logo.png"
+                class="lesson-logo"
+                alt="SignBridge"
+            >
+
+        </header>
+
+
+
+        <!-- ======================================
+             PROGRESO
+        ======================================= -->
+
+        <section class="progress-section">
+
+            <div class="progress-info">
+
+                <span>
+                    Lección
+                    <strong id="numeroLeccion">1</strong>
+                    de
+                    <strong id="totalLecciones">10</strong>
+                </span>
+
+                <strong id="progresoTexto">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    id="barraProgreso"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ======================================
+             TARJETA DE APRENDIZAJE
+        ======================================= -->
+
+        <section
+            class="learning-card"
+            id="learningCard"
+        >
+
+
+            <!-- ==================================
+                 INFORMACIÓN DE LA LECCIÓN
+            =================================== -->
+
+            <div class="lesson-information">
+
+                <span
+                    class="lesson-number"
+                    id="numeroTema"
+                >
+                    COLOR 01
+                </span>
+
+                <h2 id="tituloLeccion">
+                    Naranja
+                </h2>
+
+                <p id="descripcionLeccion">
+                    Aprende a realizar correctamente la seña
+                    correspondiente a este color.
+                </p>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 ÁREA VISUAL / VIDEO
+            =================================== -->
+
+            <div class="visual-section">
+
+
+                <!-- VIDEO FUTURO -->
+
+                <div
+                    class="video-container"
+                    id="videoContainer"
+                >
+
+                    <video
+                        id="videoLeccion"
+                        class="lesson-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                    >
+                        <source
+                            id="videoSource"
+                            src=""
+                            type="video/mp4"
+                        >
+                    </video>
+
+
+                    <!-- MENSAJE MIENTRAS NO HAYA VIDEO -->
+
+                    <div
+                        class="video-placeholder"
+                        id="videoPlaceholder"
+                    >
+
+                        <div class="video-icon">
+                            ▶
+                        </div>
+
+                        <h3>
+                            Video de la seña
+                        </h3>
+
+                        <p>
+                            Aquí podrás colocar posteriormente
+                            el video real de esta seña.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REFERENCIA VISUAL DEL COLOR -->
+
+                <div
+                    class="color-reference"
+                    id="colorReference"
+                >
+
+                    <div
+                        class="color-circle"
+                        id="colorCircle"
+                    ></div>
+
+                    <span id="colorReferenceText">
+                        Naranja
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 INDICACIÓN
+            =================================== -->
+
+            <div class="lesson-tip">
+
+                <span class="tip-icon">
+                    ✦
+                </span>
+
+                <p id="indicacionLeccion">
+                    Observa la referencia y el video de la seña
+                    para aprender el movimiento correctamente.
+                </p>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 NAVEGACIÓN
+            =================================== -->
+
+            <div class="lesson-navigation">
+
+                <button
+                    id="anteriorLeccion"
+                    class="nav-btn secondary"
+                    type="button"
+                >
+                    ← Anterior
+                </button>
+
+                <button
+                    id="siguienteLeccion"
+                    class="nav-btn primary"
+                    type="button"
+                >
+                    Siguiente →
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ======================================
+             FINAL DEL CURSO
+        ======================================= -->
+
+        <section
+            class="completion-screen"
+            id="completionScreen"
+            hidden
+        >
+
+            <div class="completion-card">
+
+                <div class="completion-icon">
+                    ✓
+                </div>
+
+                <span class="completion-tag">
+                    CURSO COMPLETADO
+                </span>
+
+                <h2>
+                    ¡Excelente trabajo!
+                </h2>
+
+                <p>
+                    Has completado todas las lecciones
+                    de <strong>Más colores</strong>.
+                </p>
+
+                <div class="completion-progress">
+                    <strong id="porcentajeFinal">
+                        100%
+                    </strong>
+
+                    <span>
+                        Progreso completado
+                    </span>
+                </div>
+
+                <button
+                    id="volverCursosFinal"
+                    class="finish-btn"
+                    type="button"
+                >
+                    Volver a colores
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="../js/mas-colores.js"></script>
+
+    <link rel="stylesheet" href="/mas-colores.css">
+</body>
+</html>

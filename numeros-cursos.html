@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SignBridge | Números</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/numeros-cursos.css">
+</head>
+
+<body>
+
+    <!-- Fondo decorativo -->
+    <div class="background">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+
+
+    <!-- Contenido principal -->
+    <main class="numbers-page">
+
+        <!-- ENCABEZADO -->
+        <header class="numbers-header">
+
+            <button class="back-button" onclick="volverCursos()" aria-label="Volver a cursos">
+                <span>←</span>
+            </button>
+
+            <div class="header-brand">
+
+                <div class="logo-container">
+                    <img src="../images/logo.png" alt="SignBridge">
+                </div>
+
+                <div class="header-text">
+
+                    <span class="section-badge">
+                        🔢 APRENDIZAJE
+                    </span>
+
+                    <h1>Números</h1>
+
+                    <p>
+                        Aprende los números en Lengua de Señas Nicaragüense
+                        de forma progresiva y práctica.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- INTRODUCCIÓN -->
+        <section class="numbers-intro">
+
+            <div class="intro-icon">
+                01
+            </div>
+
+            <div class="intro-content">
+
+                <span class="intro-label">
+                    TU PROGRESO
+                </span>
+
+                <h2>
+                    Aprende paso a paso
+                </h2>
+
+                <p>
+                    Comienza con los números básicos y avanza hacia
+                    contenidos más completos a medida que aprendes.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- CURSOS -->
+        <section class="numbers-courses">
+
+            <!-- CURSO 1 -->
+            <article class="number-course-card available">
+
+                <div class="course-number">
+                    <span>01</span>
+                </div>
+
+                <div class="course-icon">
+                    <span>🔢</span>
+                </div>
+
+                <div class="course-info">
+
+                    <div class="course-top">
+
+                        <span class="course-status available-status">
+                            DISPONIBLE
+                        </span>
+
+                        <span class="course-level">
+                            NIVEL 1
+                        </span>
+
+                    </div>
+
+                    <h2>
+                        Números del 1 al 10
+                    </h2>
+
+                    <p>
+                        Aprende los números básicos del 1 al 10
+                        mediante ejemplos visuales.
+                    </p>
+
+                    <div class="course-meta">
+
+                        <span>
+                            📚 10 números
+                        </span>
+
+                        <span>
+                            ⭐ Básico
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="course-button"
+                        onclick="abrirNumeros()">
+                        Comenzar curso
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- CURSO 2 -->
+            <article class="number-course-card upcoming">
+
+                <div class="course-number">
+                    <span>02</span>
+                </div>
+
+                <div class="course-icon">
+                    <span>🔢</span>
+                </div>
+
+                <div class="course-info">
+
+                    <div class="course-top">
+
+                       <span class="course-status available-status">
+                            DISPONIBLE
+                        </span>
+
+                        <span class="course-level">
+                            NIVEL 1
+                        </span>
+
+                    </div>
+
+                    <h2>
+                        Números del 1 al 20
+                    </h2>
+
+                    <p>
+                        Amplía tu aprendizaje y domina los números
+                        del 1 al 20.
+                    </p>
+
+                    <div class="course-meta">
+
+                        <span>
+                            📚 20 números
+                        </span>
+
+                        <span>
+                            ⭐ Básico
+                        </span>
+
+                    </div>
+
+                    <button
+    class="course-button"
+    onclick="window.location.href='numeros-10-20.html'"
+>
+    Comenzar →
+</button>
+
+                </div>
+
+            </article>
+
+
+            <!-- CURSO 3 -->
+            <article class="number-course-card upcoming">
+
+                <div class="course-number">
+                    <span>03</span>
+                </div>
+
+                <div class="course-icon">
+                    <span>🔢</span>
+                </div>
+
+                <div class="course-info">
+
+                    <div class="course-top">
+
+                        <span class="course-status upcoming-status">
+                            PRÓXIMAMENTE
+                        </span>
+
+                        <span class="course-level">
+                            NIVEL 1
+                        </span>
+
+                    </div>
+
+                    <h2>
+                        Números del 1 al 50
+                    </h2>
+
+                    <p>
+                        Continúa practicando y aprende una mayor
+                        variedad de números.
+                    </p>
+
+                    <div class="course-meta">
+
+                        <span>
+                            📚 50 números
+                        </span>
+
+                        <span>
+                            ⭐ Intermedio
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="course-button disabled"
+                        disabled>
+                        Próximamente
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- CURSO 4 -->
+            <article class="number-course-card upcoming">
+
+                <div class="course-number">
+                    <span>04</span>
+                </div>
+
+                <div class="course-icon">
+                    <span>💯</span>
+                </div>
+
+                <div class="course-info">
+
+                    <div class="course-top">
+
+                        <span class="course-status upcoming-status">
+                            PRÓXIMAMENTE
+                        </span>
+
+                        <span class="course-level">
+                            NIVEL 1
+                        </span>
+
+                    </div>
+
+                    <h2>
+                        Números del 1 al 100
+                    </h2>
+
+                    <p>
+                        Lleva tu aprendizaje a un rango más amplio
+                        de números.
+                    </p>
+
+                    <div class="course-meta">
+
+                        <span>
+                            📚 100 números
+                        </span>
+
+                        <span>
+                            ⭐ Intermedio
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="course-button disabled"
+                        disabled>
+                        Próximamente
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- CURSO 5 -->
+            <article class="number-course-card upcoming">
+
+                <div class="course-number">
+                    <span>05</span>
+                </div>
+
+                <div class="course-icon">
+                    <span>🔟</span>
+                </div>
+
+                <div class="course-info">
+
+                    <div class="course-top">
+
+                        <span class="course-status upcoming-status">
+                            PRÓXIMAMENTE
+                        </span>
+
+                        <span class="course-level">
+                            NIVEL 2
+                        </span>
+
+                    </div>
+
+                    <h2>
+                        Decenas
+                    </h2>
+
+                    <p>
+                        Aprende a reconocer y practicar diferentes
+                        cantidades expresadas en decenas.
+                    </p>
+
+                    <div class="course-meta">
+
+                        <span>
+                            📚 Próximamente
+                        </span>
+
+                        <span>
+                            ⭐ Intermedio
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="course-button disabled"
+                        disabled>
+                        Próximamente
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- CURSO 6 -->
+            <article class="number-course-card upcoming">
+
+                <div class="course-number">
+                    <span>06</span>
+                </div>
+
+                <div class="course-icon">
+                    <span>💯</span>
+                </div>
+
+                <div class="course-info">
+
+                    <div class="course-top">
+
+                        <span class="course-status upcoming-status">
+                            PRÓXIMAMENTE
+                        </span>
+
+                        <span class="course-level">
+                            NIVEL 2
+                        </span>
+
+                    </div>
+
+                    <h2>
+                        Centenas
+                    </h2>
+
+                    <p>
+                        Continúa avanzando con números de mayor
+                        cantidad.
+                    </p>
+
+                    <div class="course-meta">
+
+                        <span>
+                            📚 Próximamente
+                        </span>
+
+                        <span>
+                            ⭐ Intermedio
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="course-button disabled"
+                        disabled>
+                        Próximamente
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- CURSO 7 -->
+            <article class="number-course-card upcoming">
+
+                <div class="course-number">
+                    <span>07</span>
+                </div>
+
+                <div class="course-icon">
+                    <span>📅</span>
+                </div>
+
+                <div class="course-info">
+
+                    <div class="course-top">
+
+                        <span class="course-status upcoming-status">
+                            PRÓXIMAMENTE
+                        </span>
+
+                        <span class="course-level">
+                            NIVEL 2
+                        </span>
+
+                    </div>
+
+                    <h2>
+                        Fechas
+                    </h2>
+
+                    <p>
+                        Aprende contenidos relacionados con fechas
+                        y su uso dentro del aprendizaje.
+                    </p>
+
+                    <div class="course-meta">
+
+                        <span>
+                            📚 Próximamente
+                        </span>
+
+                        <span>
+                            ⭐ Intermedio
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="course-button disabled"
+                        disabled>
+                        Próximamente
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- CURSO 8 -->
+            <article class="number-course-card upcoming">
+
+                <div class="course-number">
+                    <span>08</span>
+                </div>
+
+                <div class="course-icon">
+                    <span>🎂</span>
+                </div>
+
+                <div class="course-info">
+
+                    <div class="course-top">
+
+                        <span class="course-status upcoming-status">
+                            PRÓXIMAMENTE
+                        </span>
+
+                        <span class="course-level">
+                            NIVEL 2
+                        </span>
+
+                    </div>
+
+                    <h2>
+                        Edades
+                    </h2>
+
+                    <p>
+                        Aprende a utilizar los números en situaciones
+                        relacionadas con la edad.
+                    </p>
+
+                    <div class="course-meta">
+
+                        <span>
+                            📚 Próximamente
+                        </span>
+
+                        <span>
+                            ⭐ Intermedio
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="course-button disabled"
+                        disabled>
+                        Próximamente
+                    </button>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- MENSAJE FINAL -->
+        <section class="numbers-footer">
+
+            <div class="footer-line"></div>
+
+            <p>
+                Sigue avanzando y descubre nuevos contenidos
+                de SignBridge.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script src="../js/numeros-cursos.js"></script>
+    <link rel="stylesheet" href="/numeros-cursos.css">
+
+</body>
+
+</html>

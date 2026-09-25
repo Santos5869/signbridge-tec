@@ -1,0 +1,186 @@
+/* ===========================================
+   SIGNBRIDGE - GLOBAL.CSS
+   =========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+
+    /* Colores */
+
+    --primary:#2563EB;
+    --secondary:#14B8A6;
+    --accent:#7C3AED;
+
+    --background:#071426;
+    --background2:#0E1F3A;
+
+    --card:rgba(255,255,255,.08);
+
+    --border:rgba(255,255,255,.15);
+
+    --text:#FFFFFF;
+
+    --text-light:#CBD5E1;
+
+    --success:#22C55E;
+
+    --danger:#EF4444;
+
+    --radius:22px;
+
+    --shadow:0 20px 45px rgba(0,0,0,.35);
+
+}
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    color:var(--text);
+
+    background:linear-gradient(
+        135deg,
+        #071426,
+        #0D2240,
+        #12345F,
+        #1D295A
+    );
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+}
+
+/* Scroll */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:50px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#08111f;
+
+}
+
+/* Links */
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+/* Botones */
+
+.btn{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:14px 28px;
+
+    border-radius:15px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:white;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    transition:.35s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 35px rgba(37,99,235,.35);
+
+}
+
+/* Tarjetas */
+
+.card{
+
+    background:var(--card);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+}
+/* ==========================================
+   TRANSICIÓN GLOBAL - SIGNBRIDGE
+========================================== */
+
+html {
+    background: #061b3a;
+}
+
+body {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+/* Cuando la página está saliendo */
+body.page-exit {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+
+/* ==========================================
+   ACCESIBILIDAD
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    body {
+        transition: none;
+    }
+
+}

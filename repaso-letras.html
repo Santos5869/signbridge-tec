@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SignBridge | Repaso de letras</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/repaso-letras.css"
+    >
+</head>
+
+<body>
+
+    <!-- FONDO -->
+
+    <div class="background">
+
+        <div class="grid-overlay"></div>
+
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+
+    </div>
+
+
+    <!-- CONTENEDOR -->
+
+    <main class="course-container">
+
+        <!-- BARRA SUPERIOR -->
+
+        <header class="topbar">
+
+            <button
+                id="volver"
+                class="back-btn"
+                type="button"
+            >
+                ← Volver
+            </button>
+
+
+            <div class="brand">
+
+                <div class="logo-wrapper">
+
+                    <img
+                        src="../images/logo.png"
+                        class="logo"
+                        alt="SignBridge"
+                    >
+
+                </div>
+
+                <div class="brand-text">
+
+                    <strong>
+                        SignBridge
+                    </strong>
+
+                    <span>
+                        Repaso de letras
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="contador"
+                class="lesson-counter"
+            >
+                1 / 26
+            </div>
+
+        </header>
+
+
+        <!-- ENCABEZADO -->
+
+        <section class="course-heading">
+
+            <span class="course-badge">
+                🧠 PRÁCTICA
+            </span>
+
+            <h1>
+                Repaso de letras
+            </h1>
+
+            <p>
+                Observa la seña e identifica
+                correctamente la letra.
+            </p>
+
+        </section>
+
+
+        <!-- TARJETA DEL EJERCICIO -->
+
+        <section
+            id="exerciseCard"
+            class="exercise-card"
+        >
+
+            <div class="exercise-header">
+
+                <div>
+
+                    <span class="exercise-label">
+                        IDENTIFICA LA LETRA
+                    </span>
+
+                    <h2>
+                        ¿Qué letra representa esta seña?
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- ÁREA VISUAL -->
+
+            <div class="visual-area">
+
+                <div class="visual-glow"></div>
+
+                <img
+                    id="imagenLetra"
+                    src="../images/abecedario/A.png"
+                    alt="Seña para identificar"
+                >
+
+            </div>
+
+
+            <!-- OPCIONES -->
+
+            <div
+                id="opciones"
+                class="options"
+            >
+            </div>
+
+
+            <!-- RESULTADO -->
+
+            <div
+                id="resultado"
+                class="result"
+            >
+
+                <div
+                    id="resultadoIcono"
+                    class="result-icon"
+                >
+                    ✓
+                </div>
+
+                <div>
+
+                    <strong id="resultadoTitulo">
+                        ¡Correcto!
+                    </strong>
+
+                    <p id="resultadoMensaje">
+                        Has identificado correctamente la letra.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESO -->
+
+            <div class="progress-section">
+
+                <div class="progress-header">
+
+                    <span>
+                        Progreso del repaso
+                    </span>
+
+                    <strong id="progresoTexto">
+                        4%
+                    </strong>
+
+                </div>
+
+                <div class="progress">
+
+                    <div
+                        id="barraProgreso"
+                        class="progress-fill"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOTÓN SIGUIENTE -->
+
+            <button
+                id="siguiente"
+                class="next-btn"
+                type="button"
+                disabled
+            >
+                Siguiente →
+            </button>
+
+        </section>
+
+
+        <!-- NOTA -->
+
+        <div class="learning-note">
+
+            <span>
+                💡
+            </span>
+
+            <p>
+                Observa primero la posición de la mano
+                y después selecciona la letra que consideres correcta.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- PANTALLA FINAL -->
+
+    <section
+        id="finalScreen"
+        class="final-screen"
+    >
+
+        <div class="final-card">
+
+            <div class="final-logo">
+
+                <img
+                    src="../images/logo.png"
+                    alt="SignBridge"
+                >
+
+            </div>
+
+            <span class="final-badge">
+                REPASO COMPLETADO
+            </span>
+
+            <div class="final-icon">
+                🎉
+            </div>
+
+            <h2>
+                ¡Excelente trabajo!
+            </h2>
+
+            <p>
+                Has completado el repaso
+                de las 26 letras del abecedario.
+            </p>
+
+            <div class="final-progress">
+
+                <strong>
+                    100%
+                </strong>
+
+                <span>
+                    Repaso completado
+                </span>
+
+            </div>
+
+            <button
+                id="volverInicio"
+                type="button"
+            >
+                Volver al inicio
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <script src="../js/repaso-letras.js"></script>
+
+    <link rel="stylesheet" href="/repaso-letras.css">
+
+</body>
+
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SignBridge | Abecedario</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/abecedario.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- ==========================================
+         FONDO
+    =========================================== -->
+
+    <div class="background">
+
+        <div class="grid-overlay"></div>
+
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         CONTENEDOR DEL CURSO
+    =========================================== -->
+
+    <main class="course-container">
+
+
+        <!-- ======================================
+             BARRA SUPERIOR
+        ======================================= -->
+
+        <header class="topbar">
+
+
+            <!-- BOTÓN VOLVER -->
+
+            <button
+                id="volver"
+                class="back-btn"
+                type="button"
+                aria-label="Volver a cursos"
+            >
+                <span>←</span>
+                Volver
+            </button>
+
+
+
+            <!-- MARCA -->
+
+            <div class="brand">
+
+                <div class="logo-wrapper">
+
+                    <img
+                        src="../images/logo.png"
+                        class="logo"
+                        alt="SignBridge"
+                    >
+
+                </div>
+
+                <div class="brand-text">
+
+                    <strong>
+                        SignBridge
+                    </strong>
+
+                    <span>
+                        Abecedario
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CONTADOR -->
+
+            <div
+                class="lesson-counter"
+                aria-label="Progreso de letras"
+            >
+                1 / 26
+            </div>
+
+        </header>
+
+
+
+        <!-- ======================================
+             ENCABEZADO DE LECCIÓN
+        ======================================= -->
+
+        <section class="course-heading">
+
+            <span class="course-badge">
+                🔤 NIVEL BÁSICO
+            </span>
+
+            <h1>
+                Aprende el abecedario
+            </h1>
+
+            <p>
+                Aprende progresivamente las 26 letras
+                de la Lengua de Señas Nicaragüense.
+            </p>
+
+        </section>
+
+
+
+        <!-- ======================================
+             TARJETA DE LECCIÓN
+        ======================================= -->
+
+        <section
+            class="lesson-card"
+            id="lessonCard"
+        >
+
+
+            <!-- ==================================
+                 LETRA
+            =================================== -->
+
+            <div class="letter-heading">
+
+                <span>
+                    LETRA ACTUAL
+                </span>
+
+                <h2 id="titulo">
+                    A
+                </h2>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 ÁREA VISUAL
+            =================================== -->
+
+            <div class="image-container">
+
+                <div class="visual-glow"></div>
+
+                <img
+                    id="imagen"
+                    src="../images/abecedario/A.png"
+                    alt="Letra A"
+                >
+
+            </div>
+
+
+
+            <!-- ==================================
+                 DESCRIPCIÓN
+            =================================== -->
+
+            <div class="description">
+
+                <div class="description-icon">
+                    ✦
+                </div>
+
+                <p id="descripcion">
+                    Seña correspondiente a la letra A
+                    de la Lengua de Señas Nicaragüense.
+                </p>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 PROGRESO
+            =================================== -->
+
+            <div class="progress-section">
+
+                <div class="progress-header">
+
+                    <span>
+                        Progreso del abecedario
+                    </span>
+
+                    <strong id="progressPercentage">
+                        4%
+                    </strong>
+
+                </div>
+
+                <div class="progress">
+
+                    <div
+                        class="progress-fill"
+                        id="barra"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 NAVEGACIÓN
+            =================================== -->
+
+            <div class="buttons">
+
+                <button
+                    id="anterior"
+                    class="btn btn-secondary"
+                    type="button"
+                    disabled
+                >
+                    ← Anterior
+                </button>
+
+
+                <button
+                    id="siguiente"
+                    class="btn btn-primary"
+                    type="button"
+                >
+                    Siguiente →
+                </button>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ======================================
+             INDICACIÓN
+        ======================================= -->
+
+        <div class="learning-note">
+
+            <span>
+                💡
+            </span>
+
+            <p>
+                Observa con atención la imagen y avanza
+                cuando estés listo para aprender la siguiente letra.
+            </p>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- ==========================================
+         PANTALLA FINAL
+    =========================================== -->
+
+    <section
+        id="finalScreen"
+        class="final-screen"
+        aria-hidden="true"
+    >
+
+        <div class="final-card">
+
+
+            <div class="final-logo">
+
+                <img
+                    src="../images/logo.png"
+                    alt="SignBridge"
+                >
+
+            </div>
+
+
+            <span class="final-badge">
+                ABECEDARIO COMPLETADO
+            </span>
+
+
+            <div class="emoji">
+                🎉
+            </div>
+
+
+            <h2>
+                ¡Felicidades!
+            </h2>
+
+
+            <p>
+                Has completado las 26 letras
+                del abecedario.
+            </p>
+
+
+            <div class="final-progress">
+
+                <strong>
+                    100%
+                </strong>
+
+                <span>
+                    Curso completado
+                </span>
+
+            </div>
+
+
+            <button
+                id="volverInicio"
+                type="button"
+            >
+                Volver al inicio
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="../js/abecedario.js"></script>
+
+    <script src="../js/transiciones.js"></script>
+
+    <link rel="stylesheet" href="/abecedario.css">
+
+</body>
+
+</html>

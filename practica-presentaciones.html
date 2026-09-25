@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Práctica de presentaciones | SignBridge</title>
+
+
+    <!-- ESTILOS GENERALES -->
+    <link
+        rel="stylesheet"
+        href="../css/global.css">
+
+
+    <!-- ESTILOS DE ESTA PRÁCTICA -->
+    <link
+        rel="stylesheet"
+        href="../css/practica-presentaciones.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         FONDO DECORATIVO
+    ====================================================== -->
+
+    <div class="background-effects">
+
+        <span class="orb orb-1"></span>
+
+        <span class="orb orb-2"></span>
+
+        <span class="orb orb-3"></span>
+
+        <span class="grid-overlay"></span>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BARRA SUPERIOR
+    ====================================================== -->
+
+    <header class="topbar">
+
+
+        <!-- VOLVER -->
+
+        <button
+            id="volver"
+            class="back-button">
+
+            <span class="back-icon">
+                ←
+            </span>
+
+            <span>
+                Volver
+            </span>
+
+        </button>
+
+
+
+        <!-- LOGO -->
+
+        <div class="brand">
+
+            <img
+                src="../images/logo.png"
+                alt="Logo de SignBridge">
+
+            <span>
+                SignBridge
+            </span>
+
+        </div>
+
+
+
+        <!-- INDICADOR -->
+
+        <div class="practice-indicator">
+
+            <span class="indicator-dot"></span>
+
+            <span>
+                Práctica de presentaciones
+            </span>
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="practice-page">
+
+
+        <!-- =================================================
+             ENCABEZADO
+        ================================================== -->
+
+        <section class="practice-header">
+
+
+            <div class="practice-heading-top">
+
+
+                <span class="practice-badge">
+
+                    🧠 PRÁCTICA
+
+                </span>
+
+
+
+                <span class="exercise-counter">
+
+                    Ejercicio
+
+                    <strong id="numeroEjercicio">
+                        1
+                    </strong>
+
+                    de
+
+                    <strong id="totalEjercicios">
+                        5
+                    </strong>
+
+                </span>
+
+
+            </div>
+
+
+
+            <h1>
+
+                Practica lo aprendido
+
+            </h1>
+
+
+
+            <p>
+
+                Observa la referencia, intenta realizar la seña
+                y practica frente a la cámara.
+
+            </p>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             INDICADOR DE PROGRESO
+        ================================================== -->
+
+        <section class="practice-progress">
+
+
+            <div class="progress-info">
+
+                <div>
+
+                    <span>
+                        PROGRESO DE LA PRÁCTICA
+                    </span>
+
+                    <strong>
+                        Presentaciones
+                    </strong>
+
+                </div>
+
+
+                <strong
+                    id="progresoTexto">
+
+                    20%
+
+                </strong>
+
+            </div>
+
+
+
+            <div class="progress-track">
+
+                <div
+                    id="barraProgreso"
+                    class="progress-fill">
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             EJERCICIO ACTUAL
+        ================================================== -->
+
+        <section
+            id="exerciseCard"
+            class="exercise-card">
+
+
+            <!-- =============================================
+                 PARTE SUPERIOR DEL EJERCICIO
+            ============================================== -->
+
+            <div class="exercise-top">
+
+
+                <div>
+
+                    <span class="exercise-label">
+
+                        TU RETO
+
+                    </span>
+
+
+                    <h2 id="tituloEjercicio">
+
+                        Mi nombre
+
+                    </h2>
+
+
+                    <p id="descripcionEjercicio">
+
+                        Observa la referencia y después
+                        intenta realizar la misma seña.
+
+                    </p>
+
+                </div>
+
+
+
+                <div
+                    id="estadoEjercicio"
+                    class="exercise-status neutral">
+
+                    PREPARADO
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =============================================
+                 ÁREA DE REFERENCIA + CÁMARA
+            ============================================== -->
+
+            <div class="practice-grid">
+
+
+                <!-- =========================================
+                     REFERENCIA
+                ========================================== -->
+
+                <div class="reference-panel">
+
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span class="panel-kicker">
+
+                                PASO 1
+
+                            </span>
+
+
+                            <h3>
+
+                                Observa la referencia
+
+                            </h3>
+
+                        </div>
+
+
+                        <span class="panel-icon">
+
+                            👁️
+
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- REFERENCIA VISUAL -->
+
+                    <div class="reference-stage">
+
+
+                        <div
+                            id="referenceVisual"
+                            class="reference-visual">
+
+                            👤
+
+                        </div>
+
+
+                        <div class="reference-message">
+
+                            <strong id="referenceTitle">
+
+                                Mi nombre
+
+                            </strong>
+
+
+                            <span id="referenceDescription">
+
+                                Aquí aparecerá el video o
+                                material visual de la seña.
+
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- CONTROLES DE REFERENCIA -->
+
+                    <div class="reference-controls">
+
+
+                        <button
+                            id="reproducirReferencia"
+                            class="small-button">
+
+                            ▶ Ver referencia
+
+                        </button>
+
+
+
+                        <button
+                            id="repetirReferencia"
+                            class="small-button secondary-small">
+
+                            ↻ Repetir
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =========================================
+                     CÁMARA
+                ========================================== -->
+
+                <div class="camera-panel">
+
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span class="panel-kicker">
+
+                                PASO 2
+
+                            </span>
+
+
+                            <h3>
+
+                                Haz la seña
+
+                            </h3>
+
+                        </div>
+
+
+                        <span class="panel-icon">
+
+                            📷
+
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- ÁREA DE CÁMARA -->
+
+                    <div class="camera-stage">
+
+
+                        <video
+                            id="video"
+                            autoplay
+                            playsinline
+                            muted>
+                        </video>
+
+
+                        <canvas
+                            id="canvas">
+                        </canvas>
+
+
+                        <!-- SUPERPOSICIÓN -->
+
+                        <div class="camera-overlay">
+
+
+                            <div class="camera-frame">
+
+                            </div>
+
+
+                            <div class="camera-status">
+
+
+                                <span
+                                    id="cameraStatusDot"
+                                    class="camera-status-dot">
+                                </span>
+
+
+                                <span
+                                    id="cameraStatusText">
+
+                                    Cámara detenida
+
+                                </span>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- MENSAJE CUANDO NO HAY CÁMARA -->
+
+                        <div
+                            id="cameraPlaceholder"
+                            class="camera-placeholder">
+
+
+                            <div class="camera-placeholder-icon">
+
+                                📷
+
+                            </div>
+
+
+                            <h4>
+
+                                Tu cámara aparecerá aquí
+
+                            </h4>
+
+
+                            <p>
+
+                                Inicia la cámara para
+                                comenzar la práctica.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- RESULTADO -->
+
+                    <div
+                        id="recognitionResult"
+                        class="recognition-result neutral-result">
+
+
+                        <div
+                            id="resultIcon"
+                            class="result-icon">
+
+                            👋
+
+                        </div>
+
+
+                        <div>
+
+                            <strong
+                                id="resultTitle">
+
+                                Listo para practicar
+
+                            </strong>
+
+
+                            <span
+                                id="resultMessage">
+
+                                Inicia la cámara y coloca
+                                tu mano frente a ella.
+
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- CONTROLES -->
+
+                    <div class="camera-controls">
+
+
+                        <button
+                            id="startCamera"
+                            class="main-action-button">
+
+                            <span>
+                                📷
+                            </span>
+
+                            Iniciar cámara
+
+                        </button>
+
+
+                        <button
+                            id="stopCamera"
+                            class="secondary-action-button"
+                            disabled>
+
+                            Detener cámara
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =============================================
+                 INSTRUCCIONES
+            ============================================== -->
+
+            <div class="instructions-panel">
+
+
+                <div class="instructions-title">
+
+                    <span class="instructions-icon">
+                        💡
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Consejos para practicar
+                        </strong>
+
+                        <span>
+                            Asegúrate de estar en un lugar bien iluminado.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="instruction-list">
+
+
+                    <div class="instruction-item">
+
+                        <span>
+                            01
+                        </span>
+
+                        <p>
+                            Coloca tu mano dentro del área
+                            visible de la cámara.
+                        </p>
+
+                    </div>
+
+
+                    <div class="instruction-item">
+
+                        <span>
+                            02
+                        </span>
+
+                        <p>
+                            Observa nuevamente la referencia
+                            cuando necesites ayuda.
+                        </p>
+
+                    </div>
+
+
+                    <div class="instruction-item">
+
+                        <span>
+                            03
+                        </span>
+
+                        <p>
+                            Repite la práctica las veces
+                            que necesites.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =============================================
+                 BOTONES DEL EJERCICIO
+            ============================================== -->
+
+            <div class="exercise-navigation">
+
+
+                <button
+                    id="repetirEjercicio"
+                    class="exercise-nav-button secondary">
+
+                    ↻ Repetir ejercicio
+
+                </button>
+
+
+
+                <button
+                    id="siguienteEjercicio"
+                    class="exercise-nav-button primary"
+                    disabled>
+
+                    Siguiente
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             PANTALLA FINAL
+        ================================================== -->
+
+        <section
+            id="completionScreen"
+            class="completion-screen hidden">
+
+
+            <div class="completion-icon">
+
+                ✓
+
+            </div>
+
+
+            <span class="completion-label">
+
+                PRÁCTICA COMPLETADA
+
+            </span>
+
+
+            <h2>
+
+                ¡Excelente trabajo!
+
+            </h2>
+
+
+            <p>
+
+                Has completado la práctica
+                de presentaciones.
+
+            </p>
+
+
+            <div class="completion-stats">
+
+
+                <div class="stat">
+
+                    <strong
+                        id="ejerciciosCompletados">
+
+                        5
+
+                    </strong>
+
+                    <span>
+                        Ejercicios
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong
+                        id="porcentajeFinal">
+
+                        100%
+
+                    </strong>
+
+                    <span>
+                        Completado
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <button
+                id="volverCursos"
+                class="completion-button">
+
+                Volver a Presentaciones
+
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         MEDIAPIPE HANDS
+    ====================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js">
+    </script>
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js">
+    </script>
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js">
+    </script>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT DE LA PRÁCTICA
+    ====================================================== -->
+
+    <script
+        src="../js/practica-presentaciones.js">
+    </script>
+
+    <link rel="stylesheet" href="/practica-presentaciones.css">
+
+
+</body>
+
+</html>

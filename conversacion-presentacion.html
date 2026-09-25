@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Conversación de presentación | SignBridge</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/global.css">
+
+    <link
+        rel="stylesheet"
+        href="../css/conversacion-presentacion.css">
+
+</head>
+
+<body>
+
+    <!-- FONDO -->
+    <div class="background-effects">
+
+        <span class="orb orb-1"></span>
+        <span class="orb orb-2"></span>
+        <span class="orb orb-3"></span>
+
+        <span class="grid-overlay"></span>
+
+    </div>
+
+
+    <!-- BARRA SUPERIOR -->
+    <header class="topbar">
+
+        <button
+            id="volver"
+            class="back-button">
+
+            <span class="back-icon">
+                ←
+            </span>
+
+            <span>
+                Volver
+            </span>
+
+        </button>
+
+
+        <div class="brand">
+
+            <img
+                src="../images/logo.png"
+                alt="Logo de SignBridge">
+
+            <span>
+                SignBridge
+            </span>
+
+        </div>
+
+
+        <div class="course-indicator">
+
+            <span class="indicator-dot"></span>
+
+            Conversación de presentación
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTENIDO -->
+    <main class="lesson-page">
+
+
+        <!-- CABECERA -->
+        <section class="lesson-heading">
+
+            <div class="heading-top">
+
+                <span class="level-badge">
+                    NIVEL BÁSICO
+                </span>
+
+
+                <span class="lesson-counter">
+
+                    Lección
+
+                    <strong id="numeroLeccion">
+                        1
+                    </strong>
+
+                    de
+
+                    <strong>
+                        10
+                    </strong>
+
+                </span>
+
+            </div>
+
+
+            <h1 id="tituloLeccion">
+                HOLA, MUCHO GUSTO
+            </h1>
+
+
+            <p id="descripcionLeccion">
+                Aprende expresiones para iniciar
+                una conversación al conocer a alguien.
+            </p>
+
+        </section>
+
+
+        <!-- PANEL -->
+        <section class="learning-card">
+
+
+            <!-- MATERIAL VISUAL -->
+            <div class="visual-panel">
+
+                <div class="visual-glow"></div>
+
+
+                <div class="visual-label">
+
+                    <span class="pulse-dot"></span>
+
+                    MATERIAL VISUAL
+
+                </div>
+
+
+                <div class="visual-content">
+
+                    <div
+                        id="iconoLeccion"
+                        class="lesson-icon">
+
+                        👋
+
+                    </div>
+
+
+                    <h2>
+                        Observa y aprende
+                    </h2>
+
+
+                    <p>
+                        Aquí aparecerá el material visual
+                        correspondiente a esta expresión.
+                    </p>
+
+
+                    <div class="video-placeholder">
+
+                        <span class="play-icon">
+                            ▶
+                        </span>
+
+                        <span>
+                            Video disponible próximamente
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- INFORMACIÓN -->
+            <div class="lesson-information">
+
+                <span class="info-kicker">
+                    CONVERSACIÓN
+                </span>
+
+
+                <h2 id="nombreLeccion">
+                    HOLA, MUCHO GUSTO
+                </h2>
+
+
+                <p id="textoLeccion">
+                    Observa el material visual,
+                    identifica la expresión y
+                    practica la interacción.
+                </p>
+
+
+                <div class="information-divider"></div>
+
+
+                <div class="lesson-features">
+
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            💬
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Conversación
+                            </strong>
+
+                            <span>
+                                Aprende expresiones para interactuar
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            🤟
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Lengua de señas
+                            </strong>
+
+                            <span>
+                                Practica cada expresión visualmente
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROGRESO -->
+        <section class="progress-card">
+
+            <div class="progress-header">
+
+                <div>
+
+                    <span class="progress-kicker">
+                        TU PROGRESO
+                    </span>
+
+                    <strong>
+                        Conversación de presentación
+                    </strong>
+
+                </div>
+
+
+                <span
+                    id="progresoTexto"
+                    class="progress-percentage">
+
+                    10%
+
+                </span>
+
+            </div>
+
+
+            <div class="progress-track">
+
+                <div
+                    id="barra"
+                    class="progress-fill">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- NAVEGACIÓN -->
+        <section class="navigation">
+
+            <button
+                id="anterior"
+                class="nav-button secondary">
+
+                <span>←</span>
+
+                Anterior
+
+            </button>
+
+
+            <div class="navigation-center">
+
+                <span id="navigationText">
+                    1 / 10
+                </span>
+
+            </div>
+
+
+            <button
+                id="siguiente"
+                class="nav-button primary">
+
+                Siguiente
+
+                <span>→</span>
+
+            </button>
+
+        </section>
+
+
+        <!-- FINAL -->
+        <section
+            id="finalScreen"
+            class="completion-card hidden">
+
+            <div class="completion-circle">
+                ✓
+            </div>
+
+
+            <span class="completion-label">
+                CURSO COMPLETADO
+            </span>
+
+
+            <h2>
+                ¡Excelente trabajo!
+            </h2>
+
+
+            <p>
+                Has completado todas las lecciones
+                de Conversación de presentación.
+            </p>
+
+
+            <button
+                id="volverCursos"
+                class="completion-button">
+
+                Volver a Presentaciones
+
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="../js/conversacion-presentacion.js"></script>
+
+    <link rel="stylesheet" href="/conversacion-presentacion.css">
+
+</body>
+
+</html>

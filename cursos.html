@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SignBridge | Cursos</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/cursos.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- ==========================================
+         FONDO
+    =========================================== -->
+
+    <div class="background">
+
+        <div class="background-grid"></div>
+
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+
+    </div>
+
+
+    <!-- ==========================================
+         CONTENEDOR PRINCIPAL
+    =========================================== -->
+
+    <main class="courses-page">
+
+
+        <!-- ======================================
+             ENCABEZADO
+        ======================================= -->
+
+        <header class="courses-header">
+
+            <div class="header-main">
+
+
+                <!-- BOTÓN VOLVER -->
+
+                <button
+                    class="back-button"
+                    type="button"
+                    onclick="volverDashboard()"
+                    aria-label="Volver al dashboard"
+                >
+                    <span>←</span>
+                </button>
+
+
+                <!-- INFORMACIÓN -->
+
+                <div class="header-content">
+
+                    <span class="section-badge">
+                        📚 Aprendizaje
+                    </span>
+
+                    <h1>
+                        Mis cursos
+                    </h1>
+
+                    <p>
+                        Explora las diferentes áreas de la
+                        Lengua de Señas Nicaragüense y avanza
+                        progresivamente a tu propio ritmo.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOGO -->
+
+            <div class="header-brand">
+
+                <div class="brand-glow"></div>
+
+                <img
+                    src="../images/logo.png"
+                    alt="SignBridge"
+                >
+
+                <span>
+                    SignBridge
+                </span>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ======================================
+             SEPARADOR
+        ======================================= -->
+
+        <div class="section-divider">
+
+            <span></span>
+
+            <p>
+                Explora tus áreas de aprendizaje
+            </p>
+
+            <span></span>
+
+        </div>
+
+
+
+        <!-- ======================================
+             CATEGORÍAS
+        ======================================= -->
+
+        <section
+            class="categories-container"
+            aria-label="Cursos disponibles"
+        >
+
+
+            <!-- ==================================
+                 ABECEDARIO
+            =================================== -->
+
+            <article
+                class="category-card"
+                onclick="abrirCategoria('abecedario')"
+                tabindex="0"
+                role="button"
+            >
+
+                <div class="category-image">
+
+                    <div class="image-glow"></div>
+
+                    <img
+                        src="../images/courses/abecedario.png"
+                        alt="Abecedario"
+                    >
+
+                </div>
+
+
+                <div class="category-content">
+
+                    <span class="category-number">
+                        NIVEL 1
+                    </span>
+
+                    <h2>
+                        🔤 Abecedario
+                    </h2>
+
+                    <p>
+                        Aprende las letras y desarrolla
+                        tus habilidades para deletrear
+                        palabras.
+                    </p>
+
+                    <span class="category-action">
+                        Ver cursos
+                        <span>→</span>
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 NÚMEROS
+            =================================== -->
+
+            <article
+                class="category-card"
+                onclick="abrirCategoria('numeros')"
+                tabindex="0"
+                role="button"
+            >
+
+                <div class="category-image">
+
+                    <div class="image-glow"></div>
+
+                    <img
+                        src="../images/courses/numeros.png"
+                        alt="Números"
+                    >
+
+                </div>
+
+
+                <div class="category-content">
+
+                    <span class="category-number">
+                        NIVEL 1
+                    </span>
+
+                    <h2>
+                        🔢 Números
+                    </h2>
+
+                    <p>
+                        Aprende los números progresivamente,
+                        desde los conceptos básicos hasta
+                        cantidades mayores.
+                    </p>
+
+                    <span class="category-action">
+                        Ver cursos
+                        <span>→</span>
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 SALUDOS
+            =================================== -->
+
+            <article
+                class="category-card"
+                onclick="abrirCategoria('saludos')"
+                tabindex="0"
+                role="button"
+            >
+
+                <div class="category-image">
+
+                    <div class="image-glow"></div>
+
+                    <img
+                        src="../images/courses/saludos.png"
+                        alt="Saludos"
+                    >
+
+                </div>
+
+
+                <div class="category-content">
+
+                    <span class="category-number">
+                        NIVEL 1
+                    </span>
+
+                    <h2>
+                        👋 Saludos
+                    </h2>
+
+                    <p>
+                        Aprende expresiones básicas para
+                        saludar, despedirte y comenzar
+                        una conversación.
+                    </p>
+
+                    <span class="category-action">
+                        Ver cursos
+                        <span>→</span>
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 COLORES
+            =================================== -->
+
+            <article
+                class="category-card"
+                onclick="abrirCategoria('colores')"
+                tabindex="0"
+                role="button"
+            >
+
+                <div class="category-image">
+
+                    <div class="image-glow"></div>
+
+                    <img
+                        src="../images/courses/colores.png"
+                        alt="Colores"
+                    >
+
+                </div>
+
+
+                <div class="category-content">
+
+                    <span class="category-number">
+                        NIVEL 1
+                    </span>
+
+                    <h2>
+                        🎨 Colores
+                    </h2>
+
+                    <p>
+                        Aprende los colores y amplía
+                        tu vocabulario para situaciones
+                        cotidianas.
+                    </p>
+
+                    <span class="category-action">
+                        Ver cursos
+                        <span>→</span>
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 PRESENTACIONES
+            =================================== -->
+
+            <article
+                class="category-card category-card-featured"
+                onclick="abrirCategoria('presentaciones')"
+                tabindex="0"
+                role="button"
+            >
+
+                <div class="category-image featured-image">
+
+                    <div class="image-glow"></div>
+
+                    <div class="featured-symbol">
+                        🤝
+                    </div>
+
+                </div>
+
+
+                <div class="category-content">
+
+                    <span class="category-number">
+                        NIVEL 2
+                    </span>
+
+                    <h2>
+                        🤝 Presentaciones
+                    </h2>
+
+                    <p>
+                        Aprende a presentarte, compartir
+                        información personal y conocer
+                        a otras personas.
+                    </p>
+
+                    <span class="category-action">
+                        Ver cursos
+                        <span>→</span>
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 PREGUNTAS
+            =================================== -->
+
+            <article
+                class="category-card locked"
+            >
+
+                <div class="category-content locked-content">
+
+                    <span class="category-number">
+                        NIVEL 2
+                    </span>
+
+                    <h2>
+                        ❓ Preguntas y respuestas
+                    </h2>
+
+                    <p>
+                        Aprende preguntas y expresiones
+                        fundamentales para comunicarte.
+                    </p>
+
+                    <span class="locked-label">
+                        🔒 Próximamente
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 EMOCIONES
+            =================================== -->
+
+            <article
+                class="category-card locked"
+            >
+
+                <div class="category-content locked-content">
+
+                    <span class="category-number">
+                        NIVEL 2
+                    </span>
+
+                    <h2>
+                        😊 Emociones
+                    </h2>
+
+                    <p>
+                        Aprende a expresar emociones
+                        y estados de ánimo mediante señas.
+                    </p>
+
+                    <span class="locked-label">
+                        🔒 Próximamente
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 FAMILIA
+            =================================== -->
+
+            <article
+                class="category-card"
+                onclick="abrirCategoria('familia')"
+                tabindex="0"
+                role="button"
+            >
+
+                <div class="category-image">
+
+                    <div class="image-glow"></div>
+
+                    <div class="featured-symbol">
+                        👨‍👩‍👧
+                    </div>
+
+                </div>
+
+
+                <div class="category-content">
+
+                    <span class="category-number">
+                        NIVEL 3
+                    </span>
+
+                    <h2>
+                        👨‍👩‍👧 Familia
+                    </h2>
+
+                    <p>
+                        Aprende las señas relacionadas
+                        con familiares y relaciones
+                        personales.
+                    </p>
+
+                    <span class="category-action">
+                        Ver cursos
+                        <span>→</span>
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 VIDA COTIDIANA
+            =================================== -->
+
+            <article
+                class="category-card locked"
+            >
+
+                <div class="category-content locked-content">
+
+                    <span class="category-number">
+                        NIVEL 3
+                    </span>
+
+                    <h2>
+                        🏠 Vida cotidiana
+                    </h2>
+
+                    <p>
+                        Aprende palabras y expresiones
+                        utilizadas en situaciones del día a día.
+                    </p>
+
+                    <span class="locked-label">
+                        🔒 Próximamente
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 ESCUELA
+            =================================== -->
+
+            <article
+                class="category-card locked"
+            >
+
+                <div class="category-content locked-content">
+
+                    <span class="category-number">
+                        NIVEL 5
+                    </span>
+
+                    <h2>
+                        🏫 Escuela
+                    </h2>
+
+                    <p>
+                        Aprende vocabulario relacionado
+                        con el entorno educativo.
+                    </p>
+
+                    <span class="locked-label">
+                        🔒 Próximamente
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ==================================
+                 TRABAJO
+            =================================== -->
+
+            <article
+                class="category-card locked"
+            >
+
+                <div class="category-content locked-content">
+
+                    <span class="category-number">
+                        NIVEL 5
+                    </span>
+
+                    <h2>
+                        💼 Trabajo
+                    </h2>
+
+                    <p>
+                        Aprende vocabulario y expresiones
+                        utilizadas en situaciones laborales.
+                    </p>
+
+                    <span class="locked-label">
+                        🔒 Próximamente
+                    </span>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="../js/cursos.js"></script>
+
+    <link rel="stylesheet" href="/cursos.css">
+
+</body>
+
+</html>

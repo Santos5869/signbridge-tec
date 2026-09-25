@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SignBridge - Capturar posturas</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            background: #081c3a;
+
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+        }
+
+        .contenedor {
+            width: 100%;
+            max-width: 1100px;
+
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 8px;
+        }
+
+        .descripcion {
+            opacity: .8;
+            margin-bottom: 25px;
+        }
+
+        .panel {
+            display: grid;
+
+            grid-template-columns:
+                1fr 340px;
+
+            gap: 25px;
+
+            align-items: center;
+        }
+
+        .camara {
+            position: relative;
+
+            width: 100%;
+
+            aspect-ratio: 16 / 9;
+
+            background: #000;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+        }
+
+        #video {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transform: scaleX(-1);
+        }
+
+        #canvas {
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            pointer-events: none;
+
+            transform: scaleX(-1);
+        }
+
+        .controles {
+            background:
+                rgba(255,255,255,.08);
+
+            padding: 25px;
+
+            border-radius: 20px;
+        }
+
+        .titulo {
+            font-size: 15px;
+
+            opacity: .75;
+
+            margin-bottom: 8px;
+        }
+
+        #selectorLetra {
+            width: 100%;
+
+            padding: 13px;
+
+            border-radius: 10px;
+
+            border: none;
+
+            font-size: 17px;
+
+            margin-bottom: 15px;
+        }
+
+        .letra {
+            font-size: 80px;
+
+            font-weight: bold;
+
+            margin: 5px 0 10px;
+        }
+
+        .muestras {
+            font-size: 20px;
+
+            margin: 15px 0;
+        }
+
+        button {
+            width: 100%;
+
+            border: none;
+
+            border-radius: 12px;
+
+            padding: 15px;
+
+            margin-top: 10px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        #activarCamara {
+            background: #1264e8;
+
+            color: white;
+        }
+
+        #guardarPostura {
+            background: #39df9b;
+
+            color: #081c3a;
+        }
+
+        #guardarPostura:disabled {
+            opacity: .4;
+
+            cursor: not-allowed;
+        }
+
+        #estadoPostura {
+            min-height: 65px;
+
+            margin-top: 18px;
+
+            font-size: 15px;
+
+            line-height: 1.5;
+        }
+
+        .progreso {
+            margin-top: 15px;
+
+            width: 100%;
+
+            height: 8px;
+
+            background:
+                rgba(255,255,255,.15);
+
+            border-radius: 20px;
+
+            overflow: hidden;
+        }
+
+        #barraProgreso {
+            height: 100%;
+
+            width: 0%;
+
+            background: #39df9b;
+
+            transition: width .3s;
+        }
+
+        .instrucciones {
+            margin-top: 25px;
+
+            background:
+                rgba(255,255,255,.06);
+
+            padding: 18px;
+
+            border-radius: 15px;
+
+            text-align: left;
+        }
+
+        .instrucciones p {
+            margin: 7px 0;
+        }
+
+        .estado-completo {
+            margin-top: 15px;
+
+            padding: 13px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(57,223,155,.15);
+
+            color: #39df9b;
+        }
+
+        @media (max-width: 750px) {
+
+            .panel {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="contenedor">
+
+    <h1>
+        Capturador de posturas
+    </h1>
+
+    <p class="descripcion">
+        Guarda las posturas correctas del abecedario
+        para utilizarlas posteriormente en el reconocimiento.
+    </p>
+
+
+    <div class="panel">
+
+
+        <!-- =============================================
+             CÁMARA
+        ============================================== -->
+
+        <div class="camara">
+
+            <video
+                id="video"
+                autoplay
+                playsinline
+                muted
+            ></video>
+
+            <canvas
+                id="canvas"
+            ></canvas>
+
+        </div>
+
+
+        <!-- =============================================
+             CONTROLES
+        ============================================== -->
+
+        <div class="controles">
+
+            <div class="titulo">
+                Selecciona una letra
+            </div>
+
+
+            <select
+                id="selectorLetra"
+            >
+
+                <option value="A">
+                    A
+                </option>
+
+                <option value="B">
+                    B
+                </option>
+
+                <option value="C">
+                    C
+                </option>
+
+                <option value="D">
+                    D
+                </option>
+
+                <option value="E">
+                    E
+                </option>
+
+                <option value="F">
+                    F
+                </option>
+
+                <option value="G">
+                    G
+                </option>
+
+                <option value="H">
+                    H
+                </option>
+
+                <option value="I">
+                    I
+                </option>
+
+                <option value="J">
+                    J
+                </option>
+
+                <option value="K">
+                    K
+                </option>
+
+                <option value="L">
+                    L
+                </option>
+
+                <option value="M">
+                    M
+                </option>
+
+                <option value="N">
+                    N
+                </option>
+
+                <option value="O">
+                    O
+                </option>
+
+                <option value="P">
+                    P
+                </option>
+
+                <option value="Q">
+                    Q
+                </option>
+
+                <option value="R">
+                    R
+                </option>
+
+                <option value="S">
+                    S
+                </option>
+
+                <option value="T">
+                    T
+                </option>
+
+                <option value="U">
+                    U
+                </option>
+
+                <option value="V">
+                    V
+                </option>
+
+                <option value="W">
+                    W
+                </option>
+
+                <option value="X">
+                    X
+                </option>
+
+                <option value="Y">
+                    Y
+                </option>
+
+                <option value="Z">
+                    Z
+                </option>
+
+            </select>
+
+
+            <div
+                class="letra"
+                id="letraActual"
+            >
+                A
+            </div>
+
+
+            <div
+                class="muestras"
+                id="contadorMuestras"
+            >
+                Muestras: 0 / 5
+            </div>
+
+
+            <div class="progreso">
+
+                <div
+                    id="barraProgreso"
+                ></div>
+
+            </div>
+
+
+            <button
+                id="activarCamara"
+            >
+                Activar cámara
+            </button>
+
+
+            <button
+                id="guardarPostura"
+                disabled
+            >
+                Guardar postura A
+            </button>
+
+
+            <div
+                id="estadoPostura"
+            >
+                Activa la cámara y coloca correctamente la mano.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =============================================
+         INSTRUCCIONES
+    ============================================== -->
+
+    <div class="instrucciones">
+
+        <strong>
+            Cómo guardar las posturas
+        </strong>
+
+        <p>
+            1. Selecciona una letra.
+        </p>
+
+        <p>
+            2. Activa la cámara.
+        </p>
+
+        <p>
+            3. Haz correctamente la seña.
+        </p>
+
+        <p>
+            4. Cuando aparezcan los puntos de la mano,
+            pulsa "Guardar postura".
+        </p>
+
+        <p>
+            5. Repite hasta conseguir 5 / 5.
+        </p>
+
+        <p>
+            6. Cambia a la siguiente letra.
+        </p>
+
+    </div>
+
+
+    <div
+        id="resultadoFinal"
+    ></div>
+
+</div>
+
+
+<!-- =============================================
+     MEDIAPIPE
+============================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+
+
+<!-- =============================================
+     POSTURAS
+============================================== -->
+
+<script src="posturas.js"></script>
+
+
+<script>
+
+    /* =================================================
+       ELEMENTOS
+    ================================================= */
+
+    const video =
+        document.getElementById(
+            "video"
+        );
+
+
+    const canvas =
+        document.getElementById(
+            "canvas"
+        );
+
+
+    const ctx =
+        canvas.getContext(
+            "2d"
+        );
+
+
+    const activarCamara =
+        document.getElementById(
+            "activarCamara"
+        );
+
+
+    const botonGuardarPostura =
+        document.getElementById(
+            "guardarPostura"
+        );
+
+
+    const selectorLetra =
+        document.getElementById(
+            "selectorLetra"
+        );
+
+
+    const letraActual =
+        document.getElementById(
+            "letraActual"
+        );
+
+
+    const contadorMuestras =
+        document.getElementById(
+            "contadorMuestras"
+        );
+
+
+    const estadoPostura =
+        document.getElementById(
+            "estadoPostura"
+        );
+
+
+    const barraProgreso =
+        document.getElementById(
+            "barraProgreso"
+        );
+
+
+    const resultadoFinal =
+        document.getElementById(
+            "resultadoFinal"
+        );
+
+
+    /* =================================================
+       VARIABLES
+    ================================================= */
+
+    let stream = null;
+
+    let manoActual = null;
+
+    let camaraActiva = false;
+
+    let letraSeleccionada = "A";
+
+
+    /* =================================================
+       MEDIAPIPE
+    ================================================= */
+
+    const hands =
+        new Hands({
+
+            locateFile: function(file) {
+
+                return (
+                    "https://cdn.jsdelivr.net/npm/" +
+                    "@mediapipe/hands/" +
+                    file
+                );
+
+            }
+
+        });
+
+
+    hands.setOptions({
+
+        maxNumHands: 1,
+
+        modelComplexity: 1,
+
+        minDetectionConfidence: 0.65,
+
+        minTrackingConfidence: 0.65
+
+    });
+
+
+    /* =================================================
+       RESULTADOS MEDIAPIPE
+    ================================================= */
+
+    hands.onResults(
+        function(results) {
+
+            if (
+                results.multiHandLandmarks &&
+                results.multiHandLandmarks.length > 0
+            ) {
+
+                manoActual =
+                    results.multiHandLandmarks[0];
+
+
+                botonGuardarPostura.disabled =
+                    false;
+
+
+                estadoPostura.textContent =
+                    `✓ Mano detectada. Puedes guardar la postura ${letraSeleccionada}.`;
+
+
+                dibujarMano(
+                    manoActual
+                );
+
+            }
+
+            else {
+
+                manoActual = null;
+
+
+                botonGuardarPostura.disabled =
+                    true;
+
+
+                estadoPostura.textContent =
+                    `Coloca tu mano frente a la cámara para hacer la ${letraSeleccionada}.`;
+
+
+                ctx.clearRect(
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =================================================
+       DIBUJAR MANO
+    ================================================= */
+
+    function dibujarMano(
+        landmarks
+    ) {
+
+        if (
+            !video.videoWidth ||
+            !video.videoHeight
+        ) {
+
+            return;
+        }
+
+
+        canvas.width =
+            video.videoWidth;
+
+
+        canvas.height =
+            video.videoHeight;
+
+
+        ctx.clearRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+
+        const conexiones = [
+
+            [0,1],
+            [1,2],
+            [2,3],
+            [3,4],
+
+            [0,5],
+            [5,6],
+            [6,7],
+            [7,8],
+
+            [0,9],
+            [9,10],
+            [10,11],
+            [11,12],
+
+            [0,13],
+            [13,14],
+            [14,15],
+            [15,16],
+
+            [0,17],
+            [17,18],
+            [18,19],
+            [19,20],
+
+            [5,9],
+            [9,13],
+            [13,17]
+
+        ];
+
+
+        ctx.strokeStyle =
+            "#39df9b";
+
+
+        ctx.lineWidth = 3;
+
+
+        conexiones.forEach(
+            function(conexion) {
+
+                const a =
+                    landmarks[
+                        conexion[0]
+                    ];
+
+
+                const b =
+                    landmarks[
+                        conexion[1]
+                    ];
+
+
+                ctx.beginPath();
+
+
+                ctx.moveTo(
+                    a.x *
+                        canvas.width,
+
+                    a.y *
+                        canvas.height
+                );
+
+
+                ctx.lineTo(
+                    b.x *
+                        canvas.width,
+
+                    b.y *
+                        canvas.height
+                );
+
+
+                ctx.stroke();
+
+            }
+        );
+
+
+        landmarks.forEach(
+            function(punto) {
+
+                ctx.beginPath();
+
+
+                ctx.arc(
+
+                    punto.x *
+                        canvas.width,
+
+                    punto.y *
+                        canvas.height,
+
+                    5,
+
+                    0,
+
+                    Math.PI * 2
+
+                );
+
+
+                ctx.fillStyle =
+                    "#ffffff";
+
+
+                ctx.fill();
+
+            }
+        );
+
+    }
+
+
+    /* =================================================
+       ACTUALIZAR INFORMACIÓN DE LETRA
+    ================================================= */
+
+    function actualizarLetra() {
+
+        letraSeleccionada =
+            selectorLetra.value;
+
+
+        letraActual.textContent =
+            letraSeleccionada;
+
+
+        botonGuardarPostura.textContent =
+            `Guardar postura ${letraSeleccionada}`;
+
+
+        resultadoFinal.innerHTML =
+            "";
+
+
+        actualizarContador();
+
+
+        if (
+            camaraActiva
+        ) {
+
+            if (manoActual) {
+
+                estadoPostura.textContent =
+                    `✓ Mano detectada. Puedes guardar la postura ${letraSeleccionada}.`;
+
+            }
+
+            else {
+
+                estadoPostura.textContent =
+                    `Haz correctamente la ${letraSeleccionada}.`;
+
+            }
+
+        }
+
+        else {
+
+            estadoPostura.textContent =
+                `Activa la cámara y haz correctamente la ${letraSeleccionada}.`;
+
+        }
+
+    }
+
+
+    /* =================================================
+       ACTUALIZAR CONTADOR
+    ================================================= */
+
+    function actualizarContador() {
+
+        const cantidad =
+            obtenerPosturas(
+                letraSeleccionada
+            ).length;
+
+
+        const total =
+            CONFIG_POSTURAS
+                .muestrasPorLetra;
+
+
+        contadorMuestras.textContent =
+            `Muestras: ${cantidad} / ${total}`;
+
+
+        const porcentaje =
+            Math.min(
+                100,
+                (cantidad / total) * 100
+            );
+
+
+        barraProgreso.style.width =
+            `${porcentaje}%`;
+
+
+        if (
+            cantidad >= total
+        ) {
+
+            botonGuardarPostura.disabled =
+                true;
+
+
+            botonGuardarPostura.textContent =
+                `✓ ${letraSeleccionada} completada`;
+
+
+            estadoPostura.innerHTML =
+                `
+                <strong>🎉 ¡LETRA ${letraSeleccionada} COMPLETADA!</strong>
+                <br>
+                Las 5 posturas ya están guardadas.
+                `;
+
+
+            resultadoFinal.innerHTML =
+                `
+                <div class="estado-completo">
+                    ✓ La postura ${letraSeleccionada}
+                    está lista para el reconocimiento.
+                </div>
+                `;
+
+        }
+
+        else {
+
+            botonGuardarPostura.textContent =
+                `Guardar postura ${letraSeleccionada}`;
+
+        }
+
+    }
+
+
+    /* =================================================
+       CAMBIAR LETRA
+    ================================================= */
+
+    selectorLetra.addEventListener(
+        "change",
+        function() {
+
+            actualizarLetra();
+
+        }
+    );
+
+
+    /* =================================================
+       ACTIVAR CÁMARA
+    ================================================= */
+
+    activarCamara.addEventListener(
+        "click",
+        async function() {
+
+            try {
+
+                stream =
+                    await navigator
+                        .mediaDevices
+                        .getUserMedia({
+
+                            video: {
+
+                                facingMode:
+                                    "user",
+
+                                width: {
+                                    ideal: 1280
+                                },
+
+                                height: {
+                                    ideal: 720
+                                }
+
+                            },
+
+                            audio: false
+
+                        });
+
+
+                video.srcObject =
+                    stream;
+
+
+                await video.play();
+
+
+                camaraActiva =
+                    true;
+
+
+                activarCamara.disabled =
+                    true;
+
+
+                activarCamara.textContent =
+                    "Cámara activa";
+
+
+                estadoPostura.textContent =
+                    `Cámara activa. Haz correctamente la ${letraSeleccionada}.`;
+
+
+                procesarCamara();
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Error de cámara:",
+                    error
+                );
+
+
+                estadoPostura.textContent =
+                    "❌ No se pudo activar la cámara.";
+
+            }
+
+        }
+    );
+
+
+    /* =================================================
+       PROCESAR CÁMARA
+    ================================================= */
+
+    async function procesarCamara() {
+
+        if (
+            !camaraActiva
+        ) {
+
+            return;
+        }
+
+
+        try {
+
+            if (
+                video.readyState >= 2
+            ) {
+
+                await hands.send({
+                    image: video
+                });
+
+            }
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Error procesando cámara:",
+                error
+            );
+
+        }
+
+
+        requestAnimationFrame(
+            procesarCamara
+        );
+
+    }
+
+
+    /* =================================================
+       GUARDAR POSTURA
+    ================================================= */
+
+    botonGuardarPostura.addEventListener(
+        "click",
+        function() {
+
+            if (!manoActual) {
+
+                estadoPostura.textContent =
+                    "❌ No se detecta ninguna mano.";
+
+                return;
+            }
+
+
+            const cantidadActual =
+                obtenerPosturas(
+                    letraSeleccionada
+                ).length;
+
+
+            if (
+                cantidadActual >=
+                CONFIG_POSTURAS.muestrasPorLetra
+            ) {
+
+                actualizarContador();
+
+                return;
+            }
+
+
+            const guardada =
+                window.guardarPostura(
+                    letraSeleccionada,
+                    manoActual
+                );
+
+
+            if (!guardada) {
+
+                estadoPostura.textContent =
+                    `❌ No se pudo guardar la postura ${letraSeleccionada}.`;
+
+                return;
+            }
+
+
+            const cantidad =
+                obtenerPosturas(
+                    letraSeleccionada
+                ).length;
+
+
+            contadorMuestras.textContent =
+                `Muestras: ${cantidad} / ${CONFIG_POSTURAS.muestrasPorLetra}`;
+
+
+            const porcentaje =
+                (
+                    cantidad /
+                    CONFIG_POSTURAS.muestrasPorLetra
+                ) * 100;
+
+
+            barraProgreso.style.width =
+                `${porcentaje}%`;
+
+
+            if (
+                cantidad >=
+                CONFIG_POSTURAS.muestrasPorLetra
+            ) {
+
+                estadoPostura.innerHTML =
+                    `
+                    <strong>
+                        🎉 ¡LETRA ${letraSeleccionada} COMPLETADA!
+                    </strong>
+
+                    <br>
+
+                    Las 5 posturas fueron guardadas correctamente.
+                    `;
+
+
+                botonGuardarPostura.disabled =
+                    true;
+
+
+                botonGuardarPostura.textContent =
+                    `✓ ${letraSeleccionada} completada`;
+
+
+                resultadoFinal.innerHTML =
+                    `
+                    <div class="estado-completo">
+                        ✓ La postura ${letraSeleccionada}
+                        está lista para el reconocimiento.
+                    </div>
+                    `;
+
+
+                console.log(
+                    `✓ ${letraSeleccionada} completada: 5/5`
+                );
+
+
+                mostrarPosturasGuardadas();
+
+            }
+
+            else {
+
+                const siguiente =
+                    cantidad + 1;
+
+
+                estadoPostura.textContent =
+                    `✓ Postura ${letraSeleccionada} guardada. Haz nuevamente la ${letraSeleccionada} para guardar la muestra ${siguiente}.`;
+
+            }
+
+        }
+    );
+
+
+    /* =================================================
+       INICIAR
+    ================================================= */
+
+    window.addEventListener(
+        "load",
+        function() {
+
+            actualizarLetra();
+
+        }
+    );
+
+
+</script>
+
+</body>
+
+</html>
